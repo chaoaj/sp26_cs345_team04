@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 lol STD
+=======
+Change this to something goofy please
+>>>>>>> 04ff2255e2766670be442ae69c8f37eb045bdbfb
