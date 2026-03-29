@@ -4,13 +4,12 @@ let horizontalPath;
 let tileWidth = 64; // Change this to 64 if you want them smaller
 let tileHeight = 64;
 
-function preload() {
-spriteSheet = loadImage('tail_set_4.png');
-spriteSheet2 = loadImage('game_background_4.png');
+function preloadMap1() {
+spriteSheet = loadImage('map1/tail_set_4.png');
+spriteSheet2 = loadImage('map1/game_background_4.png');
 }
 
-function setup() {
-  createCanvas(640, 448);
+function setupMap1() {
 horizontalPath = spriteSheet.get(70, 410, 150, 100);       corner2 = spriteSheet.get(230, 67,160,140)
 verticalPath = spriteSheet.get(300, 570, 120, 120);
 corner3 = spriteSheet.get(75,250,130,140);
@@ -36,7 +35,7 @@ bigTree = autoCrop(bigTree);
 grass = autoCrop(grass)
 }
 
-function draw() {
+function drawMap1() {
   background(50,65,30);
  
   for (let x = 0; x < width; x += 20) {
