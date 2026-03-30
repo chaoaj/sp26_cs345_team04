@@ -1,3 +1,12 @@
+let gameState = 'titleScreen'
+
+function setup() {
+  createCanvas(640, 448);
+  textFont('Courier New');  
+  setupLevelSelect();
+  setupMap1();
+}
+
 function draw() {
   if (gameState === 'titleScreen'){
     drawTitleScreen();
