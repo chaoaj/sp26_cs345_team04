@@ -66,7 +66,7 @@ function drawTitleScreen() {
   textFont('Courier New');
   text("SCARY TOWER", 253, 76);
   textSize(25)
-  text("DEFENCE", 320, 110);
+  text("D E F E N C E", 270, 110);
 
   //moon
   fill(210, 195, 142);
