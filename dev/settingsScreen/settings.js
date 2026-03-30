@@ -9,7 +9,7 @@ function setup() {
   textAlign(CENTER, CENTER);
   rectMode(CENTER);
 
-  // generate stars ONCE
+
   for (let i = 0; i < 50; i++) {
     stars.push({
       x: random(width),
@@ -48,7 +48,7 @@ function drawMoon() {
 
   noStroke();
 
-  // outer glow pixels (slightly transparent)
+
   fill(200, 220, 255, 120);
   rect(x - p, y - 3*p, p, p);
   rect(x + p, y - 3*p, p, p);
@@ -57,14 +57,14 @@ function drawMoon() {
   rect(x - p, y + 3*p, p, p);
   rect(x + p, y + 3*p, p, p);
 
-  // main moon body
+
 fill(230, 240, 255);
 
-// TOP row (new)
+
 rect(x - p, y - 3*p, p, p);
 rect(x,     y - 3*p, p, p);
 
-// UPPER rows
+
 rect(x - 2*p, y - 2*p, p, p);
 rect(x - p,   y - 2*p, p, p);
 rect(x,       y - 2*p, p, p);
@@ -75,7 +75,7 @@ rect(x - p,   y - p, p, p);
 rect(x,       y - p, p, p);
 rect(x + p,   y - p, p, p);
 
-// MIDDLE
+
 rect(x - 2*p, y, p, p);
 rect(x - p,   y, p, p);
 rect(x,       y, p, p);
@@ -88,34 +88,28 @@ rect(x + p,   y, p, p);
 rect(x,       y, p, p);
 
 
-// LOWER (expanded)
+
 rect(x - 2*p, y + p, p, p);
 rect(x - p,   y + p, p, p);
 rect(x,       y + p, p, p);
 rect(x + p,   y + p, p, p);
 
-// BOTTOM taper
+
 rect(x - p, y + 2*p, p, p);
 rect(x,     y + 2*p, p, p);
 
-  // brighter center highlight
+
   fill(255, 255, 255);
   rect(x - p, y - p, p, p);
 }
 
 function drawGrass() {
-  // base ground
+
   fill(0, 50, 0);
   rect(width / 2, height - 40, width, 80);
-  rect(0, 355, 2000, 80); // Top of grass rectangles
+  rect(0, 355, 2000, 80); 
 
-  // grass blades (pixel-ish effect)
-  //stroke(20, 100, 50);
-  //for (let i = 0; i < width; i += 6) {
-    //line(i, height - 40, i + random(-2, 2), height - 50);
-  //}
 
-  //noStroke();
 }
 
 function drawTrees() {
@@ -125,26 +119,25 @@ function drawTrees() {
     let x = i + 40;
     let baseY = height - 80;
 
-    // trunk
+
     fill(80, 50, 20);
     rect(x, baseY, p, p + 100);
 
-    // leaves (layered triangles made of pixels)
+
     fill(20, 100, 40);
 
-    // bottom layer
+
     rect(x - 2*p, baseY - 2*p - offset, p, p);
     rect(x - p,   baseY - 2*p - offset, p, p);
     rect(x,       baseY - 2*p - offset, p, p);
     rect(x + p,   baseY - 2*p - offset, p, p);
     rect(x + 2*p, baseY - 2*p - offset, p, p);
 
-    // middle layer
+
     rect(x - p, baseY - 3*p - offset, p, p);
     rect(x,     baseY - 3*p - offset, p, p);
     rect(x + p, baseY - 3*p - offset, p, p);
 
-    // top
     rect(x, baseY - 4*p - offset, p, p);
   }
 }
@@ -156,29 +149,28 @@ function drawCastle() {
   rectMode(CENTER);
   noStroke();
 
-  // main tower
-  //fill(120, 80, 50); // brown stone
+
   fill('gray');
   rect(x, y, 4*p, 5*p);
 
-  // battlements (top blocks)
+
   rect(x - p, y - 3*p, p, p);
   rect(x,     y - 3*p, p, p);
   rect(x + p, y - 3*p, p, p);
 
-  // side towers
+
   rect(x - 3*p, y, 2*p, 4*p);
   rect(x + 3*p, y, 2*p, 4*p);
 
-  // side battlements
+
   rect(x - 3*p, y - 3*p, p, p);
   rect(x + 3*p, y - 3*p, p, p);
 
-  // door
+
   fill(60, 30, 10);
   rect(x, y + p, p, 2*p);
 
-  // little window
+
   fill(0);
   rect(x, y - p, p/2, p/2);
   
@@ -193,24 +185,24 @@ function drawCastle() {
   fill('gray');
   rect(x, y, 4*p, 5*p);
 
-  // battlements (top blocks)
+
   rect(x - p, y - 3*p, p, p);
   rect(x,     y - 3*p, p, p);
   rect(x + p, y - 3*p, p, p);
 
-  // side towers
+
   rect(x - 3*p, y, 2*p, 4*p);
   rect(x + 3*p, y, 2*p, 4*p);
 
-  // side battlements
+
   rect(x - 3*p, y - 3*p, p, p);
   rect(x + 3*p, y - 3*p, p, p);
 
-  // door
+ 
   fill(60, 30, 10);
   rect(x, y + p, p, 2*p);
 
-  // little window
+
   fill(0);
   rect(x, y - p, p/2, p/2);
   
@@ -225,24 +217,24 @@ function drawCastle() {
   fill('gray');
   rect(x, y, 4*p, 5*p);
 
-  // battlements (top blocks)
+
   rect(x - p, y - 3*p, p, p);
   rect(x,     y - 3*p, p, p);
   rect(x + p, y - 3*p, p, p);
 
-  // side towers
+
   rect(x - 3*p, y, 2*p, 4*p);
   rect(x + 3*p, y, 2*p, 4*p);
 
-  // side battlements
+
   rect(x - 3*p, y - 3*p, p, p);
   rect(x + 3*p, y - 3*p, p, p);
 
-  // door
+
   fill(60, 30, 10);
   rect(x, y + p, p, 2*p);
 
-  // little window
+
   fill(0);
   rect(x, y - p, p/2, p/2);
   
@@ -256,24 +248,24 @@ function drawCastle() {
   fill('gray');
   rect(x, y, 4*p, 5*p);
 
-  // battlements (top blocks)
+
   rect(x - p, y - 3*p, p, p);
   rect(x,     y - 3*p, p, p);
   rect(x + p, y - 3*p, p, p);
 
-  // side towers
+
   rect(x - 3*p, y, 2*p, 4*p);
   rect(x + 3*p, y, 2*p, 4*p);
 
-  // side battlements
+
   rect(x - 3*p, y - 3*p, p, p);
   rect(x + 3*p, y - 3*p, p, p);
 
-  // door
+
   fill(60, 30, 10);
   rect(x, y + p, p, 2*p);
 
-  // little window
+
   fill(0);
   rect(x, y - p, p/2, p/2);
   
