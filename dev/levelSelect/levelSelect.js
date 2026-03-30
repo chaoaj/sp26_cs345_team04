@@ -1,6 +1,5 @@
 let stars = [];
 let hoveredCard = -1;
-let gameState = 'levelSelect';
 
 const levels = [
   { id: 'grass', label: 'GRASS', diff: 'EASY',   dots: 1, dotColor: [80,200,80],   cardColor: [40,100,40],   borderColor: [80,160,60]   },
@@ -14,17 +13,16 @@ function preload() {
   // add sprites here
 }
 
-function setup() {
-  createCanvas(640, 448);
-  textFont('monospace');
+function setupLevelSelect() {
   for (let i = 0; i < 80; i++) {
     stars.push({ x: random(width), y: random(height * 0.7), size: random(1, 3), twinkle: random(TWO_PI) });
   }
-  setupMap1();
 }
 
 function draw() {
-  if (gameState === 'levelSelect') {
+  if (gameState === 'titleScreen'){
+    drawTitleScreen();
+  } else if (gameState === 'levelSelect') {
     drawLevelSelect();
   } else if (gameState === 'map1') {
     drawMap1();
@@ -169,8 +167,12 @@ function drawBackButton() {
 // ─── INPUT ────────────────────────────────────────────────────────────────────
 function mousePressed() {
   let bx = width/2 - 66, by = height - 80, bw = 132, bh = 32;
+  if (gameState === 'titleScreen'){
+    mousePressedTitleScreen();
+    return;
+  }
   if (mouseX > bx && mouseX < bx+bw && mouseY > by && mouseY < by+bh) {
-    gameState == titleScreen //add title screen here
+    gameState = 'titleScreen'
     return;
   }
 

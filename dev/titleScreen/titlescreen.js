@@ -1,8 +1,14 @@
+let gameState = 'titleScreen'
+
 function setup() {
-  createCanvas(750, 400);
+  createCanvas(640, 448);
+  textFont('Courier New');
+  setupLevelSelect();
+  setupMap1();
 }
 
-function draw() {
+function drawTitleScreen() {
+
   background(0, 0, 30)
   fill(30, 50, 0);
   stroke(30, 50, 0);
@@ -105,11 +111,10 @@ function draw() {
   fill(200);
   text("LORE", 410, 233)
 
-  
-  
-   
+}
 
-
-
-
+function mousePressedTitleScreen(){
+  if (mouseX > 280 && mouseX < 455 && mouseY > 170 && mouseY < 210) {
+    gameState = 'levelSelect';
+  }
 }
