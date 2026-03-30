@@ -114,7 +114,6 @@ function drawTitleScreen() {
 }
 
 function mousePressedTitleScreen(){
-  console.log(mouseX, mouseY); // ← add this
   if (mouseX > 280 && mouseX < 455 && mouseY > 170 && mouseY < 210) {
     gameState = 'levelSelect';
     return;
