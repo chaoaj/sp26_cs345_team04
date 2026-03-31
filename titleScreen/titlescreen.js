@@ -9,6 +9,7 @@ function setup() {
 
 function drawTitleScreen() {
 
+  push();
   background(0, 0, 30)
   fill(30, 50, 0);
   stroke(30, 50, 0);
@@ -99,6 +100,8 @@ function drawTitleScreen() {
   rect(390 - 50, 220, 65, 20)
   fill(200);
   text("LORE", 410 - 50, 233)
+
+  pop();
 
 }
 
