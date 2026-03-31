@@ -1,10 +1,13 @@
 let gameState = 'titleScreen'
 
 function setup() {
-  createCanvas(640, 448);
+  createCanvas(windowWidth, windowHeight);
   textFont('Courier New');  
-  setupLevelSelect();
-  setupMap1();
+  genStars();
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight)
 }
 
 function draw() {
@@ -15,6 +18,7 @@ function draw() {
   }else if (gameState === 'levelSelect') {
     drawLevelSelect();
   } else if (gameState === 'map1') {
+    setupMap1();
     drawMap1();
   }
     else if (gameState === 'map2'){
@@ -24,3 +28,23 @@ function draw() {
       // map 3
     }
 }
+
+
+// stars
+let stars = [];
+
+function genStars(){
+  for (let i = 0; i < 80; i++) {
+    stars.push({ x: random(width), y: random(height), size: 3 });
+  }
+}
+
+function makeStars(){
+
+  for (let s of stars) {
+    fill(255)
+    noStroke();
+    ellipse(s.x, s.y, s.size);
+  }
+}
+

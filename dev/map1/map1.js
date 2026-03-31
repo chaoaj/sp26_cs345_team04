@@ -1,8 +1,11 @@
+// original canvas size: 640 x 448
 
 let spriteSheet;
 let horizontalPath;
 let tileWidth = 64; // Change this to 64 if you want them smaller
 let tileHeight = 64;
+
+
 
 function preloadMap1() {
 spriteSheet = loadImage('map1/tail_set_4.png');

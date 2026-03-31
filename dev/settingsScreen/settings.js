@@ -296,7 +296,7 @@ function drawButtons() {
   rect(width / 2, 330, 280, 40);
   fill(40);
   textSize(16);
-  text("BACK", width / 2, 330);
+  text("<-- BACK", width / 2, 330);
 }
 
 function drawToggleButton(x, y, label, state) {

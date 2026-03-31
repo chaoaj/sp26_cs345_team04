@@ -1,115 +1,115 @@
 function drawTitleScreen() {
 
+  // orignal canvas size
+  // 750 x 400 
+  let sx = width/750
+  let sy = height/400
+
   background(0, 0, 30)
+
+  //stars
+  makeStars();
+
+  //grass
   fill(30, 50, 0);
   stroke(30, 50, 0);
-  //grass
-  rect(-1, 235, 751, 200);
+  rect(0, 235 * sy, width, height);
+
   //tree
   fill(92, 51, 23);
   stroke(92, 51, 23);
-  rect(40, 211, 12, 25);
-  rect(700, 211, 12, 25)
+  rect(40*sx, 211*sy, 12*sx, 25*sy);
+  rect(700*sx, 211*sy, 12*sx, 25*sy)
   fill(0, 80, 0);
   stroke(0, 80, 0);
-  rect(28, 170, 36, 50, 3);
-  rect(688, 170, 36, 50, 3);
+  rect(28*sx, 170*sy, 36*sx, 50*sy, 3);
+  rect(688*sx, 170*sy, 36*sx, 50*sy, 3);
   
   // castle
   strokeWeight(3);
   fill(60, 50, 25);
   
   stroke(110, 95, 42);
-  rect(75, 149, 600, 85);
+  rect(75*sx, 149*sy, 600*sx, 85*sy);
   stroke(60, 50, 25);
-  rect(75, 204, 600, 30);
+  rect(75*sx, 204*sy, 600*sx, 30*sy);
   for (let x = 75; x < 605; x += 50) {
-    rect(x, 136, 25, 40);
+    rect(x*sx, 136*sy, 25*sx, 40*sy);
   }
 
   fill(85, 65, 30);
   stroke(110, 95, 42);
-  rect(75, 129, 70, 105);
-  rect(605, 129, 70, 105);
+  rect(75*sx, 129*sy, 70*sx, 105*sy);
+  rect(605*sx, 129*sy, 70*sx, 105*sy);
   fill(60, 50, 25);
-  rect(70, 109, 80, 20);
-  rect(600, 109, 80, 20);
+  rect(70*sx, 109*sy, 80*sx, 20*sy);
+  rect(600*sx, 109*sy, 80*sx, 20*sy);
   fill(20);
-  rect(98, 160, 24, 40, 30, 30, 0, 0);
-  rect(628, 160, 24, 40, 30, 30, 0, 0);
-  rect(330, 160, 75, 75, 50, 50, 0, 0);
+  rect(98*sx, 160*sy, 24*sx, 40*sy, 30*sx, 30*sy, 0, 0);
+  rect(628*sx, 160*sy, 24*sx, 40*sy, 30*sx, 30*sy, 0, 0);
+  rect(330*sx, 160*sy, 75*sx, 75*sy, 50*sx, 50*sy, 0, 0);
 
   // title bar
   fill(0);
-  rect(170, 35, 410, 90);
-  textSize(35);
+  rect(170*sx, 35*sy, 410*sx, 90*sy);
   fill(110, 95, 42);
 
-  rect(180, 46, 1)
-  rect(182, 48, 1)
-  rect(178, 48, 1)
-  rect(180, 50, 1)
+  rect(180*sx, 46*sy, sx, sy)
+  rect(182*sx, 48*sy, sx, sy)
+  rect(178*sx, 48*sy, sx, sy)
+  rect(180*sx, 50*sy, sx, sy)
 
-  rect(180 + 385, 46, 1)
-  rect(182 + 385, 48, 1)
-  rect(178 + 385, 48, 1)
-  rect(180 + 385, 50, 1)
+  rect((180 + 385)*sx, 46*sy, sx, sy)
+  rect((182 + 385)*sx, 48*sy, sx, sy)
+  rect((178 + 385)*sx, 48*sy, sx, sy)
+  rect((180 + 385)*sx, 50*sy, sx, sy)
   textFont('Courier New');
-  text("SCARY TOWER", 253, 76);
-  textSize(25)
-  text("DEFENCE", 320, 110);
+  textSize(75);
+  text("SCARY TOWER", 253*sx, 76*sy);
+  textSize(45)
+  text("DEFENCE", 320*sx, 110*sy);
 
   //moon
   fill(210, 195, 142);
   stroke(210, 195, 142);
-  circle(690, 50, 50);
+  circle(690*sx, 50*sy, 50*sx);
   fill(0, 0, 30);
   stroke(0, 0, 30);
-  circle(700, 40, 50);
-
-  // stars
-  strokeWeight(1);
-  fill(255, 255, 255);
-  stroke(255, 255, 255);
-  circle(50, 50, 1);
-  circle(100, 60, 1);
-  circle(150, 20, 1);
-  circle(20, 200, 1);
-  circle(10, 130, 1);
-  circle(450, 10, 1);
-  circle(350, 18, 1);
-  circle(630, 90, 1);
-  circle(730, 10, 1);
+  circle(700*sx, 40*sy, 50*sx);
 
   // buttons
 
   strokeWeight(2);
   fill(200, 150, 2);
   stroke(100, 75, 22)
-  rect(280, 170, 175, 40);
-  textSize(18)
+  rect(280*sx, 170*sy, 175*sx, 40*sy);
+  textSize(35);
   fill(0);
-  text("PLAY", 347, 195);
+  text("PLAY", 347*sx, 195*sy);
 
   
-  rect(280, 220, 70, 20);
-  textSize(10);
+  rect(280*sx, 220*sy, 70*sx, 20*sy);
+  textSize(20);
   fill(200);
-  text("Settings", 292, 233)
+  text("Settings", 292*sx, 233*sy)
 
   fill(0);
-  rect(390, 220, 65, 20)
+  rect(390*sx, 220*sy, 65*sx, 20*sy)
   fill(200);
-  text("LORE", 410, 233)
+  text("LORE", 410*sx, 233*sy)
 
 }
 
 function mousePressedTitleScreen(){
-  if (mouseX > 280 && mouseX < 455 && mouseY > 170 && mouseY < 210) {
+  let sx = width/750
+  let sy = height/400
+
+  if (mouseX > 280*sx && mouseX < 455*sx && mouseY > 170*sy && mouseY < 210*sy) {
     gameState = 'levelSelect';
     return;
   }
-  if (mouseX > 280 && mouseX < 350 && mouseY > 220 && mouseY < 240) {
+  if (mouseX > 280*sx && mouseX < 350*sx && mouseY > 220*sy && mouseY < 240*sy) {
     gameState = 'settings';
+    return;
   }
 }

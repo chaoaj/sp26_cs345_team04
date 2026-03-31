@@ -1,5 +1,4 @@
-let stars = [];
-let hoveredCard = -1;
+//orignal canvas size: 640 x 448
 
 const levels = [
   { id: 'grass', label: 'GRASS', diff: 'EASY',   dots: 1, dotColor: [80,200,80],   cardColor: [40,100,40],   borderColor: [80,160,60]   },
@@ -13,24 +12,14 @@ function preload() {
   // add sprites here
 }
 
-function setupLevelSelect() {
-  for (let i = 0; i < 80; i++) {
-    stars.push({ x: random(width), y: random(height * 0.7), size: random(1, 3), twinkle: random(TWO_PI) });
-  }
-}
-
 
 // ─── LEVEL SELECT ─────────────────────────────────────────────────────────────
 function drawLevelSelect() {
-  background(8, 14, 36);
+  background(0, 0, 30);
 
-  for (let s of stars) {
-    fill(255)
-    noStroke();
-    ellipse(s.x, s.y, s.size);
-  }
+  makeStars();
 
-  fill(30, 20, 10, 200);
+  fill(30, 50, 0);
   noStroke();
   rect(0, height * 0.72, width, height * 0.28);
 
