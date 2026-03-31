@@ -17,10 +17,12 @@ function setupSettings() {
 }
 
 function drawSettings() {
+  push();
   drawBackground();
   drawTitle();
   drawButtons();
   textFont('Courier New');
+  pop();
 }
 
 function drawBackground() {

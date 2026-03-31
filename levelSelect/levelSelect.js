@@ -20,6 +20,7 @@ function setupLevelSelect() {
 }
 
 function draw() {
+  push();
   if (gameState === 'titleScreen'){
     drawTitleScreen();
   } else if (gameState === 'settings'){
@@ -35,6 +36,7 @@ function draw() {
     else if (gameState === 'map3'){
       // map 3
     }
+    pop();
 }
 
 // ─── LEVEL SELECT ─────────────────────────────────────────────────────────────
