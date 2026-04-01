@@ -21,8 +21,8 @@ function drawBackground() {
 
   drawStars();
   drawCastle(sx, sy);
-  drawGrass(sx, sy);
   drawTrees(sx, sy);
+  drawGrass(sx, sy);
   drawMoon(sx, sy);
 
 }
@@ -66,135 +66,45 @@ function drawTrees(sx, sy) {
     rect(x, baseY - 4*p - offset, p, p);
   }
 }
+
 function drawCastle() {
-  let p = 6; // pixel size
-  let x = 180;
-  let y = 300;
+  let p = 6;
+  let groundY = height - 80;
+  let y = groundY - 105;
+
+  let centerX = width / 2.1;
+  let spacing = 20;
+
+  let positions = [
+    centerX - 1.5 * spacing,
+    centerX - 0.5 * spacing,
+    centerX + 1.5 * spacing,
+    centerX + 2.5 * spacing
+  ];
 
   rectMode(CENTER);
   noStroke();
 
+  for (let x of positions) {
+    fill(80, 50, 25);
+    rect(x, y, 4*p, 5*p);
 
-  fill('gray');
-  rect(x, y, 4*p, 5*p);
+    rect(x - p, y - 3*p, p, p);
+    rect(x,     y - 3*p, p, p);
+    rect(x + p, y - 3*p, p, p);
 
+    rect(x - 3*p, y, 2*p, 4*p);
+    rect(x + 3*p, y, 2*p, 4*p);
 
-  rect(x - p, y - 3*p, p, p);
-  rect(x,     y - 3*p, p, p);
-  rect(x + p, y - 3*p, p, p);
+    rect(x - 3*p, y - 3*p, p, p);
+    rect(x + 3*p, y - 3*p, p, p);
 
+    fill(60, 30, 10);
+    rect(x, y + p, p, 2*p);
 
-  rect(x - 3*p, y, 2*p, 4*p);
-  rect(x + 3*p, y, 2*p, 4*p);
-
-
-  rect(x - 3*p, y - 3*p, p, p);
-  rect(x + 3*p, y - 3*p, p, p);
-
-
-  fill(60, 30, 10);
-  rect(x, y + p, p, 2*p);
-
-
-  fill(0);
-  rect(x, y - p, p/2, p/2);
-  
-
-  x = 245;
-  y = 300;
-
-  rectMode(CENTER);
-  noStroke();
-
-
-  fill('gray');
-  rect(x, y, 4*p, 5*p);
-
-
-  rect(x - p, y - 3*p, p, p);
-  rect(x,     y - 3*p, p, p);
-  rect(x + p, y - 3*p, p, p);
-
-
-  rect(x - 3*p, y, 2*p, 4*p);
-  rect(x + 3*p, y, 2*p, 4*p);
-
-
-  rect(x - 3*p, y - 3*p, p, p);
-  rect(x + 3*p, y - 3*p, p, p);
-
- 
-  fill(60, 30, 10);
-  rect(x, y + p, p, 2*p);
-
-
-  fill(0);
-  rect(x, y - p, p/2, p/2);
-  
-  
-  x = 325;
-  y = 300;
-
-  rectMode(CENTER);
-  noStroke();
-
-
-  fill('gray');
-  rect(x, y, 4*p, 5*p);
-
-
-  rect(x - p, y - 3*p, p, p);
-  rect(x,     y - 3*p, p, p);
-  rect(x + p, y - 3*p, p, p);
-
-
-  rect(x - 3*p, y, 2*p, 4*p);
-  rect(x + 3*p, y, 2*p, 4*p);
-
-
-  rect(x - 3*p, y - 3*p, p, p);
-  rect(x + 3*p, y - 3*p, p, p);
-
-
-  fill(60, 30, 10);
-  rect(x, y + p, p, 2*p);
-
-
-  fill(0);
-  rect(x, y - p, p/2, p/2);
-  
-  x = 405;
-  y = 300;
-
-  rectMode(CENTER);
-  noStroke();
-
-
-  fill('gray');
-  rect(x, y, 4*p, 5*p);
-
-
-  rect(x - p, y - 3*p, p, p);
-  rect(x,     y - 3*p, p, p);
-  rect(x + p, y - 3*p, p, p);
-
-
-  rect(x - 3*p, y, 2*p, 4*p);
-  rect(x + 3*p, y, 2*p, 4*p);
-
-
-  rect(x - 3*p, y - 3*p, p, p);
-  rect(x + 3*p, y - 3*p, p, p);
-
-
-  fill(60, 30, 10);
-  rect(x, y + p, p, 2*p);
-
-
-  fill(0);
-  rect(x, y - p, p/2, p/2);
-  
-  
+    fill(0);
+    rect(x, y - p, p/2, p/2);
+  }
 }
 
 function drawTitle() {
@@ -207,7 +117,7 @@ function drawTitle() {
   noStroke();
   fill(240, 220, 120);
   textSize(28);
-  text("SCARY TOWER SETTINGS", width / 2, 80);
+  text("SCARY TOWER SETTINGS", width / 2.57, 85);
 }
 
 function drawButtons() {
@@ -216,7 +126,7 @@ function drawButtons() {
   
   //back button
   stroke(120, 90, 40);
-  strokeWeight(3);
+  strokeWeight(2);
   fill(60, 40, 20);
   rect(width / 2, 330, 300, 50);
   noStroke();
@@ -224,7 +134,7 @@ function drawButtons() {
   rect(width / 2, 330, 280, 40);
   fill(40);
   textSize(16);
-  text("<-- BACK", width / 2, 330);
+  text("<-- BACK", width / 2.20, 330);
 }
 
 function drawToggleButton(x, y, label, state) {
@@ -239,7 +149,7 @@ function drawToggleButton(x, y, label, state) {
 
   fill(40);
   textSize(16);
-  text(label + ": " + state, x, y);
+  text(label + ": " + state, x - 70, y);
 }
 
 function mousePressedSettings() {
