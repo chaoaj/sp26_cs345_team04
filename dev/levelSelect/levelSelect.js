@@ -34,7 +34,6 @@ function drawLevelSelect() {
   text('SELECT LEVEL', width/2 - textWidth('SELECT LEVEL')/2, 48*s);
   fill(180, 160, 100);
   textSize(9*s);
-  textStyle(NORMAL);
   text('C H O O S E   Y O U R   B A T T L E F I E L D', width/2 - textWidth('C H O O S E   Y O U R   B A T T L E F I E L D')/2, 68*s);
 
   // GRASS CARD

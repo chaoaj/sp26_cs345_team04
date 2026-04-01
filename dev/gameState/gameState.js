@@ -37,7 +37,7 @@ function mousePressed() {
   }else if (gameState === 'levelSelect') {
     mousePressedLevelSelect();
   } else if (gameState === 'map1') {
-     // map 1 
+    mousePressedMap1();
   }
     else if (gameState === 'map2'){
       // map 2
