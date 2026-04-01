@@ -29,6 +29,24 @@ function draw() {
     }
 }
 
+function mousePressed() {
+  if (gameState === 'titleScreen'){
+    mousePressedTitleScreen();
+  } else if (gameState === 'settings'){
+    mousePressedSettings();
+  }else if (gameState === 'levelSelect') {
+    mousePressedLevelSelect();
+  } else if (gameState === 'map1') {
+     // map 1 
+  }
+    else if (gameState === 'map2'){
+      // map 2
+    }
+    else if (gameState === 'map3'){
+      // map 3
+    }
+}
+
 
 // stars
 let stars = [];
@@ -39,12 +57,23 @@ function genStars(){
   }
 }
 
-function makeStars(){
+function drawStars(){
 
   for (let s of stars) {
     fill(255)
     noStroke();
     ellipse(s.x, s.y, s.size);
   }
+}
+
+function drawMoon(sx, sy){
+  fill(210, 195, 142);
+  stroke(210, 195, 142);
+  circle(690*sx, 50*sy, 50*sx);
+  fill(0, 0, 30);
+  stroke(0, 0, 30);
+  circle(700*sx, 40*sy, 50*sx);
+
+  console.log('drawing moon', sx, sy)
 }
 

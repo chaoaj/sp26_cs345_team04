@@ -1,5 +1,5 @@
 function drawTitleScreen() {
-
+  rectMode(CORNER);
   // orignal canvas size
   // 750 x 400 
   let sx = width/750
@@ -8,7 +8,8 @@ function drawTitleScreen() {
   background(0, 0, 30)
 
   //stars
-  makeStars();
+  drawStars();
+  drawMoon(sx, sy);
 
   //grass
   fill(30, 50, 0);
@@ -68,14 +69,7 @@ function drawTitleScreen() {
   text("SCARY TOWER", 253*sx, 76*sy);
   textSize(45)
   text("DEFENCE", 320*sx, 110*sy);
-
-  //moon
-  fill(210, 195, 142);
-  stroke(210, 195, 142);
-  circle(690*sx, 50*sy, 50*sx);
-  fill(0, 0, 30);
-  stroke(0, 0, 30);
-  circle(700*sx, 40*sy, 50*sx);
+  
 
   // buttons
 

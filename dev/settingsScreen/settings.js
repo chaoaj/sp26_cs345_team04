@@ -1,19 +1,9 @@
 let volumeOn = true;
 let autoStart = false;
-let offset = 27;
 
 function setupSettings() {
   textAlign(CENTER, CENTER);
   rectMode(CENTER);
-
-
-  for (let i = 0; i < 50; i++) {
-    stars.push({
-      x: random(width),
-      y: random(height / 2),
-      size: random(1, 3)
-    });
-  }
 }
 
 function drawSettings() {
@@ -24,101 +14,39 @@ function drawSettings() {
 }
 
 function drawBackground() {
-  background(20, 15, 40);
+  let sx = width / 750;
+  let sy = height / 400;
 
-  fill(255);
-  noStroke();
-  for (let s of stars) {
-    circle(s.x, s.y, s.size);
-  }
-  drawCastle();
-  drawTrees();
-  drawMoon();
-  drawGrass();
-  
+  background(0, 0, 30);
+
+  drawStars();
+  drawCastle(sx, sy);
+  drawGrass(sx, sy);
+  drawTrees(sx, sy);
+  drawMoon(sx, sy);
 
 }
-function drawMoon() {
-  let x = 560;
-  let y = 80;
-  let p = 6; // pixel size
-
-  noStroke();
 
 
-  fill(200, 220, 255, 120);
-  rect(x - p, y - 3*p, p, p);
-  rect(x + p, y - 3*p, p, p);
-  rect(x - 3*p, y - p, p, p);
-  rect(x + 3*p, y - p, p, p);
-  rect(x - p, y + 3*p, p, p);
-  rect(x + p, y + 3*p, p, p);
-
-
-fill(230, 240, 255);
-
-
-rect(x - p, y - 3*p, p, p);
-rect(x,     y - 3*p, p, p);
-
-
-rect(x - 2*p, y - 2*p, p, p);
-rect(x - p,   y - 2*p, p, p);
-rect(x,       y - 2*p, p, p);
-rect(x + p,   y - 2*p, p, p);
-
-rect(x - 2*p, y - p, p, p);
-rect(x - p,   y - p, p, p);
-rect(x,       y - p, p, p);
-rect(x + p,   y - p, p, p);
-
-
-rect(x - 2*p, y, p, p);
-rect(x - p,   y, p, p);
-rect(x,       y, p, p);
-rect(x + p,   y, p, p);
-rect(x + p,   y, p, p);
-rect(x + p,   y, p, p);
-rect(x + p,   y, p, p);
-rect(x + 2*p, y, p, p);
-rect(x + p,   y, p, p);
-rect(x,       y, p, p);
-
-
-
-rect(x - 2*p, y + p, p, p);
-rect(x - p,   y + p, p, p);
-rect(x,       y + p, p, p);
-rect(x + p,   y + p, p, p);
-
-
-rect(x - p, y + 2*p, p, p);
-rect(x,     y + 2*p, p, p);
-
-
-  fill(255, 255, 255);
-  rect(x - p, y - p, p, p);
-}
-
-function drawGrass() {
+function drawGrass(sx, sy) {
 
   fill(0, 50, 0);
   rect(width / 2, height - 40, width, 80);
-  rect(0, 355, 2000, 80); 
-
+  rect(0*sx, 355*sy, 2000*sx, 80*sy); 
 
 }
 
-function drawTrees() {
-  let p = 6; // pixel size
+function drawTrees(sx, sy) {
+  let p = 13; // pixel size
+  let offset = 27 * sy;
 
-  for (let i = 0; i < width; i += 80) {
-    let x = i + 40;
-    let baseY = height - 80;
+  for (let i = 0; i < width; i += 80*sx) {
+    let x = i + 40*sx;
+    let baseY = height - 80*sy;
 
 
     fill(80, 50, 20);
-    rect(x, baseY, p, p + 100);
+    rect(x, baseY, p, (p + 100)*sy);
 
 
     fill(20, 100, 40);
