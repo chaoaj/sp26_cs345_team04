@@ -2,9 +2,10 @@
 
 let spriteSheet;
 let horizontalPath;
-let tileWidth = 64; // Change this to 64 if you want them smaller
+let tileWidth = 64; 
 let tileHeight = 64;
-
+let sx = width / 640;
+let sy = height / 448;
 
 
 function preloadMap1() {
@@ -43,7 +44,7 @@ function drawMap1() {
  
   for (let x = 0; x < width; x += 20) {
   for (let y = 0; y < height; y += 20) {
-    image(grass, x, y, 30, 30);
+   image(grass, x, y, 30, 30);
   }
 }
 
@@ -132,6 +133,18 @@ for (let y = 0; y < height; y += density) {
 //image(bigTree, 200, 380, 85, 85);
 //image(bigTree, 450, 350, 90, 90);
 //image(bigTree, 520, 320, 100, 100);
+
+fill("green");
+square(width - 61, 10, 50,)
+fill("white");
+text("BACK", width - 60, 40);
+}
+
+function mousePressedMap1() {
+  if (mouseX > width - 60 && mouseX < width - 10 && mouseY > 10 && mouseY < 60) {
+    gameState = 'levelSelect';
+    return;
+  }
 }
 
 
