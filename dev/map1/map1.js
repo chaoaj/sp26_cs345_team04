@@ -4,8 +4,7 @@ let spriteSheet;
 let horizontalPath;
 let tileWidth = 64; 
 let tileHeight = 64;
-let sx = width / 640;
-let sy = height / 448;
+
 
 
 function preloadMap1() {
@@ -40,6 +39,8 @@ grass = autoCrop(grass)
 }
 
 function drawMap1() {
+  let sx = width / 640;
+  let sy = height / 448;
   background(50,65,30);
  
   for (let x = 0; x < width; x += 20) {
@@ -53,36 +54,36 @@ function drawMap1() {
   
   
   
- let density = 35; 
+ let density = 35*sx; 
 
 // --- TOP & BOTTOM ---
 for (let x = 0; x < width; x += density) {
   // TOP: Skip the house AND the top curve (around x = 225-300)
   // Your corner1/corner2 are at the top, so we clear that space.
-  if ((x < 210 || x > 350)) {
-    image(bigTree, x, -20, 80, 80); 
+  if ((x < 210*sx || x > 350*sx)) {
+    image(bigTree, x, -20, 80*sx, 80*sy); 
   }
 
   // BOTTOM: Skip the two curves at the bottom (x ~ 120 and x ~ 340)
   // We create two "gates" at the bottom for the corners to breathe.
-  let nearFirstBottomCurve = (x > 80 && x < 240);
-  let nearSecondBottomCurve = (x > 300 && x < 440);
+  let nearFirstBottomCurve = (x > 80*sx && x < 240*sx);
+  let nearSecondBottomCurve = (x > 300*sx && x < 440*sx);
   
   if (!nearFirstBottomCurve && !nearSecondBottomCurve) {
-    image(bigTree, x, height - 70, 80, 80);
+    image(bigTree, x, height - 70*sy, 80*sx, 80*sy);
   }
 }
 
 // --- SIDES (The "Gate" Logic) ---
 for (let y = 0; y < height; y += density) {
   // LEFT SIDE: Skip entrance
-  if (y < 140 || y > 220) {
-    image(bigTree, -20, y, 80, 80);
+  if (y < 140*sy || y > 220*sy) {
+    image(bigTree, -20, y, 80*sx, 80*sy);
   }
 
   // RIGHT SIDE: Skip exit
-  if (y < 130 || y > 210) {
-    image(bigTree, width - 60, y, 80, 80);
+  if (y < 130*sy || y > 210*sy) {
+    image(bigTree, width - 60, y, 80*sx, 80*sy);
   }
 }
   
@@ -98,30 +99,30 @@ for (let y = 0; y < height; y += density) {
     let x = i * tileWidth; 
     let y = 200;
     // Draw the image at exactly tileWidth
-    image(horizontalPath, 0, 197, 80, 50);
+    image(horizontalPath, 0, 197*sy, 80*sx, 50*sy);
   }
-  image(corner2,80,200 ,100, 75)
-  image(verticalPath,95.5,261.5 ,77, 65)
-  image(verticalPath,95.5,318.5 ,77, 65)
-  image(corner3,120,383,80,70)
-  image(corner4,200,360,80,78)
-  image(verticalPath,206,318.5 ,67, 65)
-  image(verticalPath,206,253.5 ,67, 65)
-  image(verticalPath,206,188.5,67,65)
-  image(verticalPath,206,124.5,67, 65)
-  image(verticalPath,206,60,67, 65)
-  image(corner1,225,0,85,65)
-  image(corner2,305,3,85,68)
-  image(verticalPath,318,68,65, 80)
-  image(verticalPath,318,124.5,65,80)
-  image(verticalPath,318,204,65, 80)
-  image(verticalPath,318,283,65, 100)
-  image(corner3,338,380,71,80)
-  image(corner4,409,353,85,92)
-  image(verticalPath,423,264,67,100)
-  image(corner1,443,185,80,80)
-  image(horizontalPath,519,180,150,62)
-  image(house,25,25,150,150)
+  image(corner2,80*sx,200*sy ,100*sx, 75*sy)
+  image(verticalPath,95.5*sx,261.5*sy ,77*sx, 65*sy)
+  image(verticalPath,95.5*sx,318.5*sy ,77*sx, 65*sy)
+  image(corner3,120*sx,383*sy,80*sx,70*sy)
+  image(corner4,200*sx,360*sy,80*sx,78*sy)
+  image(verticalPath,206*sx,318.5*sy ,67*sx, 65*sy)
+  image(verticalPath,206*sx,253.5*sy ,67*sx, 65*sy)
+  image(verticalPath,206*sx,188.5*sy,67*sx,65*sy)
+  image(verticalPath,206*sx,124.5*sy,67*sx, 65*sy)
+  image(verticalPath,206*sx,60*sy,67*sx, 65*sy)
+  image(corner1,225*sx,0,85*sx,65*sy)
+  image(corner2,305*sx,3*sy,85*sx,68*sy)
+  image(verticalPath,318*sx,68*sy,65*sx, 80*sy)
+  image(verticalPath,318*sx,124.5*sy,65*sx,80*sy)
+  image(verticalPath,318*sx,204*sy,65*sx, 80*sy)
+  image(verticalPath,318*sx,283*sy,65*sx, 100*sy)
+  image(corner3,338*sx,380*sy,71*sx,80*sy)
+  image(corner4,409*sx,353*sy,85*sx,92*sy)
+  image(verticalPath,423*sx,264*sy,67*sx,100*sy)
+  image(corner1,443*sx,185*sy,80*sx,80*sy)
+  image(horizontalPath,519*sx,180*sy,150*sx,62*sy)
+  image(house,25*sx,25*sy,150*sx,150*sy)
 //  image(bigTree,500,50,100,100)
  // image(bigTree, 150, 10, 90, 90);
   //image(bigTree, 450, 10, 80, 80);

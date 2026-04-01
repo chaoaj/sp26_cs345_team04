@@ -1,11 +1,6 @@
 let volumeOn = true;
 let autoStart = false;
 
-function setupSettings() {
-  textAlign(CENTER, CENTER);
-  rectMode(CENTER);
-}
-
 function drawSettings() {
   drawBackground();
   drawTitle();

@@ -2,12 +2,20 @@ let gameState = 'titleScreen'
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  textFont('Courier New');  
+  textFont('Courier New'); 
+  setupMap1(); 
   genStars();
 }
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight)
+}
+
+function preload() {
+  preloadMap1();
+  grassCardSprite1 = loadImage('map1/game_background_4.png');
+  // ice sprite
+  // lava sprite
 }
 
 function draw() {
@@ -18,7 +26,6 @@ function draw() {
   }else if (gameState === 'levelSelect') {
     drawLevelSelect();
   } else if (gameState === 'map1') {
-    setupMap1();
     drawMap1();
   }
     else if (gameState === 'map2'){
