@@ -66,7 +66,7 @@ function drawTitleScreen() {
   rect((180 + 385)*sx, 50*sy, sx, sy)
   textFont('Courier New');
   textSize(40 * Math.min(sx, sy));
-  text("SCARY TOWER", 253*sx, 76*sy);
+  text("SCARY TOWER", 243*sx, 76*sy);
   textSize(25 * Math.min(sx, sy))
   text("DEFENCE", 320*sx, 110*sy);
   
