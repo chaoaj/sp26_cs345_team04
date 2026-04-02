@@ -65,9 +65,9 @@ function drawTitleScreen() {
   rect((178 + 385)*sx, 48*sy, sx, sy)
   rect((180 + 385)*sx, 50*sy, sx, sy)
   textFont('Courier New');
-  textSize(75);
-  text("SCARY TOWER", 253*sx, 76*sy);
-  textSize(45)
+  textSize(40 * Math.min(sx, sy));
+  text("SCARY TOWER", 243*sx, 76*sy);
+  textSize(25 * Math.min(sx, sy))
   text("DEFENCE", 320*sx, 110*sy);
   
 
@@ -77,13 +77,13 @@ function drawTitleScreen() {
   fill(200, 150, 2);
   stroke(100, 75, 22)
   rect(280*sx, 170*sy, 175*sx, 40*sy);
-  textSize(35);
+  textSize(35 * Math.min(sx, sy));
   fill(0);
-  text("PLAY", 347*sx, 195*sy);
+  text("PLAY", 327*sx, 195*sy);
 
   
   rect(280*sx, 220*sy, 70*sx, 20*sy);
-  textSize(20);
+  textSize(10 * Math.min(sx, sy));
   fill(200);
   text("Settings", 292*sx, 233*sy)
 
