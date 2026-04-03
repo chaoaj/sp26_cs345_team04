@@ -29,7 +29,7 @@ function draw() {
     drawMap1();
   }
     else if (gameState === 'map2'){
-      // map 2
+      drawMap2();
     }
     else if (gameState === 'map3'){
       // map 3
@@ -47,7 +47,7 @@ function mousePressed() {
     mousePressedMap1();
   }
     else if (gameState === 'map2'){
-      // map 2
+      mousePressedMap2();
     }
     else if (gameState === 'map3'){
       // map 3
