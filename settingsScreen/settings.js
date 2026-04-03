@@ -1,126 +1,47 @@
 let volumeOn = true;
 let autoStart = false;
-let offset = 27;
-
-function setupSettings() {
-  textAlign(CENTER, CENTER);
-  rectMode(CENTER);
-
-
-  for (let i = 0; i < 50; i++) {
-    stars.push({
-      x: random(width),
-      y: random(height / 2),
-      size: random(1, 3)
-    });
-  }
-}
 
 function drawSettings() {
-  push();
   drawBackground();
   drawTitle();
   drawButtons();
   textFont('Courier New');
-  pop();
 }
 
 function drawBackground() {
-  background(20, 15, 40);
+  let sx = width / 750;
+  let sy = height / 400;
 
-  fill(255);
-  noStroke();
-  for (let s of stars) {
-    circle(s.x, s.y, s.size);
-  }
-  drawCastle();
-  drawTrees();
-  drawMoon();
-  drawGrass();
-  
+  background(0, 0, 30);
+
+  drawStars();
+  drawCastle(sx, sy);
+  drawTrees(sx, sy);
+  drawGrass(sx, sy);
+  drawMoon(sx, sy);
 
 }
-function drawMoon() {
-  let x = 560;
-  let y = 80;
-  let p = 6; // pixel size
-
-  noStroke();
 
 
-  fill(200, 220, 255, 120);
-  rect(x - p, y - 3*p, p, p);
-  rect(x + p, y - 3*p, p, p);
-  rect(x - 3*p, y - p, p, p);
-  rect(x + 3*p, y - p, p, p);
-  rect(x - p, y + 3*p, p, p);
-  rect(x + p, y + 3*p, p, p);
-
-
-fill(230, 240, 255);
-
-
-rect(x - p, y - 3*p, p, p);
-rect(x,     y - 3*p, p, p);
-
-
-rect(x - 2*p, y - 2*p, p, p);
-rect(x - p,   y - 2*p, p, p);
-rect(x,       y - 2*p, p, p);
-rect(x + p,   y - 2*p, p, p);
-
-rect(x - 2*p, y - p, p, p);
-rect(x - p,   y - p, p, p);
-rect(x,       y - p, p, p);
-rect(x + p,   y - p, p, p);
-
-
-rect(x - 2*p, y, p, p);
-rect(x - p,   y, p, p);
-rect(x,       y, p, p);
-rect(x + p,   y, p, p);
-rect(x + p,   y, p, p);
-rect(x + p,   y, p, p);
-rect(x + p,   y, p, p);
-rect(x + 2*p, y, p, p);
-rect(x + p,   y, p, p);
-rect(x,       y, p, p);
-
-
-
-rect(x - 2*p, y + p, p, p);
-rect(x - p,   y + p, p, p);
-rect(x,       y + p, p, p);
-rect(x + p,   y + p, p, p);
-
-
-rect(x - p, y + 2*p, p, p);
-rect(x,     y + 2*p, p, p);
-
-
-  fill(255, 255, 255);
-  rect(x - p, y - p, p, p);
-}
-
-function drawGrass() {
+function drawGrass(sx, sy) {
 
   fill(0, 50, 0);
   rect(width / 2, height - 40, width, 80);
-  rect(0, 355, 2000, 80); 
-
+  rect(0*sx, 355*sy, 2000*sx, 80*sy); 
 
 }
 
-function drawTrees() {
-  let p = 6; // pixel size
+function drawTrees(sx, sy) {
+  let p = 13; // pixel size
+  let offset = 27 * sy;
 
-  for (let i = 0; i < width; i += 80) {
-    let x = i + 40;
-    let baseY = height - 80;
+  for (let i = 0; i < width; i += 80*sx) {
+    let x = i + 40*sx;
+    let baseY = height - 80*sy;
 
 
     fill(80, 50, 20);
-    rect(x, baseY, p, p + 100);
+    rect(x, baseY, p, (p + 100)*sy);
 
 
     fill(20, 100, 40);
@@ -140,135 +61,45 @@ function drawTrees() {
     rect(x, baseY - 4*p - offset, p, p);
   }
 }
+
 function drawCastle() {
-  let p = 6; // pixel size
-  let x = 180;
-  let y = 300;
+  let p = 6;
+  let groundY = height - 80;
+  let y = groundY - 105;
+
+  let centerX = width / 2.1;
+  let spacing = 20;
+
+  let positions = [
+    centerX - 1.5 * spacing,
+    centerX - 0.5 * spacing,
+    centerX + 1.5 * spacing,
+    centerX + 2.5 * spacing
+  ];
 
   rectMode(CENTER);
   noStroke();
 
+  for (let x of positions) {
+    fill(80, 50, 25);
+    rect(x, y, 4*p, 5*p);
 
-  fill('gray');
-  rect(x, y, 4*p, 5*p);
+    rect(x - p, y - 3*p, p, p);
+    rect(x,     y - 3*p, p, p);
+    rect(x + p, y - 3*p, p, p);
 
+    rect(x - 3*p, y, 2*p, 4*p);
+    rect(x + 3*p, y, 2*p, 4*p);
 
-  rect(x - p, y - 3*p, p, p);
-  rect(x,     y - 3*p, p, p);
-  rect(x + p, y - 3*p, p, p);
+    rect(x - 3*p, y - 3*p, p, p);
+    rect(x + 3*p, y - 3*p, p, p);
 
+    fill(60, 30, 10);
+    rect(x, y + p, p, 2*p);
 
-  rect(x - 3*p, y, 2*p, 4*p);
-  rect(x + 3*p, y, 2*p, 4*p);
-
-
-  rect(x - 3*p, y - 3*p, p, p);
-  rect(x + 3*p, y - 3*p, p, p);
-
-
-  fill(60, 30, 10);
-  rect(x, y + p, p, 2*p);
-
-
-  fill(0);
-  rect(x, y - p, p/2, p/2);
-  
-
-  x = 245;
-  y = 300;
-
-  rectMode(CENTER);
-  noStroke();
-
-
-  fill('gray');
-  rect(x, y, 4*p, 5*p);
-
-
-  rect(x - p, y - 3*p, p, p);
-  rect(x,     y - 3*p, p, p);
-  rect(x + p, y - 3*p, p, p);
-
-
-  rect(x - 3*p, y, 2*p, 4*p);
-  rect(x + 3*p, y, 2*p, 4*p);
-
-
-  rect(x - 3*p, y - 3*p, p, p);
-  rect(x + 3*p, y - 3*p, p, p);
-
- 
-  fill(60, 30, 10);
-  rect(x, y + p, p, 2*p);
-
-
-  fill(0);
-  rect(x, y - p, p/2, p/2);
-  
-  
-  x = 325;
-  y = 300;
-
-  rectMode(CENTER);
-  noStroke();
-
-
-  fill('gray');
-  rect(x, y, 4*p, 5*p);
-
-
-  rect(x - p, y - 3*p, p, p);
-  rect(x,     y - 3*p, p, p);
-  rect(x + p, y - 3*p, p, p);
-
-
-  rect(x - 3*p, y, 2*p, 4*p);
-  rect(x + 3*p, y, 2*p, 4*p);
-
-
-  rect(x - 3*p, y - 3*p, p, p);
-  rect(x + 3*p, y - 3*p, p, p);
-
-
-  fill(60, 30, 10);
-  rect(x, y + p, p, 2*p);
-
-
-  fill(0);
-  rect(x, y - p, p/2, p/2);
-  
-  x = 405;
-  y = 300;
-
-  rectMode(CENTER);
-  noStroke();
-
-
-  fill('gray');
-  rect(x, y, 4*p, 5*p);
-
-
-  rect(x - p, y - 3*p, p, p);
-  rect(x,     y - 3*p, p, p);
-  rect(x + p, y - 3*p, p, p);
-
-
-  rect(x - 3*p, y, 2*p, 4*p);
-  rect(x + 3*p, y, 2*p, 4*p);
-
-
-  rect(x - 3*p, y - 3*p, p, p);
-  rect(x + 3*p, y - 3*p, p, p);
-
-
-  fill(60, 30, 10);
-  rect(x, y + p, p, 2*p);
-
-
-  fill(0);
-  rect(x, y - p, p/2, p/2);
-  
-  
+    fill(0);
+    rect(x, y - p, p/2, p/2);
+  }
 }
 
 function drawTitle() {
@@ -281,7 +112,7 @@ function drawTitle() {
   noStroke();
   fill(240, 220, 120);
   textSize(28);
-  text("SCARY TOWER SETTINGS", width / 2, 80);
+  text("SCARY TOWER SETTINGS", width / 2.57, 85);
 }
 
 function drawButtons() {
@@ -290,7 +121,7 @@ function drawButtons() {
   
   //back button
   stroke(120, 90, 40);
-  strokeWeight(3);
+  strokeWeight(2);
   fill(60, 40, 20);
   rect(width / 2, 330, 300, 50);
   noStroke();
@@ -298,7 +129,7 @@ function drawButtons() {
   rect(width / 2, 330, 280, 40);
   fill(40);
   textSize(16);
-  text("BACK", width / 2, 330);
+  text("<-- BACK", width / 2.20, 330);
 }
 
 function drawToggleButton(x, y, label, state) {
@@ -313,7 +144,7 @@ function drawToggleButton(x, y, label, state) {
 
   fill(40);
   textSize(16);
-  text(label + ": " + state, x, y);
+  text(label + ": " + state, x - 70, y);
 }
 
 function mousePressedSettings() {
