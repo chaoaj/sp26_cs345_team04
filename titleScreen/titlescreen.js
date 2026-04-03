@@ -1,83 +1,74 @@
-let gameState = 'titleScreen'
-
-function setup() {
-  createCanvas(640, 448);
-  textFont('Courier New');  
-  setupLevelSelect();
-  setupMap1();
-}
-
 function drawTitleScreen() {
+  rectMode(CORNER);
+  // orignal canvas size
+  // 750 x 400 
+  let sx = width/750
+  let sy = height/400
 
-  push();
   background(0, 0, 30)
+
+  //stars
+  drawStars();
+  drawMoon(sx, sy);
+
+  //grass
   fill(30, 50, 0);
   stroke(30, 50, 0);
-  //grass
-  rect(-1, 235, 751, 240);
+  rect(0, 235 * sy, width, height);
+
   //tree
   fill(92, 51, 23);
   stroke(92, 51, 23);
-  rect(27, 211, 8, 25);
-  rect(600, 211, 8, 25)
+  rect(40*sx, 211*sy, 12*sx, 25*sy);
+  rect(700*sx, 211*sy, 12*sx, 25*sy)
   fill(0, 80, 0);
   stroke(0, 80, 0);
-  rect(15, 170, 30, 50, 3);
-  rect(589, 170, 30, 50, 3);
+  rect(28*sx, 170*sy, 36*sx, 50*sy, 3);
+  rect(688*sx, 170*sy, 36*sx, 50*sy, 3);
   
   // castle
   strokeWeight(3);
   fill(60, 50, 25);
   
   stroke(110, 95, 42);
-  rect(60, 149, 500, 85);
+  rect(75*sx, 149*sy, 600*sx, 85*sy);
   stroke(60, 50, 25);
-  rect(60, 204, 500, 30);
-  for (let x = 75; x < 505; x += 50) {
-    rect(x, 136, 25, 40);
+  rect(75*sx, 204*sy, 600*sx, 30*sy);
+  for (let x = 75; x < 605; x += 50) {
+    rect(x*sx, 136*sy, 25*sx, 40*sy);
   }
 
   fill(85, 65, 30);
   stroke(110, 95, 42);
-  rect(60, 129, 70, 105);
-  rect(505, 129, 70, 105);
+  rect(75*sx, 129*sy, 70*sx, 105*sy);
+  rect(605*sx, 129*sy, 70*sx, 105*sy);
   fill(60, 50, 25);
-  rect(55, 109, 80, 20);
-  rect(500, 109, 80, 20);
+  rect(70*sx, 109*sy, 80*sx, 20*sy);
+  rect(600*sx, 109*sy, 80*sx, 20*sy);
   fill(20);
-  rect(84, 160, 24, 40, 30, 30, 0, 0);
-  rect(528, 160, 24, 40, 30, 30, 0, 0);
-  rect(280, 160, 75, 75, 50, 50, 0, 0);
+  rect(98*sx, 160*sy, 24*sx, 40*sy, 30*sx, 30*sy, 0, 0);
+  rect(628*sx, 160*sy, 24*sx, 40*sy, 30*sx, 30*sy, 0, 0);
+  rect(330*sx, 160*sy, 75*sx, 75*sy, 50*sx, 50*sy, 0, 0);
 
   // title bar
   fill(0);
-  rect(115, 35, 410, 90);
-  textSize(35);
+  rect(170*sx, 35*sy, 410*sx, 90*sy);
   fill(110, 95, 42);
 
-  rect(123, 46, 1)
-  rect(125, 48, 1)
-  rect(121, 48, 1)
-  rect(123, 50, 1)
+  rect(180*sx, 46*sy, sx, sy)
+  rect(182*sx, 48*sy, sx, sy)
+  rect(178*sx, 48*sy, sx, sy)
+  rect(180*sx, 50*sy, sx, sy)
 
-  rect(123 + 385, 46, 1)
-  rect(125 + 385, 48, 1)
-  rect(121 + 385, 48, 1)
-  rect(123 + 385, 50, 1)
+  rect((180 + 385)*sx, 46*sy, sx, sy)
+  rect((182 + 385)*sx, 48*sy, sx, sy)
+  rect((178 + 385)*sx, 48*sy, sx, sy)
+  rect((180 + 385)*sx, 50*sy, sx, sy)
   textFont('Courier New');
-  text("SCARY TOWER", 203, 76);
-  textSize(25)
-  text("D E F E N C E", 220, 110);
-
-  //moon
-  fill(210, 195, 142);
-  stroke(210, 195, 142);
-  circle(690, 50, 50);
-  fill(0, 0, 30);
-  stroke(0, 0, 30);
-  circle(700, 40, 50);
-
-  // stars
+  textSize(40 * sx);
+  text("SCARY TOWER", 243*sx, 76*sy);
+  textSize(25 * sx)
+  text("DEFENCE", 320*sx, 110*sy);
   
 
   // buttons
@@ -85,32 +76,34 @@ function drawTitleScreen() {
   strokeWeight(2);
   fill(200, 150, 2);
   stroke(100, 75, 22)
-  rect(280 - 50, 170, 175, 40);
-  textSize(18)
+  rect(280*sx, 170*sy, 175*sx, 40*sy);
+  textSize(35 * sx);
   fill(0);
-  text("PLAY", 347 - 50, 195);
+  text("PLAY", 327*sx, 195*sy);
 
   
-  rect(280 - 50, 220, 70, 20);
-  textSize(10);
+  rect(280*sx, 220*sy, 70*sx, 20*sy);
+  textSize(10 * sx);
   fill(200);
-  text("Settings", 292 - 50, 233)
+  text("Settings", 292*sx, 233*sy)
 
   fill(0);
-  rect(390 - 50, 220, 65, 20)
+  rect(390*sx, 220*sy, 65*sx, 20*sy)
   fill(200);
-  text("LORE", 410 - 50, 233)
-
-  pop();
+  text("LORE", 410*sx, 233*sy)
 
 }
 
 function mousePressedTitleScreen(){
-  if (mouseX > 230 && mouseX < 405 && mouseY > 170 && mouseY < 210) {
+  let sx = width/750
+  let sy = height/400
+
+  if (mouseX > 280*sx && mouseX < 455*sx && mouseY > 170*sy && mouseY < 210*sy) {
     gameState = 'levelSelect';
     return;
   }
-  if (mouseX > 230 && mouseX < 300 && mouseY > 220 && mouseY < 240) {
+  if (mouseX > 280*sx && mouseX < 350*sx && mouseY > 220*sy && mouseY < 240*sy) {
     gameState = 'settings';
+    return;
   }
 }
