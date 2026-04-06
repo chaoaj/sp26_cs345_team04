@@ -38,7 +38,7 @@ makeTransparentPath(iceThing)
 let baseW = 640;
 let baseH = 448;
 
-function draw() {
+function drawMap2_1() {
   let scaleX = windowWidth / baseW;
   let scaleY = windowHeight / baseH;
   let s = min(scaleX, scaleY);
@@ -47,11 +47,11 @@ function draw() {
   translate(windowWidth / 2, windowHeight / 2);
   scale(s);
   translate(-baseW / 2, -baseH / 2);
-  drawMap(); 
+  drawMap2(); 
   pop();
 }
 
-function drawMap() {
+function drawMap2() {
   background(85,105,160);
   drawTrees()
   image(horizontalPath,-10,5,110,70);

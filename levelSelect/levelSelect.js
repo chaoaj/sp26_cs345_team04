@@ -160,7 +160,7 @@ function mousePressedLevelSelect() {
   let icew = 164*sy;
   let iceh = 224*sy;
   if (mouseX > icex - icew/2 && mouseX < icex + icew/2 && mouseY > icey && mouseY < icey + iceh) {
-    // gameState = 'map2';
+    gameState = 'map2';
     return;
   }
 

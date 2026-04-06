@@ -13,7 +13,9 @@ function windowResized() {
 
 function preload() {
   preloadMap1();
+  
   grassCardSprite1 = loadImage('map1/game_background_4.png');
+  preloadMap2();
   // ice sprite
   // lava sprite
 }
@@ -29,7 +31,7 @@ function draw() {
     drawMap1();
   }
     else if (gameState === 'map2'){
-      // map 2
+      drawMap2_1();
     }
     else if (gameState === 'map3'){
       // map 3
