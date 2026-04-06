@@ -5,7 +5,7 @@ let spriteSheet;
 let horizontalPath, verticalPath, corner1, corner2, corner3, corner4;
 
 
-function preload() {
+function preloadMap2() {
 spriteSheet = loadImage("tail_set_3.png");
 }
 
