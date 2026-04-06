@@ -47,7 +47,7 @@ function draw() {
   translate(windowWidth / 2, windowHeight / 2);
   scale(s);
   translate(-baseW / 2, -baseH / 2);
-  drawMap(); 
+  drawMap2(); 
   pop();
 }
 
