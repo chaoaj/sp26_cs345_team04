@@ -10,7 +10,7 @@ spriteSheet = loadImage("tail_set_3.png");
 }
 
 
-function setup() {
+function setup_map2_1() {
   createCanvas(windowWidth, windowHeight);
   horizontalPath = spriteSheet.get(590, 980, 220, 170);       
 corner2 = spriteSheet.get(300, 110,205,240)
@@ -38,7 +38,7 @@ makeTransparentPath(iceThing)
 let baseW = 640;
 let baseH = 448;
 
-function draw() {
+function drawMap2_1() {
   let scaleX = windowWidth / baseW;
   let scaleY = windowHeight / baseH;
   let s = min(scaleX, scaleY);

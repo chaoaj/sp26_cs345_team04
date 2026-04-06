@@ -18,6 +18,8 @@ function preload() {
   preloadMap2();
   // ice sprite
   // lava sprite
+  setupMap1(); 
+  setup_map2_1();
 }
 
 function draw() {
