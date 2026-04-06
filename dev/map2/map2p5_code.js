@@ -51,7 +51,7 @@ function draw() {
   pop();
 }
 
-function drawMap() {
+function drawMap2() {
   background(85,105,160);
   drawTrees()
   image(horizontalPath,-10,5,110,70);
