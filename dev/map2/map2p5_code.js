@@ -1,10 +1,6 @@
 
 let horizontalPath, verticalPath, corner1, corner2, corner3, corner4;
 let lake, tree, iceThing;
-let map2Ready = false;
-
-
-
 
 function setup_map2_1() {
 horizontalPath = spriteSheetMap2.get(590, 980, 220, 170);       
@@ -18,7 +14,7 @@ tree = spriteSheetMap2.get(1450,500,180,300)
 iceThing = spriteSheetMap2.get(1050,200,300,200)
   
   
-/**/ 
+/**/
 makeTransparentPath(horizontalPath);
 makeTransparentPath(corner2);
 makeTransparentPath(verticalPath);
@@ -48,7 +44,6 @@ function drawMap2_1() {
 }
 
 function drawMap2() {
-  background(85,105,160);
   drawTrees()
   image(horizontalPath,-10,5,110,70);
   image(horizontalPath,-10,300,110,70);
