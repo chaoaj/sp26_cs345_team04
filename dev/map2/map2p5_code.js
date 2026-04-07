@@ -1,29 +1,24 @@
 
-let spriteSheet;
-
-
 let horizontalPath, verticalPath, corner1, corner2, corner3, corner4;
+let lake, tree, iceThing;
+let map2Ready = false;
 
 
-function preloadMap2() {
-spriteSheet = loadImage("tail_set_3.png");
-}
 
 
 function setup_map2_1() {
-  createCanvas(windowWidth, windowHeight);
-  horizontalPath = spriteSheet.get(590, 980, 220, 170);       
-corner2 = spriteSheet.get(300, 110,205,240)
-verticalPath = spriteSheet.get(420, 920, 170, 250);
-corner3 = spriteSheet.get(80,350,205,240);
-corner4 = spriteSheet.get(300,350,205,240);
-corner1 = spriteSheet.get(80,110,205,235);
-lake = spriteSheet.get(1080,570,330,220);
-tree = spriteSheet.get(1450,500,180,300)
-iceThing = spriteSheet.get(1050,200,300,200)
+horizontalPath = spriteSheetMap2.get(590, 980, 220, 170);       
+corner2 = spriteSheetMap2.get(300, 110,205,240)
+verticalPath = spriteSheetMap2.get(420, 920, 170, 250);
+corner3 = spriteSheetMap2.get(80,350,205,240);
+corner4 = spriteSheetMap2.get(300,350,205,240);
+corner1 = spriteSheetMap2.get(80,110,205,235);
+lake = spriteSheetMap2.get(1080,570,330,220);
+tree = spriteSheetMap2.get(1450,500,180,300)
+iceThing = spriteSheetMap2.get(1050,200,300,200)
   
   
-  
+/**/ 
 makeTransparentPath(horizontalPath);
 makeTransparentPath(corner2);
 makeTransparentPath(verticalPath);
@@ -32,7 +27,8 @@ makeTransparentPath(corner4);
 makeTransparentPath(corner1);
 makeTransparentPath(lake);
 makeTransparentPath(tree);
-makeTransparentPath(iceThing)
+makeTransparentPath(iceThing);
+
 }
 
 let baseW = 640;
@@ -76,24 +72,9 @@ function drawMap2() {
   image(iceThing,35,400,100,100)
 }
 
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//function windowResized() {
+  //resizeCanvas(windowWidth, windowHeight);
+//}
 
 function makeTransparentPath(img) {
   img.loadPixels();
