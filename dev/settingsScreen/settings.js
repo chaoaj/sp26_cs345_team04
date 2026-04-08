@@ -16,7 +16,7 @@ function drawBackground() {
 
   drawStars();
   drawCastle(sx, sy);
-  drawTrees(sx, sy);
+  drawsettingsTrees(sx, sy);
   drawGrass(sx, sy);
   drawMoon(sx, sy);
 
@@ -31,7 +31,7 @@ function drawGrass(sx, sy) {
 
 }
 
-function drawTrees(sx, sy) {
+function drawsettingsTrees(sx, sy) {
   let p = 13; // pixel size
   let offset = 27 * sy;
 

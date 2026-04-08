@@ -5,7 +5,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   textFont('Courier New'); 
   setupMap1();
-  //setup_map2_1(); this nukes the entire thing
+  setup_map2_1();
   genStars();
   
   
