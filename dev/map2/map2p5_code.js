@@ -1,5 +1,4 @@
 
-let horizontalPath, verticalPath, corner1, corner2, corner3, corner4;
 let lake, tree, iceThing;
 
 function setup_map2_1() {
