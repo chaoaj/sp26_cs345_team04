@@ -1,4 +1,3 @@
-
 let lake, tree, iceThing;
 
 function setup_map2_1() {
