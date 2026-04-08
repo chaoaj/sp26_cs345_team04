@@ -27,17 +27,17 @@ function draw() {
     drawTitleScreen();
   } else if (gameState === 'settings'){
     drawSettings();
-  }else if (gameState === 'levelSelect') {
+  } else if (gameState === 'levelSelect') {
     drawLevelSelect();
   } else if (gameState === 'map1') {
     drawMap1();
   }
     else if (gameState === 'map2'){
-      drawMap2_1();
-    }
+    drawMap2_1();
+  }
     else if (gameState === 'map3'){
       // map 3
-    }
+  }
 }
 
 function mousePressed() {
