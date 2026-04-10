@@ -37,7 +37,7 @@ function drawLevelSelect() {
   textSize(14*sy);
   textStyle(BOLD);
   noStroke();
-  text('GRASS', grassx - textWidth('GRASS')/2, grassy + grassh * 0.65);
+  text('Atrium Fields', grassx - textWidth('Atrium Fields')/2, grassy + grassh * 0.65);
   fill(200, 180, 140);
   textSize(8*sy);
   textStyle(NORMAL);
@@ -65,7 +65,7 @@ function drawLevelSelect() {
   textSize(14*sy);
   textStyle(BOLD);
   noStroke();
-  text('ICE', icex - textWidth('ICE')/2, icey + iceh * 0.65);
+  text('The Walk.', icex - textWidth('The Walk.')/2, icey + iceh * 0.65);
   fill(200, 180, 140);
   textSize(8*sy);
   textStyle(NORMAL);
@@ -92,7 +92,7 @@ function drawLevelSelect() {
   textSize(14*sy);
   textStyle(BOLD);
   noStroke();
-  text('LAVA', lavax - textWidth('LAVA')/2, lavay + lavah * 0.65);
+  text('Tricho Volcanus', lavax - textWidth('Tricho Volcanus')/2, lavay + lavah * 0.65);
   fill(200, 180, 140);
   textSize(8*sy);
   textStyle(NORMAL);
