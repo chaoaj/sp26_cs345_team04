@@ -36,9 +36,11 @@ function draw() {
   } else if (gameState === 'map1') {
     drawMap1();
   } else if (gameState === 'map2'){
-      drawMap2_1();
+    drawMap2_1();
   } else if (gameState === 'map3'){
       // map 3
+  } else if (gameState === 'lore') {
+    drawLore();
   }
 }
 

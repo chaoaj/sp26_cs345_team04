@@ -106,4 +106,8 @@ function mousePressedTitleScreen(){
     gameState = 'settings';
     return;
   }
+  if (mouseX > 390*sx && mouseX < 455*sx && mouseY > 220*sy && mouseY < 240*sy) {
+    gameState = 'lore';
+    return;
+  }
 }
