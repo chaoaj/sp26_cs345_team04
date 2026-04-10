@@ -136,6 +136,9 @@ for (let y = 0; y < height; y += density) {
 //image(bigTree, 450, 350, 90, 90);
 //image(bigTree, 520, 320, 100, 100);
 
+updateEnemies(sx, sy, 'map1'); // ← add this
+drawEnemies(sx, sy);           // ← add this
+
 fill("green");
 square(width - 61, 10, 50,)
 fill("white");
