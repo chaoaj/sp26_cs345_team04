@@ -53,7 +53,7 @@ function mousePressed() {
     mousePressedMap1();
   }
     else if (gameState === 'map2'){
-      // map 2
+      mousePressedMap2_1();
     }
     else if (gameState === 'map3'){
       // map 3

@@ -39,6 +39,11 @@ function drawMap2_1() {
   translate(-baseW / 2, -baseH / 2);
   drawMap2(); 
   pop();
+
+  fill("White");
+  square(width - 61, 10, 50,)
+  fill("Black");
+  text("BACK", width - 60, 40);
 }
 
 function drawMap2() {
@@ -65,9 +70,12 @@ function drawMap2() {
   image(iceThing,35,400,100,100)
 }
 
-//function windowResized() {
-  //resizeCanvas(windowWidth, windowHeight);
-//}
+function mousePressedMap2_1() {
+  if (mouseX > width - 60 && mouseX < width - 10 && mouseY > 10 && mouseY < 60) {
+    gameState = 'levelSelect';
+    return;
+  }
+}
 
 function makeTransparentPath(img) {
   img.loadPixels();
