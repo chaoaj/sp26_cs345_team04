@@ -39,6 +39,11 @@ function drawMap2_1() {
   translate(-baseW / 2, -baseH / 2);
   drawMap2(); 
   pop();
+
+  fill("White");
+  square(width - 61, 10, 50,)
+  fill("Black");
+  text("BACK", width - 60, 40);
 }
 
 function drawMap2() {
@@ -63,11 +68,6 @@ function drawMap2() {
   image(tree,560,490,100,100)
   image(iceThing,430,-50,100,100)
   image(iceThing,35,400,100,100)
-
-  fill("green");
-  square(width - 61, 10, 50,)
-  fill("white");
-  text("BACK", width - 60, 40);
 }
 
 function mousePressedMap2_1() {
