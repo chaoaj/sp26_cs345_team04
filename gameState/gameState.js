@@ -1,10 +1,14 @@
 let gameState = 'titleScreen'
+let spriteSheetMap2; 
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   textFont('Courier New'); 
-  setupMap1(); 
+  setupMap1();
+  setup_map2_1();
   genStars();
+  
+  
 }
 
 function windowResized() {
@@ -12,14 +16,14 @@ function windowResized() {
 }
 
 function preload() {
-  preloadMap1();
-  
+  preloadMap1(); 
   grassCardSprite1 = loadImage('map1/game_background_4.png');
-  preloadMap2();
+  iceCardSprite2 = loadImage('map2/game_background_3.png');
+  spriteSheetMap2 = loadImage("map2/tail_set_3.png");
+  
   // ice sprite
   // lava sprite
-  setupMap1(); 
-  setup_map2_1();
+
 }
 
 function draw() {
@@ -27,15 +31,13 @@ function draw() {
     drawTitleScreen();
   } else if (gameState === 'settings'){
     drawSettings();
-  } else if (gameState === 'levelSelect') {
+  }else if (gameState === 'levelSelect') {
     drawLevelSelect();
   } else if (gameState === 'map1') {
     drawMap1();
-  }
-    else if (gameState === 'map2'){
-    drawMap2_1();
-  }
-    else if (gameState === 'map3'){
+  } else if (gameState === 'map2'){
+      drawMap2_1();
+  } else if (gameState === 'map3'){
       // map 3
   }
 }

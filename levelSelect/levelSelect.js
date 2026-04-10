@@ -58,6 +58,7 @@ function drawLevelSelect() {
   drawLevelCard(icex, icey, icew, iceh, 100, 160, 220, 180, 200, 255);
 
   // ice image here
+  image(iceCardSprite2, icex - icew/2, icey, icew, iceh * 0.58 );
   
   // ice label
   fill(140, 200, 255);

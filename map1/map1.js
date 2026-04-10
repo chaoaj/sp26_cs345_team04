@@ -1,35 +1,36 @@
 // original canvas size: 640 x 448
 
 let spriteSheet;
-let horizontalPath;
+let grass_horizontalPath;
 let tileWidth = 64; 
 let tileHeight = 64;
 
 
 
 function preloadMap1() {
-spriteSheet = loadImage('map1/tail_set_4.png');
+grass_spriteSheet = loadImage('map1/tail_set_4.png');
 spriteSheet2 = loadImage('map1/game_background_4.png');
 }
 
 function setupMap1() {
-horizontalPath = spriteSheet.get(70, 410, 150, 100);       corner2 = spriteSheet.get(230, 67,160,140)
-verticalPath = spriteSheet.get(300, 570, 120, 120);
-corner3 = spriteSheet.get(75,250,130,140);
-corner4 = spriteSheet.get(230,205,158,158);
-corner1 = spriteSheet.get(67,61,150,135);
-house = spriteSheet.get(810,125,240,240);
-bigTree = spriteSheet.get(800,400,250,250);
-grass = spriteSheet.get(900,760,70,100);
+grass_horizontalPath = grass_spriteSheet.get(70, 410, 150, 100);       
+grass_corner2 = grass_spriteSheet.get(230, 67,160,140)
+grass_verticalPath = grass_spriteSheet.get(300, 570, 120, 120);
+grass_corner3 = grass_spriteSheet.get(75,250,130,140);
+grass_corner4 = grass_spriteSheet.get(230,205,158,158);
+grass_corner1 = grass_spriteSheet.get(67,61,150,135);
+house = grass_spriteSheet.get(810,125,240,240);
+bigTree = grass_spriteSheet.get(800,400,250,250);
+grass = grass_spriteSheet.get(900,760,70,100);
   
   
   
-makeTransparentPath(horizontalPath);
-makeTransparentPath(corner2);
-makeTransparentPath(verticalPath);
-makeTransparentPath(corner3);
-makeTransparentPath(corner4);
-makeTransparentPath(corner1);
+makeTransparentPath(grass_horizontalPath);
+makeTransparentPath(grass_corner2);
+makeTransparentPath(grass_verticalPath);
+makeTransparentPath(grass_corner3);
+makeTransparentPath(grass_corner4);
+makeTransparentPath(grass_corner1);
 cleanDecor(grass);
 cleanDecor(house);
 cleanDecor(bigTree);
@@ -99,29 +100,29 @@ for (let y = 0; y < height; y += density) {
     let x = i * tileWidth; 
     let y = 200;
     // Draw the image at exactly tileWidth
-    image(horizontalPath, 0, 197*sy, 80*sx, 50*sy);
+    image(grass_horizontalPath, 0, 197*sy, 80*sx, 50*sy);
   }
-  image(corner2,80*sx,200*sy ,100*sx, 75*sy)
-  image(verticalPath,95.5*sx,261.5*sy ,77*sx, 65*sy)
-  image(verticalPath,95.5*sx,318.5*sy ,77*sx, 65*sy)
-  image(corner3,120*sx,383*sy,80*sx,70*sy)
-  image(corner4,200*sx,360*sy,80*sx,78*sy)
-  image(verticalPath,206*sx,318.5*sy ,67*sx, 65*sy)
-  image(verticalPath,206*sx,253.5*sy ,67*sx, 65*sy)
-  image(verticalPath,206*sx,188.5*sy,67*sx,65*sy)
-  image(verticalPath,206*sx,124.5*sy,67*sx, 65*sy)
-  image(verticalPath,206*sx,60*sy,67*sx, 65*sy)
-  image(corner1,225*sx,0,85*sx,65*sy)
-  image(corner2,305*sx,3*sy,85*sx,68*sy)
-  image(verticalPath,318*sx,68*sy,65*sx, 80*sy)
-  image(verticalPath,318*sx,124.5*sy,65*sx,80*sy)
-  image(verticalPath,318*sx,204*sy,65*sx, 80*sy)
-  image(verticalPath,318*sx,283*sy,65*sx, 100*sy)
-  image(corner3,338*sx,380*sy,71*sx,80*sy)
-  image(corner4,409*sx,353*sy,85*sx,92*sy)
-  image(verticalPath,423*sx,264*sy,67*sx,100*sy)
-  image(corner1,443*sx,185*sy,80*sx,80*sy)
-  image(horizontalPath,519*sx,180*sy,150*sx,62*sy)
+  image(grass_corner2,80*sx,200*sy ,100*sx, 75*sy)
+  image(grass_verticalPath,95.5*sx,261.5*sy ,77*sx, 65*sy)
+  image(grass_verticalPath,95.5*sx,318.5*sy ,77*sx, 65*sy)
+  image(grass_corner3,120*sx,383*sy,80*sx,70*sy)
+  image(grass_corner4,200*sx,360*sy,80*sx,78*sy)
+  image(grass_verticalPath,206*sx,318.5*sy ,67*sx, 65*sy)
+  image(grass_verticalPath,206*sx,253.5*sy ,67*sx, 65*sy)
+  image(grass_verticalPath,206*sx,188.5*sy,67*sx,65*sy)
+  image(grass_verticalPath,206*sx,124.5*sy,67*sx, 65*sy)
+  image(grass_verticalPath,206*sx,60*sy,67*sx, 65*sy)
+  image(grass_corner1,225*sx,0,85*sx,65*sy)
+  image(grass_corner2,305*sx,3*sy,85*sx,68*sy)
+  image(grass_verticalPath,318*sx,68*sy,65*sx, 80*sy)
+  image(grass_verticalPath,318*sx,124.5*sy,65*sx,80*sy)
+  image(grass_verticalPath,318*sx,204*sy,65*sx, 80*sy)
+  image(grass_verticalPath,318*sx,283*sy,65*sx, 100*sy)
+  image(grass_corner3,338*sx,380*sy,71*sx,80*sy)
+  image(grass_corner4,409*sx,353*sy,85*sx,92*sy)
+  image(grass_verticalPath,423*sx,264*sy,67*sx,100*sy)
+  image(grass_corner1,443*sx,185*sy,80*sx,80*sy)
+  image(grass_horizontalPath,519*sx,180*sy,150*sx,62*sy)
   image(house,25*sx,25*sy,150*sx,150*sy)
 //  image(bigTree,500,50,100,100)
  // image(bigTree, 150, 10, 90, 90);
