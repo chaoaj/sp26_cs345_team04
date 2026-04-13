@@ -51,9 +51,6 @@ function drawMap1() {
 }
 
 
- 
-  
-  
   
  let density = 35*sx; 
 

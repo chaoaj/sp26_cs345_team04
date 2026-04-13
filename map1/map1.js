@@ -22,6 +22,7 @@ grass_corner1 = grass_spriteSheet.get(67,61,150,135);
 house = grass_spriteSheet.get(810,125,240,240);
 bigTree = grass_spriteSheet.get(800,400,250,250);
 grass = grass_spriteSheet.get(900,760,70,100);
+setupStore(grass_spriteSheet);
   
   
   
@@ -40,6 +41,9 @@ grass = autoCrop(grass)
 }
 
 function drawMap1() {
+  drawPlacedTowers();   
+  drawStore();          
+  drawDraggingTower(); 
   let sx = width / 640;
   let sy = height / 448;
   background(50,65,30);
@@ -143,10 +147,16 @@ text("BACK", width - 60, 40);
 }
 
 function mousePressedMap1() {
+  if (storeMousePressed()) return;
+
   if (mouseX > width - 60 && mouseX < width - 10 && mouseY > 10 && mouseY < 60) {
     gameState = 'levelSelect';
     return;
   }
+}
+
+function mouseReleased() {
+  storeMouseReleased(isValidPlacement);
 }
 
 
