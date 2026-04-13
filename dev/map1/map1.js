@@ -4,6 +4,7 @@ let spriteSheet;
 let grass_horizontalPath;
 let tileWidth = 64; 
 let tileHeight = 64;
+let storeOpen = false;
 
 
 
@@ -37,6 +38,10 @@ cleanDecor(bigTree);
 house = autoCrop(house);
 bigTree = autoCrop(bigTree);
 grass = autoCrop(grass)
+}
+
+function drawStore() {
+  rect(width - 350, 0, 350, height);
 }
 
 function drawMap1() {
@@ -85,12 +90,6 @@ for (let y = 0; y < height; y += density) {
   }
 }
   
-  
-  
-  
-  
-  
-  
 
   for (let i = 0; i < 2; i++) {
     // The X position must be exactly i * tileWidth
@@ -136,20 +135,28 @@ for (let y = 0; y < height; y += density) {
 updateEnemies(sx, sy, 'map1'); // ← add this
 drawEnemies(sx, sy);           // ← add this
 
+
+
+if (storeOpen) {
+  drawStore();
+} 
 fill("green");
 square(width - 61, 10, 50,)
 fill("white");
-text("BACK", width - 60, 40);
+textSize(17)
+text("STORE", width - 61, 40);
+
 }
 
 function mousePressedMap1() {
   if (mouseX > width - 60 && mouseX < width - 10 && mouseY > 10 && mouseY < 60) {
-    gameState = 'levelSelect';
-    return;
+    if (storeOpen == false) {
+      storeOpen = true
+    } else {
+      storeOpen = false
+    }
   }
 }
-
-
 
 function makeTransparentPath(img) {
   img.loadPixels();
