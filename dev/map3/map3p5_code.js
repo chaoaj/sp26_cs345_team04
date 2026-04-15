@@ -34,7 +34,7 @@ function setup() {
 
 
 
-function draw() {
+function drawMap3() {
   background(43, 27, 23);
 
   let s = min(width / MAP_WIDTH, height / MAP_HEIGHT);
@@ -43,11 +43,11 @@ function draw() {
   translate(width / 2, height / 2);
   scale(s);
   translate(-MAP_WIDTH / 2, -MAP_HEIGHT / 2);
-  drawMap3();
+  drawMap3_1();
   pop();
 }
 
-function drawMap3() {
+function drawMap3_1() {
   fill(43, 27, 23);
   noStroke();
   rect(0, 0, MAP_WIDTH, MAP_HEIGHT);  
