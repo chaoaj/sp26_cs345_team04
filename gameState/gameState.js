@@ -40,7 +40,7 @@ function draw() {
   } else if (gameState === 'map2'){
       drawMap2_1();
   } else if (gameState === 'map3'){
-      // map 3
+      //drawMap3();
   }
 }
 
