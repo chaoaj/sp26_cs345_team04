@@ -4,7 +4,7 @@ spriteSheet = loadImage("tail_set_1.png");
 
 let MAP_WIDTH = 710;
 let MAP_HEIGHT = 750;
-function setup() {
+function setupMap3() {
   createCanvas(windowWidth, windowHeight);
   fire_corner1 = spriteSheet.get(70,64,220,215)
   fire_corner2 = spriteSheet.get(300,64,200,215)
