@@ -38,11 +38,12 @@ cleanDecor(bigTree);
 house = autoCrop(house);
 bigTree = autoCrop(bigTree);
 grass = autoCrop(grass)
+
 }
 
-function drawStore() {
-  rect(width - 350, 0, 350, height);
-}
+// function drawStore() {
+//   rect(width - 350, 0, 350, height);
+// }
 
 function drawMap1() {
   let sx = width / 640;

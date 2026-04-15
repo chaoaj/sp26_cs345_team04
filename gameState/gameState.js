@@ -33,6 +33,8 @@ function draw() {
     drawSettings();
   }else if (gameState === 'levelSelect') {
     drawLevelSelect();
+  } else if (gameState === 'store') {
+    drawStore();
   } else if (gameState === 'map1') {
     drawMap1();
   } else if (gameState === 'map2'){
