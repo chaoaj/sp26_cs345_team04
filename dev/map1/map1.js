@@ -41,9 +41,21 @@ grass = autoCrop(grass)
 
 }
 
+<<<<<<< Updated upstream
 // function drawStore() {
 //   rect(width - 350, 0, 350, height);
 // }
+=======
+function drawStore() {
+  fill("gray")
+  rect(width - 350, 0, 350, height);
+
+  fill("white");
+  square(width - 340, 10, 50);
+  fill("black")
+  text("level", width - 340, 40)
+}
+>>>>>>> Stashed changes
 
 function drawMap1() {
   let sx = width / 640;
