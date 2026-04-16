@@ -16,7 +16,8 @@ function windowResized() {
 }
 
 function preload() {
-  preloadMap1(); 
+  preloadMap1();
+  prelaodMap3();
   grassCardSprite1 = loadImage('map1/game_background_4.png');
   iceCardSprite2 = loadImage('map2/game_background_3.png');
   spriteSheetMap2 = loadImage("map2/tail_set_3.png");
@@ -38,7 +39,7 @@ function draw() {
   } else if (gameState === 'map2'){
     drawMap2_1();
   } else if (gameState === 'map3'){
-      // map 3
+    drawMap3();
   } else if (gameState === 'lore') {
     drawLore();
   }
