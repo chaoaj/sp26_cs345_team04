@@ -54,6 +54,7 @@ grass = autoCrop(grass)
 
 }
 
+<<<<<<< HEAD
 function setupStore() {
   createCanvas(300, 400);
 }
@@ -95,6 +96,23 @@ function drawStore1() {
   text("$150", 115, 355);
   text("$200", 220, 355);
 }
+=======
+
+// function drawStore() {
+//   rect(width - 350, 0, 350, height);
+// }
+
+function drawStore() {
+  fill("gray")
+  rect(width - 350, 0, 350, height);
+
+  fill("white");
+  square(width - 340, 10, 50);
+  fill("black")
+  text("level", width - 340, 40)
+}
+
+>>>>>>> 09f1492930c8b02cf4a2d60827548a34d06c4649
 
 function drawMap1() {
   let sx = width / 640;

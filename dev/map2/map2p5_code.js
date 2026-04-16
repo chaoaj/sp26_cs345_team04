@@ -32,21 +32,19 @@ function drawMap2_1() {
   let scaleX = windowWidth / baseW;
   let scaleY = windowHeight / baseH;
   let s = min(scaleX, scaleY);
-  background(45,55,80);
+  background(85, 105, 160);
   push();
   translate(windowWidth / 2, windowHeight / 2);
   scale(s);
   translate(-baseW / 2, -baseH / 2);
   drawMap2(); 
   pop();
-
-  fill("White");
-  square(width - 61, 10, 50,)
-  fill("Black");
-  text("BACK", width - 60, 40);
 }
 
 function drawMap2() {
+  fill(85, 105, 160);
+  noStroke();
+  rect(0, 0, baseW, baseH);
   drawTrees()
   image(horizontalPath,-10,5,110,70);
   image(horizontalPath,-10,300,110,70);
