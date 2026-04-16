@@ -9,8 +9,21 @@ let storeOpen = false;
 
 
 function preloadMap1() {
-grass_spriteSheet = loadImage('map1/tail_set_4.png');
-spriteSheet2 = loadImage('map1/game_background_4.png');
+grass_spriteSheet = loadImage("map1/tail_set_4.png");
+spriteSheet2 = loadImage("map1/game_background_4.png");
+
+}
+
+function preloadStore() {
+  tower1 = loadImage('Towers/t1.png');
+  tower2 = loadImage('Towers/t2.png');
+  tower3 = loadImage('Towers/t3.png');
+  tower4 = loadImage('Towers/t4.png');
+  tower5 = loadImage('Towers/t5.png');
+  tower6 = loadImage('Towers/t6.png');
+  tower7 = loadImage('Towers/t7.png');
+  tower8 = loadImage('Towers/t8.png');
+  tower9 = loadImage('Towers/17.png');
 }
 
 function setupMap1() {
@@ -41,21 +54,47 @@ grass = autoCrop(grass)
 
 }
 
-<<<<<<< Updated upstream
-// function drawStore() {
-//   rect(width - 350, 0, 350, height);
-// }
-=======
-function drawStore() {
-  fill("gray")
-  rect(width - 350, 0, 350, height);
-
-  fill("white");
-  square(width - 340, 10, 50);
-  fill("black")
-  text("level", width - 340, 40)
+function setupStore() {
+  createCanvas(300, 400);
 }
->>>>>>> Stashed changes
+
+function drawStore1() {
+  fill(0, 0, 0, 150);
+  rect(1050, 0, 550, 1000);
+  textFont('Courier New');
+  fill('white');
+  
+  // Tower set 1
+  image(tower1, 0, 5, 85, 85);
+  image(tower2, 105, 5, 85, 85);
+  image(tower3, 210, 5, 85, 85);
+  
+  fill('white');               
+  textSize(20);      
+  text("$100", 10, 110);
+  text("$150", 115, 110);
+  text("$200", 220, 110);
+  
+  // Tower set 2
+  image(tower4, 0, 125, 85, 85);
+  image(tower6, 105, 125, 85, 85);
+  image(tower5, 210, 125, 85, 85);
+  
+  fill('white');           
+  textSize(20);     
+  text("$100", 10, 235);
+  text("$150", 115, 235);
+  text("$200", 220, 235);
+  
+  // Tower set 3
+  image(tower7, 0, 245, 85, 85);
+  image(tower8, 105, 245, 85, 85);
+  image(tower9, 210, 245, 85, 85);
+  
+  text("$100", 10, 355);
+  text("$150", 115, 355);
+  text("$200", 220, 355);
+}
 
 function drawMap1() {
   let sx = width / 640;
@@ -148,27 +187,57 @@ for (let y = 0; y < height; y += density) {
 updateEnemies(sx, sy, 'map1'); // ← add this
 drawEnemies(sx, sy);           // ← add this
 
-
-
 if (storeOpen) {
-  drawStore();
-} 
-fill("green");
-square(width - 61, 10, 50,)
-fill("white");
-textSize(17)
-text("STORE", width - 61, 40);
+  drawStore1();
+}
+
+drawStoreButton();
+
+// fill("green");
+// square(width - 61, 10, 50,)
+// fill("white");
+// textSize(17)
+// text("STORE", width - 61, 40);
 
 }
 
+function drawStoreButton() {
+  let btnX = width - 61;
+  let btnY = 10;
+  let btnSize = 50;
+
+  fill("green");
+  square(btnX, btnY, btnSize);
+
+  fill("white");
+  textSize(17);
+  text("STORE", btnX, btnY + 30);
+}
+
 function mousePressedMap1() {
-  if (mouseX > width - 60 && mouseX < width - 10 && mouseY > 10 && mouseY < 60) {
-    if (storeOpen == false) {
-      storeOpen = true
-    } else {
-      storeOpen = false
-    }
+  let btnX = width - 61;
+  let btnY = 10;
+  let btnSize = 50;
+
+  square(btnX, btnY, btnSize);
+
+  if (
+    mouseX > btnX &&
+    mouseX < btnX + btnSize &&
+    mouseY > btnY &&
+    mouseY < btnY + btnSize
+  ) {
+    storeOpen = !storeOpen;
+    console.log("toggled store:", storeOpen);
   }
+  // if (mouseX > width - 60 && mouseX < width - 10 && mouseY > 10 && mouseY < 60) {
+  //   if (storeOpen == false) {
+  //     storeOpen = true
+  //     drawStore();
+  //   } else {
+  //     storeOpen = false
+  //   }
+  // }
 }
 
 function makeTransparentPath(img) {

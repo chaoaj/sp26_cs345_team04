@@ -2,11 +2,13 @@
 let towers = []; //this will have all prices and damage
 
 function setupStore() {
-  createCanvas(300, 400);
+  
 }
 
 function drawStore() {
-  background('black');
+    push();
+  fill(0, 0, 0, 150);
+  rect(0, 0, width, height);
   textFont('Courier New');
   fill('white');
   
@@ -40,17 +42,19 @@ function drawStore() {
   text("$100", 10, 355);
   text("$150", 115, 355);
   text("$200", 220, 355);
+
+  pop();
   
 }
 
 function preloadStore() {
-  tower1 = loadImage("Towers/t1.png");
-  tower2 = loadImage("Towers/t2.png");
-  tower3 = loadImage("Towers/t3.png");
-  tower4 = loadImage("Towers/t4.png");
-  tower5 = loadImage("Towers/t5.png");
-  tower6 = loadImage("Towers/t6.png");
-  tower7 = loadImage("Towers/t7.png");
-  tower8 = loadImage("Towers/t8.png");
-  tower9 = loadImage("Towers/t9.png");
+  tower1 = loadImage("dev/Towers/t1.png");
+  tower2 = loadImage("dev/Towers/t2.png");
+  tower3 = loadImage("dev/Towers/t3.png");
+  tower4 = loadImage("dev/Towers/t4.png");
+  tower5 = loadImage("dev/Towers/t5.png");
+  tower6 = loadImage("dev/Towers/t6.png");
+  tower7 = loadImage("dev/Towers/t7.png");
+  tower8 = loadImage("dev/Towers/t8.png");
+  tower9 = loadImage("dev/Towers/t9.png");
 }

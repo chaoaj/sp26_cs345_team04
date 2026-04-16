@@ -4,6 +4,7 @@ let spriteSheet;
 let grass_horizontalPath;
 let tileWidth = 64; 
 let tileHeight = 64;
+let storeOpen = false;
 
 
 
@@ -139,7 +140,9 @@ for (let y = 0; y < height; y += density) {
 //image(bigTree, 200, 380, 85, 85);
 //image(bigTree, 450, 350, 90, 90);
 //image(bigTree, 520, 320, 100, 100);
-
+if (storeOpen) {
+  drawStore();
+}
 fill("green");
 square(width - 61, 10, 50,)
 fill("white");
@@ -150,7 +153,11 @@ function mousePressedMap1() {
   if (storeMousePressed()) return;
 
   if (mouseX > width - 60 && mouseX < width - 10 && mouseY > 10 && mouseY < 60) {
-    gameState = 'levelSelect';
+    if (storeOpen == false) {
+      storeOpen = true;
+    } else {
+      storeOpen = false;
+    }
     return;
   }
 }
