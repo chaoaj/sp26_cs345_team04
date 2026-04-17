@@ -5,7 +5,8 @@ let grass_horizontalPath;
 let tileWidth = 64; 
 let tileHeight = 64;
 let storeOpen = false;
-
+let sx;
+let sy;
 
 
 function preloadMap1() {
@@ -54,49 +55,6 @@ grass = autoCrop(grass)
 
 }
 
-<<<<<<< HEAD
-function setupStore() {
-  createCanvas(300, 400);
-}
-
-function drawStore1() {
-  fill(0, 0, 0, 150);
-  rect(1050, 0, 550, 1000);
-  textFont('Courier New');
-  fill('white');
-  
-  // Tower set 1
-  image(tower1, 0, 5, 85, 85);
-  image(tower2, 105, 5, 85, 85);
-  image(tower3, 210, 5, 85, 85);
-  
-  fill('white');               
-  textSize(20);      
-  text("$100", 10, 110);
-  text("$150", 115, 110);
-  text("$200", 220, 110);
-  
-  // Tower set 2
-  image(tower4, 0, 125, 85, 85);
-  image(tower6, 105, 125, 85, 85);
-  image(tower5, 210, 125, 85, 85);
-  
-  fill('white');           
-  textSize(20);     
-  text("$100", 10, 235);
-  text("$150", 115, 235);
-  text("$200", 220, 235);
-  
-  // Tower set 3
-  image(tower7, 0, 245, 85, 85);
-  image(tower8, 105, 245, 85, 85);
-  image(tower9, 210, 245, 85, 85);
-  
-  text("$100", 10, 355);
-  text("$150", 115, 355);
-  text("$200", 220, 355);
-}
-=======
 
 // function drawStore() {
 //   rect(width - 350, 0, 350, height);
@@ -112,11 +70,10 @@ function drawStore() {
   text("level", width - 340, 40)
 }
 
->>>>>>> 09f1492930c8b02cf4a2d60827548a34d06c4649
 
 function drawMap1() {
-  let sx = width / 640;
-  let sy = height / 448;
+  sx = width / 640;
+  sy = height / 448;
   background(50,65,30);
  
   for (let x = 0; x < width; x += 20) {
@@ -202,14 +159,28 @@ for (let y = 0; y < height; y += density) {
 //image(bigTree, 450, 350, 90, 90);
 //image(bigTree, 520, 320, 100, 100);
 
-updateEnemies(sx, sy, 'map1'); // ← add this
-drawEnemies(sx, sy);           // ← add this
+updateWaves('map1');
+updateEnemies();
+drawEnemies(sx, sy);
+
+if (playerHP <= 0) {
+  gameState = "gameover";
+}
 
 if (storeOpen) {
-  drawStore1();
+  drawStore();
 }
 
 drawStoreButton();
+
+fill(255);
+textSize(20);
+text("HP: " + playerHP, 20, 20);
+text("Wave: " + currentWave, 20, 50);
+
+if (!waveInProgress) {
+  text("Press SPACE to start wave", width / 2 - 120, 40);
+}
 
 // fill("green");
 // square(width - 61, 10, 50,)
