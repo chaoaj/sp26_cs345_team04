@@ -4,7 +4,7 @@ let spriteSheetMap2;
 function setup() {
   createCanvas(windowWidth, windowHeight);
   textFont('Courier New'); 
-  //setupMap1();
+  setupMap1();
   setup_map2_1();
   genStars();
   setupStore();
@@ -17,9 +17,9 @@ function windowResized() {
 }
 
 function preload() {
-  //grassCardSprite1 = loadImage('map1/game_background_4.png');
-  //iceCardSprite2 = loadImage('map2/game_background_3.png');
-  //spriteSheetMap2 = loadImage("map2/tail_set_3.png");
+  grassCardSprite1 = loadImage('map1/game_background_4.png');
+  iceCardSprite2 = loadImage('map2/game_background_3.png');
+  spriteSheetMap2 = loadImage("map2/tail_set_3.png");
 
   preloadStore();
   preloadMap1(); 
@@ -39,6 +39,7 @@ function draw() {
   } else if (gameState === 'store') {
     drawStore();
   } else if (gameState === 'map1') {
+    drawMap1();
     drawStore();
   } else if (gameState === 'map2'){
       drawMap2_1();
