@@ -17,12 +17,12 @@ function windowResized() {
 }
 
 function preload() {
-  //preloadMap1(); 
   //grassCardSprite1 = loadImage('map1/game_background_4.png');
   //iceCardSprite2 = loadImage('map2/game_background_3.png');
   //spriteSheetMap2 = loadImage("map2/tail_set_3.png");
 
   preloadStore();
+  preloadMap1(); 
   
   // ice sprite
   // lava sprite
