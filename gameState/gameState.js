@@ -14,22 +14,14 @@ function windowResized() {
 }
 
 function preload() {
-<<<<<<< HEAD
   preloadMap1();
   // preloadMap3();
   loadGoblinSprites();
   grassCardSprite1 = loadImage('map1/game_background_4.png');
   iceCardSprite2 = loadImage('map2/game_background_3.png');
   spriteSheetMap2 = loadImage("map2/tail_set_3.png");
-=======
-  grassCardSprite1 = loadImage('map1/game_background_4.png');
-  iceCardSprite2 = loadImage('map2/game_background_3.png');
-  spriteSheetMap2 = loadImage("map2/tail_set_3.png");
-
   preloadStore();
-  preloadMap1(); 
->>>>>>> 3f0de551705749776661eccef267bbe80be5a455
-  
+  preloadMap1();
   // ice sprite
   // lava sprite
 
@@ -44,10 +36,6 @@ function draw() {
     drawLevelSelect();
   } else if (gameState === 'map1') {
     drawMap1();
-<<<<<<< HEAD
-=======
-    drawStore();
->>>>>>> 3f0de551705749776661eccef267bbe80be5a455
   } else if (gameState === 'map2'){
     drawMap2_1();
   } else if (gameState === 'map3'){
