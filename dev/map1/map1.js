@@ -16,15 +16,15 @@ spriteSheet2 = loadImage("map1/game_background_4.png");
 }
 
 function preloadStore() {
-  tower1 = loadImage('Towers/t1.png');
-  tower2 = loadImage('Towers/t2.png');
-  tower3 = loadImage('Towers/t3.png');
-  tower4 = loadImage('Towers/t4.png');
-  tower5 = loadImage('Towers/t5.png');
-  tower6 = loadImage('Towers/t6.png');
-  tower7 = loadImage('Towers/t7.png');
-  tower8 = loadImage('Towers/t8.png');
-  tower9 = loadImage('Towers/17.png');
+  tower1 = loadImage("Towers/t1.png");
+  tower2 = loadImage("Towers/t2.png");
+  tower3 = loadImage("Towers/t3.png");
+  tower4 = loadImage("Towers/t4.png");
+  tower5 = loadImage("Towers/t5.png");
+  tower6 = loadImage("Towers/t6.png");
+  tower7 = loadImage("Towers/t7.png");
+  tower8 = loadImage("Towers/t8.png");
+  tower9 = loadImage("Towers/17.png");
 }
 
 function setupMap1() {
@@ -59,15 +59,65 @@ grass = autoCrop(grass)
 // function drawStore() {
 //   rect(width - 350, 0, 350, height);
 // }
+function setupStore() {
+  //createCanvas(300, 400);
+}
+
 
 function drawStore() {
-  fill("gray")
+  fill(0, 0, 0, 150)
   rect(width - 350, 0, 350, height);
+
+  textFont('Courier New');
+  fill('white');
+  push();
+  // Tower set 1
+  rect(1190, 100, 85, 85);
+  rect(1295, 100, 85, 85);
+  rect(1400, 100, 85, 85);
+  //image(tower1, 0, 5, 85, 85);
+  //image(tower2, 105, 5, 85, 85);
+  //image(tower3, 210, 5, 85, 85);
+  
+  fill('white');               
+  textSize(20);      
+  text("$100", 10 + 1200, 110 + 120);
+  text("$150", 115 + 1200, 110 + 120);
+  text("$200", 220 + 1200, 110+ 120);
+  
+  // Tower set 2
+  rect(1190, 275, 85, 85);
+  rect(1295, 275, 85, 85);
+  rect(1400, 275, 85, 85);
+  //image(tower4, 0, 125, 85, 85);
+  //image(tower6, 105, 125, 85, 85);
+  //image(tower5, 210, 125, 85, 85);
+  
+  fill('white');           
+  textSize(20);     
+  text("$100", 10+ 1200, 235 + 165);
+  text("$150", 115 + 1200, 235 + 165);
+  text("$200", 220 + 1200, 235 + 165);
+  
+  // Tower set 3
+  rect(1190, 435, 85, 85);
+  rect(1295, 435, 85, 85);
+  rect(1400, 435, 85, 85);
+  //image(tower7, 0, 245, 85, 85);
+  //image(tower8, 105, 245, 85, 85);
+  //image(tower9, 210, 245, 85, 85);
+  
+  text("$100", 10 + 1200, 355 + 210);
+  text("$150", 115 + 1200, 355 + 210);
+  text("$200", 220 + 1200, 355 + 210);
+
+  pop();
 
   fill("white");
   square(width - 340, 10, 50);
   fill("black")
   text("level", width - 340, 40)
+
 }
 
 
