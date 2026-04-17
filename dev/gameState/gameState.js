@@ -44,6 +44,8 @@ function draw() {
     drawMap3();
   } else if (gameState === 'lore') {
     drawLore();
+  } else if (gameState === 'gameover') {
+    drawGameOver();
   }
 }
 
@@ -70,13 +72,15 @@ function keyPressed() {
     if (key === ' ' && !waveInProgress) {
       startWave();
     }
+  } if (gameState === 'gameover' && key === 'Escape') {
+    gameState = 'titleScreen';
   }
 }
 
 function switchToMap(mapName) {
   resetEnemies();
   resetWaves();
-  playerHP = 20;
+  playerHP = 1;
   storeOpen = false;
   gameState = mapName;
 }
