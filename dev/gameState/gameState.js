@@ -23,7 +23,7 @@ function preload() {
   grassCardSprite1 = loadImage('map1/game_background_4.png');
   iceCardSprite2 = loadImage('map2/game_background_3.png');
   spriteSheetMap2 = loadImage("map2/tail_set_3.png");
-  
+  lavaCardSprite = loadImage('map3/game_background_1.png');
   // ice sprite
   // lava sprite
 

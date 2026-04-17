@@ -75,6 +75,7 @@ function drawLevelSelect() {
   let lavaw = 150*sy;
   let lavah = 210*sy;
   drawLevelCard(lavax, lavay, lavaw, lavah, 120, 40, 20, 200, 80, 20);
+  image(lavaCardSprite, lavax - lavaw/2, lavay, lavaw, lavah * 0.58);
   fill(255, 140, 80);
   textSize(14*sy);
   textStyle(BOLD);
