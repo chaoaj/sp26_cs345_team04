@@ -1,15 +1,15 @@
 function drawLevelSelect() {
-  let sy = height / 448
+  let sx = width / 750;
+  let sy = height / 448;
 
   background(0, 0, 30);
   drawStars();
-  drawMoon(sy, sy);
+  drawMoon(sx, sy);
 
   // ground
   fill(30, 50, 0);
   noStroke();
   rect(0, height * 0.82, width, height * 0.18);
-  
 
   // title banner
   fill(10, 20, 50, 220);
@@ -32,18 +32,15 @@ function drawLevelSelect() {
   let grassh = 210*sy;
   drawLevelCard(grassx, grassy, grassw, grassh, 40, 100, 40, 80, 160, 60);
   image(grassCardSprite1, grassx - grassw/2, grassy, grassw, grassh * 0.58);
-  // grass label
   fill(140, 255, 140);
   textSize(14*sy);
   textStyle(BOLD);
   noStroke();
-  text('GRASS', grassx - textWidth('GRASS')/2, grassy + grassh * 0.65);
+  text('Atrium Fields', grassx - textWidth('Atrium Fields')/2, grassy + grassh * 0.65);
   fill(200, 180, 140);
   textSize(8*sy);
   textStyle(NORMAL);
   text('EASY', grassx - textWidth('EASY')/2, grassy + grassh * 0.78);
-
-  // grass dots 
   fill(80, 200, 80);
   ellipse(grassx - 14*sy, grassy + grassh * 0.9, 9*sy, 9*sy);
   fill(80, 80, 80);
@@ -56,22 +53,16 @@ function drawLevelSelect() {
   let icew = 164*sy;
   let iceh = 224*sy;
   drawLevelCard(icex, icey, icew, iceh, 100, 160, 220, 180, 200, 255);
-
-  // ice image here
-  image(iceCardSprite2, icex - icew/2, icey, icew, iceh * 0.58 );
-  
-  // ice label
+  image(iceCardSprite2, icex - icew/2, icey, icew, iceh * 0.58);
   fill(140, 200, 255);
   textSize(14*sy);
   textStyle(BOLD);
   noStroke();
-  text('ICE', icex - textWidth('ICE')/2, icey + iceh * 0.65);
+  text('The Walk.', icex - textWidth('The Walk.')/2, icey + iceh * 0.65);
   fill(200, 180, 140);
   textSize(8*sy);
   textStyle(NORMAL);
   text('MEDIUM', icex - textWidth('MEDIUM')/2, icey + iceh * 0.78);
-
-  // ice dots
   fill(80, 160, 255);
   ellipse(icex - 14*sy, icey + iceh * 0.9, 9*sy, 9*sy);
   ellipse(icex, icey + iceh * 0.9, 9*sy, 9*sy);
@@ -84,21 +75,15 @@ function drawLevelSelect() {
   let lavaw = 150*sy;
   let lavah = 210*sy;
   drawLevelCard(lavax, lavay, lavaw, lavah, 120, 40, 20, 200, 80, 20);
-
-  //lava image here
-
-  // lava label
   fill(255, 140, 80);
   textSize(14*sy);
   textStyle(BOLD);
   noStroke();
-  text('LAVA', lavax - textWidth('LAVA')/2, lavay + lavah * 0.65);
+  text('Tricho Volcanus', lavax - textWidth('Tricho Volcanus')/2, lavay + lavah * 0.65);
   fill(200, 180, 140);
   textSize(8*sy);
   textStyle(NORMAL);
   text('HARD', lavax - textWidth('HARD')/2, lavay + lavah * 0.78);
-
-  // lava dots
   fill(220, 80, 30);
   ellipse(lavax - 14*sy, lavay + lavah * 0.9, 9*sy, 9*sy);
   ellipse(lavax, lavay + lavah * 0.9, 9*sy, 9*sy);
@@ -122,9 +107,7 @@ function drawLevelSelect() {
   text('<-- BACK', width/2 - textWidth('<-- BACK')/2, height - 40*sy);
 }
 
-// logic for card
 function drawLevelCard(cx, cy, cw, ch, r, g, b, br, bg, bb) {
-
   noStroke();
   fill(r*0.5, g*0.5, b*0.5);
   rect(cx - cw/2, cy, cw, ch);
@@ -132,12 +115,10 @@ function drawLevelCard(cx, cy, cw, ch, r, g, b, br, bg, bb) {
   rect(cx - cw/2, cy + ch * 0.58, cw, ch * 0.42);
   stroke(br, bg, bb);
   rect(cx - cw/2, cy, cw, ch);
-  
 }
 
-// INPUT 
 function mousePressedLevelSelect() {
-  let sy = height / 448
+  let sy = height / 448;
 
   // back button
   if (mouseX > width/2 - 66*sy && mouseX < width/2 + 66*sy && mouseY > height - 60*sy && mouseY < height - 28*sy) {
@@ -145,13 +126,13 @@ function mousePressedLevelSelect() {
     return;
   }
 
-  // grass card
+  // grass card — FIX: use switchToMap so enemies reset on entry
   let grassx = width/2 - 175*sy;
   let grassy = height * 0.28;
   let grassw = 150*sy;
   let grassh = 210*sy;
   if (mouseX > grassx - grassw/2 && mouseX < grassx + grassw/2 && mouseY > grassy && mouseY < grassy + grassh) {
-    gameState = 'map1';
+    switchToMap('map1');
     return;
   }
 
@@ -161,7 +142,7 @@ function mousePressedLevelSelect() {
   let icew = 164*sy;
   let iceh = 224*sy;
   if (mouseX > icex - icew/2 && mouseX < icex + icew/2 && mouseY > icey && mouseY < icey + iceh) {
-    gameState = 'map2';
+    switchToMap('map2');
     return;
   }
 
@@ -171,7 +152,7 @@ function mousePressedLevelSelect() {
   let lavaw = 150*sy;
   let lavah = 210*sy;
   if (mouseX > lavax - lavaw/2 && mouseX < lavax + lavaw/2 && mouseY > lavay && mouseY < lavay + lavah) {
-    // gameState = 'map3';
+    switchToMap('map3');
     return;
   }
 }

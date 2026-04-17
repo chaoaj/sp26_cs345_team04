@@ -1,22 +1,22 @@
-function preload() {
-spriteSheet = loadImage("tail_set_1.png");
+function preloadMap3() {
+spriteSheetMap3 = loadImage("tail_set_1.png");
 }
 
 let MAP_WIDTH = 710;
 let MAP_HEIGHT = 750;
-function setup() {
+function setupMap3() {
   createCanvas(windowWidth, windowHeight);
-  fire_corner1 = spriteSheet.get(70,64,220,215)
-  fire_corner2 = spriteSheet.get(300,64,200,215)
-  fire_corner3 = spriteSheet.get(70,290,215,215)
-  fire_corner4 = spriteSheet.get(300,290,215,195)
-  fire_verticalPath = spriteSheet.get(420,750,150,230)
-  fire_horizontalPath = spriteSheet.get(590,830,220,130)
-  fire_mark = spriteSheet.get(1330,660,80,70)
-  fire_burnedHouse = spriteSheet.get(1540,400,220,150)
-  fire_split = spriteSheet.get(520,50,420,420)
-  fire_largeCrack = spriteSheet.get(1040,80,440,580)
-  fire_bigRock = spriteSheet.get(1100,870,300,300)
+  fire_corner1 = spriteSheetMap3.get(70,64,220,215)
+  fire_corner2 = spriteSheetMap3.get(300,64,200,215)
+  fire_corner3 = spriteSheetMap3.get(70,290,215,215)
+  fire_corner4 = spriteSheetMap3.get(300,290,215,195)
+  fire_verticalPath = spriteSheetMap3.get(420,750,150,230)
+  fire_horizontalPath = spriteSheetMap3.get(590,830,220,130)
+  fire_mark = spriteSheetMap3.get(1330,660,80,70)
+  fire_burnedHouse = spriteSheetMap3.get(1540,400,220,150)
+  fire_split = spriteSheetMap3.get(520,50,420,420)
+  fire_largeCrack = spriteSheetMap3.get(1040,80,440,580)
+  fire_bigRock = spriteSheetMap3.get(1100,870,300,300)
   cleanDecor(fire_horizontalPath)
   cleanDecor(fire_corner1)
   cleanDecor(fire_corner2)
@@ -34,7 +34,7 @@ function setup() {
 
 
 
-function draw() {
+function drawMap3() {
   background(43, 27, 23);
 
   let s = min(width / MAP_WIDTH, height / MAP_HEIGHT);
@@ -43,11 +43,11 @@ function draw() {
   translate(width / 2, height / 2);
   scale(s);
   translate(-MAP_WIDTH / 2, -MAP_HEIGHT / 2);
-  drawMap3();
+  drawMap3_1();
   pop();
 }
 
-function drawMap3() {
+function drawMap3_1() {
   fill(43, 27, 23);
   noStroke();
   rect(0, 0, MAP_WIDTH, MAP_HEIGHT);  

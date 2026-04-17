@@ -5,12 +5,26 @@ let grass_horizontalPath;
 let tileWidth = 64; 
 let tileHeight = 64;
 let storeOpen = false;
-
+let sx;
+let sy;
 
 
 function preloadMap1() {
-grass_spriteSheet = loadImage('map1/tail_set_4.png');
-spriteSheet2 = loadImage('map1/game_background_4.png');
+grass_spriteSheet = loadImage("map1/tail_set_4.png");
+spriteSheet2 = loadImage("map1/game_background_4.png");
+
+}
+
+function preloadStore() {
+  tower1 = loadImage('Towers/t1.png');
+  tower2 = loadImage('Towers/t2.png');
+  tower3 = loadImage('Towers/t3.png');
+  tower4 = loadImage('Towers/t4.png');
+  tower5 = loadImage('Towers/t5.png');
+  tower6 = loadImage('Towers/t6.png');
+  tower7 = loadImage('Towers/t7.png');
+  tower8 = loadImage('Towers/t8.png');
+  tower9 = loadImage('Towers/17.png');
 }
 
 function setupMap1() {
@@ -23,7 +37,6 @@ grass_corner1 = grass_spriteSheet.get(67,61,150,135);
 house = grass_spriteSheet.get(810,125,240,240);
 bigTree = grass_spriteSheet.get(800,400,250,250);
 grass = grass_spriteSheet.get(900,760,70,100);
-setupStore(grass_spriteSheet);
   
   
   
@@ -39,14 +52,28 @@ cleanDecor(bigTree);
 house = autoCrop(house);
 bigTree = autoCrop(bigTree);
 grass = autoCrop(grass)
+
 }
 
+
+// function drawStore() {
+//   rect(width - 350, 0, 350, height);
+// }
+
+function drawStore() {
+  fill("gray")
+  rect(width - 350, 0, 350, height);
+
+  fill("white");
+  square(width - 340, 10, 50);
+  fill("black")
+  text("level", width - 340, 40)
+}
+
+
 function drawMap1() {
-  drawPlacedTowers();   
-  drawStore();          
-  drawDraggingTower(); 
-  let sx = width / 640;
-  let sy = height / 448;
+  sx = width / 640;
+  sy = height / 448;
   background(50,65,30);
  
   for (let x = 0; x < width; x += 20) {
@@ -56,9 +83,6 @@ function drawMap1() {
 }
 
 
- 
-  
-  
   
  let density = 35*sx; 
 
@@ -92,12 +116,6 @@ for (let y = 0; y < height; y += density) {
     image(bigTree, width - 60, y, 80*sx, 80*sy);
   }
 }
-  
-  
-  
-  
-  
-  
   
 
   for (let i = 0; i < 2; i++) {
@@ -140,33 +158,76 @@ for (let y = 0; y < height; y += density) {
 //image(bigTree, 200, 380, 85, 85);
 //image(bigTree, 450, 350, 90, 90);
 //image(bigTree, 520, 320, 100, 100);
+
+updateWaves('map1');
+updateEnemies();
+drawEnemies(sx, sy);
+
+if (playerHP <= 0) {
+  gameState = "gameover";
+}
+
 if (storeOpen) {
   drawStore();
 }
-fill("green");
-square(width - 61, 10, 50,)
-fill("white");
-text("BACK", width - 60, 40);
+
+drawStoreButton();
+
+fill(255);
+textSize(20);
+text("HP: " + playerHP, 20, 20);
+text("Wave: " + currentWave, 20, 50);
+
+if (!waveInProgress) {
+  text("Press SPACE to start wave", width / 2 - 120, 40);
+}
+
+// fill("green");
+// square(width - 61, 10, 50,)
+// fill("white");
+// textSize(17)
+// text("STORE", width - 61, 40);
+
+}
+
+function drawStoreButton() {
+  let btnX = width - 61;
+  let btnY = 10;
+  let btnSize = 50;
+
+  fill("green");
+  square(btnX, btnY, btnSize);
+
+  fill("white");
+  textSize(17);
+  text("STORE", btnX, btnY + 30);
 }
 
 function mousePressedMap1() {
-  if (storeMousePressed()) return;
+  let btnX = width - 61;
+  let btnY = 10;
+  let btnSize = 50;
 
-  if (mouseX > width - 60 && mouseX < width - 10 && mouseY > 10 && mouseY < 60) {
-    if (storeOpen == false) {
-      storeOpen = true;
-    } else {
-      storeOpen = false;
-    }
-    return;
+  square(btnX, btnY, btnSize);
+
+  if (
+    mouseX > btnX &&
+    mouseX < btnX + btnSize &&
+    mouseY > btnY &&
+    mouseY < btnY + btnSize
+  ) {
+    storeOpen = !storeOpen;
+    console.log("toggled store:", storeOpen);
   }
+  // if (mouseX > width - 60 && mouseX < width - 10 && mouseY > 10 && mouseY < 60) {
+  //   if (storeOpen == false) {
+  //     storeOpen = true
+  //     drawStore();
+  //   } else {
+  //     storeOpen = false
+  //   }
+  // }
 }
-
-function mouseReleased() {
-  storeMouseReleased(isValidPlacement);
-}
-
-
 
 function makeTransparentPath(img) {
   img.loadPixels();

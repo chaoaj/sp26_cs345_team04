@@ -19,6 +19,7 @@ function preload() {
   preloadMap1();
   // preloadMap3();
   loadGoblinSprites();
+  preloadStore();
   grassCardSprite1 = loadImage('map1/game_background_4.png');
   iceCardSprite2 = loadImage('map2/game_background_3.png');
   spriteSheetMap2 = loadImage("map2/tail_set_3.png");

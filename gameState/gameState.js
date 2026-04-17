@@ -4,12 +4,9 @@ let spriteSheetMap2;
 function setup() {
   createCanvas(windowWidth, windowHeight);
   textFont('Courier New'); 
-  //setupMap1();
+  setupMap1();
   setup_map2_1();
-  genStars();
-  setupStore();
-  
-  
+  genStars();  
 }
 
 function windowResized() {
@@ -17,12 +14,12 @@ function windowResized() {
 }
 
 function preload() {
-  //preloadMap1(); 
-  //grassCardSprite1 = loadImage('map1/game_background_4.png');
-  //iceCardSprite2 = loadImage('map2/game_background_3.png');
-  //spriteSheetMap2 = loadImage("map2/tail_set_3.png");
-
-  preloadStore();
+  preloadMap1();
+  // preloadMap3();
+  loadGoblinSprites();
+  grassCardSprite1 = loadImage('map1/game_background_4.png');
+  iceCardSprite2 = loadImage('map2/game_background_3.png');
+  spriteSheetMap2 = loadImage("map2/tail_set_3.png");
   
   // ice sprite
   // lava sprite
@@ -36,14 +33,14 @@ function draw() {
     drawSettings();
   }else if (gameState === 'levelSelect') {
     drawLevelSelect();
-  } else if (gameState === 'store') {
-    drawStore();
   } else if (gameState === 'map1') {
-    drawStore();
+    drawMap1();
   } else if (gameState === 'map2'){
-      drawMap2_1();
+    drawMap2_1();
   } else if (gameState === 'map3'){
-      //drawMap3();
+    drawMap3();
+  } else if (gameState === 'lore') {
+    drawLore();
   }
 }
 
@@ -58,40 +55,50 @@ function mousePressed() {
     mousePressedMap1();
   }
     else if (gameState === 'map2'){
-      // map 2
+      mousePressedMap2_1();
     }
     else if (gameState === 'map3'){
       // map 3
     }
 }
 
+function keyPressed() {
+  if (gameState === 'map1') {
+    if (key === ' ' && !waveInProgress) {
+      startWave();
+    }
+  }
+}
 
-// stars
+function switchToMap(mapName) {
+  resetEnemies();
+  resetWaves();
+  playerHP = 20;
+  storeOpen = false;
+  gameState = mapName;
+}
+// Stars
 let stars = [];
 
-function genStars(){
+function genStars() {
   for (let i = 0; i < 80; i++) {
     stars.push({ x: random(width), y: random(height), size: 3 });
   }
 }
 
-function drawStars(){
-
+function drawStars() {
   for (let s of stars) {
-    fill(255)
+    fill(255);
     noStroke();
     ellipse(s.x, s.y, s.size);
   }
 }
 
-function drawMoon(sx, sy){
+function drawMoon(sx, sy) {
   fill(210, 195, 142);
   stroke(210, 195, 142);
-  circle(690*sx, 50*sy, 50*sx);
+  circle(690 * sx, 50 * sy, 50 * sx);
   fill(0, 0, 30);
   stroke(0, 0, 30);
-  circle(700*sx, 40*sy, 50*sx);
-
-  console.log('drawing moon', sx, sy)
+  circle(700 * sx, 40 * sy, 50 * sx);
 }
-
