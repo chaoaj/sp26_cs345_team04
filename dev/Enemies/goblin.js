@@ -6,7 +6,7 @@ class Goblin {
     this.x = waypoints[mapName][0].x;
     this.y = waypoints[mapName][0].y;
 
-    this.speed = 10;
+    this.speed = 0.8;
     this.size = 40;
 
     this.alive = true;

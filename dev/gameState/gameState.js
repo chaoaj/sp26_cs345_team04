@@ -6,9 +6,8 @@ function setup() {
   textFont('Courier New'); 
   setupMap1();
   setup_map2_1();
+  setupStore();
   genStars();
-  
-  
 }
 
 function windowResized() {
@@ -77,10 +76,17 @@ function keyPressed() {
   }
 }
 
+function mouseReleased() {
+  if (gameState === 'map1') {
+    storeMouseReleased();
+  }
+}
+
 function switchToMap(mapName) {
   resetEnemies();
   resetWaves();
-  playerHP = 1;
+  clearTowers();
+  playerHP = 20;
   storeOpen = false;
   gameState = mapName;
 }
