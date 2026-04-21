@@ -72,7 +72,8 @@ function keyPressed() {
       startWave();
     }
   } if (gameState === 'gameover' && key === 'Escape') {
-    gameState = 'titleScreen';
+    switchToMap('map1')
+    
   }
 }
 

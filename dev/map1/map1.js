@@ -140,7 +140,7 @@ drawPlacedTowers();
 drawDraggingTower();
 
 if (playerHP <= 0) {
-  gameState = "gameover";
+  gameState = "gameover"
 }
 
 if (storeOpen) {
