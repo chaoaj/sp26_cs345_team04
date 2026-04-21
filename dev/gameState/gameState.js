@@ -1,4 +1,5 @@
 let gameState = 'titleScreen'
+let lastMap = ""
 let spriteSheetMap2; 
 
 function setup() {
@@ -37,10 +38,13 @@ function draw() {
     drawLevelSelect();
   } else if (gameState === 'map1') {
     drawMap1();
+    lastMap ="map1"
   } else if (gameState === 'map2'){
     drawMap2_1();
+    lastMap ="map2"
   } else if (gameState === 'map3'){
     drawMap3();
+    lastMap ="map3"
   } else if (gameState === 'lore') {
     drawLore();
   } else if (gameState === 'gameover') {
@@ -72,7 +76,7 @@ function keyPressed() {
       startWave();
     }
   } if (gameState === 'gameover' && key === 'Escape') {
-    switchToMap('map1')
+    switchToMap(lastMap)
     
   }
 }
