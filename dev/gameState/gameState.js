@@ -6,6 +6,7 @@ function setup() {
   textFont('Courier New'); 
   setupMap1();
   setup_map2_1();
+  setupMap3();
   setupStore();
   genStars();
 }
@@ -16,7 +17,7 @@ function windowResized() {
 
 function preload() {
   preloadMap1();
-  // preloadMap3();
+  preloadMap3();
   loadGoblinSprites();
   preloadStore();
   grassCardSprite1 = loadImage('map1/game_background_4.png');
