@@ -72,10 +72,22 @@ function storeMousePressed() {
 
   let storeX = width - 320;
   let slots = [
-    { lx: 10,  ly: 45, img: tower1, cost: 100, chainIndex: 0 },
-    { lx: 110, ly: 45, img: tower4, cost: 100, chainIndex: 1 },
-    { lx: 210, ly: 45, img: tower7, cost: 100, chainIndex: 2 },
-  ];
+  // Column 1
+  { lx: 10,  ly: 45,  img: tower1, cost: 100, chainIndex: 0 },
+  { lx: 10,  ly: 175, img: tower2, cost: 150, chainIndex: 0 },
+  { lx: 10,  ly: 325, img: tower3, cost: 200, chainIndex: 0 },
+
+  // Column 2
+  { lx: 110, ly: 45,  img: tower4, cost: 100, chainIndex: 1 },
+  { lx: 110, ly: 175, img: tower5, cost: 150, chainIndex: 1 },
+  { lx: 110, ly: 325, img: tower6, cost: 200, chainIndex: 1 },
+
+  // Column 3
+  { lx: 210, ly: 45,  img: tower7, cost: 100, chainIndex: 2 },
+  { lx: 210, ly: 175, img: tower8, cost: 150, chainIndex: 2 },
+  { lx: 210, ly: 325, img: tower9, cost: 200, chainIndex: 2 },
+];
+
 
   for (let s of slots) {
     let ax = storeX + s.lx;
