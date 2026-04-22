@@ -15,14 +15,30 @@ function drawStore() {
 
   // tier 1 of each chain
   image(tower1, 10,  45, 85, 85);
+  image(tower2, 10, 175, 85, 85);
+  image(tower3, 10, 325, 85, 85);
   image(tower4, 110, 45, 85, 85);
+  image(tower5, 110, 175, 85, 85);
+  image(tower6, 110, 325, 85, 85);
   image(tower7, 210, 45, 85, 85);
+  image(tower8, 210, 175, 85, 85);
+  image(tower9, 210, 325, 85, 85);
   
   fill('white');
   textSize(16);
   text("$100", 20,  140);
   text("$100", 120, 140);
   text("$100", 220, 140);
+
+  textSize(16);
+  text("$150", 20,  300);
+  text("$150", 120, 300);
+  text("$150", 220, 300);
+
+  textSize(16);
+  text("$200", 20,  450);
+  text("$200", 120, 450);
+  text("$200", 220, 450);
 
   pop();
 }
