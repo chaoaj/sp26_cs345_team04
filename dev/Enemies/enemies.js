@@ -6,8 +6,15 @@ function updateEnemies() {
   for (let i = enemies.length - 1; i >= 0; i--) {
     enemies[i].update();
 
+    // 💀 remove if dead
+    if (!enemies[i].alive) {
+      enemies.splice(i, 1);
+      continue;
+    }
+
+    // 🏁 reached end
     if (enemies[i].reachedEnd) {
-      playerHP = playerHP - 1;
+      playerHP -= 1;
       enemies.splice(i, 1);
     }
   }
