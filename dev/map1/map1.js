@@ -134,6 +134,7 @@ for (let y = 0; y < height; y += density) {
 //image(bigTree, 520, 320, 100, 100);
 
 updateWaves('map1');
+updateTowers();
 updateEnemies();
 drawEnemies(sx, sy);
 drawPlacedTowers();

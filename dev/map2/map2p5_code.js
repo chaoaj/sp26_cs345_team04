@@ -172,13 +172,6 @@ function autoCrop(img) {
 }
 
 
-
-
-
-
-
-
-
 function drawTrees() {
   let ts = 110;
   let density = 30;
