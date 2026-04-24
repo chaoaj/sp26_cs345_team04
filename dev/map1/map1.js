@@ -137,7 +137,8 @@ updateWaves('map1');
 updateTowers();
 updateEnemies();
 drawEnemies(sx, sy);
-drawPlacedTowers();
+drawPlacedTowersWithPlatforms();
+drawProjectiles();
 drawDraggingTower();
 
 if (playerHP <= 0) {

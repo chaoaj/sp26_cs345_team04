@@ -53,4 +53,60 @@ function preloadStore() {
   tower7 = loadImage("Towers/t7.png");
   tower8 = loadImage("Towers/t8.png");
   tower9 = loadImage("Towers/t9.png");
+
+  // platform tops
+  platformTop = [];
+  platformTop[0] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/1.png");  // chain 0 t1+t2
+  platformTop[1] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/1.png");
+  platformTop[2] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/4.png");  // chain 0 t3
+  platformTop[3] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/8.png");  // chain 1 t4+t5
+  platformTop[4] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/8.png");
+  platformTop[5] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/10.png"); // chain 1 t6
+  platformTop[6] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/20.png"); // chain 2 t7
+  platformTop[7] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/22.png"); // chain 2 t8
+  platformTop[8] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/18.png"); // chain 2 t9
+
+  // platform bottoms
+  platformBot = [];
+  platformBot[0] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/2.png");
+  platformBot[1] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/2.png");
+  platformBot[2] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/5.png");
+  platformBot[3] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/9.png");
+  platformBot[4] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/9.png");
+  platformBot[5] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/11.png");
+  platformBot[6] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/21.png");
+  platformBot[7] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/23.png");
+  platformBot[8] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/19.png");
+
+  // projectiles — in-flight
+  projFlight = [];
+  projFlight[0] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/40.png"); // chain 0
+  projFlight[1] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/35.png"); // chain 1
+  projFlight[2] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/29.png"); // chain 2
+
+  // projectiles — impact frames
+  projImpact = [
+    // chain 0: frames 41-44
+    [
+      loadImage("Sprites/Tower sprites/Stone Tower Assets/png/41.png"),
+      loadImage("Sprites/Tower sprites/Stone Tower Assets/png/42.png"),
+      loadImage("Sprites/Tower sprites/Stone Tower Assets/png/43.png"),
+      loadImage("Sprites/Tower sprites/Stone Tower Assets/png/44.png"),
+    ],
+    // chain 1: frames 36-39
+    [
+      loadImage("Sprites/Tower sprites/Stone Tower Assets/png/36.png"),
+      loadImage("Sprites/Tower sprites/Stone Tower Assets/png/37.png"),
+      loadImage("Sprites/Tower sprites/Stone Tower Assets/png/38.png"),
+      loadImage("Sprites/Tower sprites/Stone Tower Assets/png/39.png"),
+    ],
+    // chain 2: frames 30-34
+    [
+      loadImage("Sprites/Tower sprites/Stone Tower Assets/png/30.png"),
+      loadImage("Sprites/Tower sprites/Stone Tower Assets/png/31.png"),
+      loadImage("Sprites/Tower sprites/Stone Tower Assets/png/32.png"),
+      loadImage("Sprites/Tower sprites/Stone Tower Assets/png/33.png"),
+      loadImage("Sprites/Tower sprites/Stone Tower Assets/png/34.png"),
+    ],
+  ];
 }
