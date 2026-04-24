@@ -1,11 +1,14 @@
 function preloadMap3() {
-spriteSheetMap3 = loadImage("tail_set_1.png");
+spriteSheetMap3 = loadImage("map3/tail_set_1.png");
 }
-
+let spriteSheetMap3;
+let fire_corner1, fire_corner2, fire_corner3, fire_corner4;
+let fire_verticalPath, fire_horizontalPath, fire_mark;
+let fire_burnedHouse, fire_split, fire_largeCrack, fire_bigRock;
 let MAP_WIDTH = 710;
 let MAP_HEIGHT = 750;
 function setupMap3() {
-  createCanvas(windowWidth, windowHeight);
+  //createCanvas(windowWidth, windowHeight);
   fire_corner1 = spriteSheetMap3.get(70,64,220,215)
   fire_corner2 = spriteSheetMap3.get(300,64,200,215)
   fire_corner3 = spriteSheetMap3.get(70,290,215,215)
@@ -38,11 +41,12 @@ function drawMap3() {
   background(43, 27, 23);
 
   let s = min(width / MAP_WIDTH, height / MAP_HEIGHT);
-
+  let scaleX = width / MAP_WIDTH;
+  let scaleY = height / MAP_HEIGHT;
   push();
-  translate(width / 2, height / 2);
-  scale(s);
-  translate(-MAP_WIDTH / 2, -MAP_HEIGHT / 2);
+  //translate(width / 2, height / 2);
+  scale(scaleX, scaleY);
+  //translate(-MAP_WIDTH / 2, -MAP_HEIGHT / 2);
   drawMap3_1();
   pop();
 }

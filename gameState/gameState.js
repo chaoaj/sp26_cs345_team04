@@ -1,12 +1,21 @@
 let gameState = 'titleScreen'
+let lastMap = ""
 let spriteSheetMap2; 
+
+let titleMusic;
+let map1Music;
+let map2Music;
+let map3Music;
+let currentMusic = null;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   textFont('Courier New'); 
   setupMap1();
   setup_map2_1();
-  genStars();  
+  setupMap3();
+  setupStore();
+  genStars();
 }
 
 function windowResized() {
@@ -15,16 +24,21 @@ function windowResized() {
 
 function preload() {
   preloadMap1();
-  // preloadMap3();
+  preloadMap3();
   loadGoblinSprites();
+  preloadStore();
   grassCardSprite1 = loadImage('map1/game_background_4.png');
   iceCardSprite2 = loadImage('map2/game_background_3.png');
   spriteSheetMap2 = loadImage("map2/tail_set_3.png");
-  preloadStore();
-  preloadMap1();
+  lavaCardSprite = loadImage('map3/game_background_1.png');
   // ice sprite
   // lava sprite
-
+  
+  //This is for the music to funtion don't touch or I will get you
+  titleMusic = loadSound("Scores/Soul Odyssey.mp3");
+  map1Music = loadSound("Scores/Spring Blossoming.mp3");
+  map2Music = loadSound("Scores/Mentality.mp3");
+  map3Music = loadSound("Scores/Heating Up.mp3");
 }
 
 function draw() {
@@ -36,16 +50,26 @@ function draw() {
     drawLevelSelect();
   } else if (gameState === 'map1') {
     drawMap1();
+    lastMap ="map1"
   } else if (gameState === 'map2'){
     drawMap2_1();
+    lastMap ="map2"
   } else if (gameState === 'map3'){
     drawMap3();
+    lastMap ="map3"
   } else if (gameState === 'lore') {
     drawLore();
+  } else if (gameState === 'gameover') {
+    drawGameOver();
   }
 }
 
 function mousePressed() {
+  // This allows the music to play upon mouse interaction 
+  if (currentMusic === null) {
+    playMusic(titleMusic);
+  }
+  
   if (gameState === 'titleScreen'){
     mousePressedTitleScreen();
   } else if (gameState === 'settings'){
@@ -68,12 +92,22 @@ function keyPressed() {
     if (key === ' ' && !waveInProgress) {
       startWave();
     }
+  } if (gameState === 'gameover' && key === 'Escape') {
+    switchToMap(lastMap)
+    
+  }
+}
+
+function mouseReleased() {
+  if (gameState === 'map1') {
+    storeMouseReleased();
   }
 }
 
 function switchToMap(mapName) {
   resetEnemies();
   resetWaves();
+  clearTowers();
   playerHP = 20;
   storeOpen = false;
   gameState = mapName;
@@ -102,4 +136,13 @@ function drawMoon(sx, sy) {
   fill(0, 0, 30);
   stroke(0, 0, 30);
   circle(700 * sx, 40 * sy, 50 * sx);
+}
+
+function playMusic(song) {
+  if (currentMusic !== song) {
+    if (currentMusic) currentMusic.stop();
+    currentMusic = song;
+    currentMusic.setVolume(0.5);
+    currentMusic.loop();
+  }
 }

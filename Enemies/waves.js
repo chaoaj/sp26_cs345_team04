@@ -26,7 +26,11 @@ function updateWaves(mapName) {
 
   if (enemiesToSpawn === 0 && enemies.length === 0) {
     waveInProgress = false;
+    if (autoStart) {
+      startWave();
+    }
   }
+  
 }
 
 function spawnEnemy(mapName) {

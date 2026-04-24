@@ -6,11 +6,15 @@ class Goblin {
     this.x = waypoints[mapName][0].x;
     this.y = waypoints[mapName][0].y;
 
-    this.speed = 0.8;
+    this.speed = 1;
     this.size = 40;
 
     this.alive = true;
     this.reachedEnd = false;
+
+    // HP
+    this.maxHp = 100;
+    this.hp = this.maxHp;
 
     // animation
     this.frame = 0;
@@ -19,13 +23,10 @@ class Goblin {
     this.maxFrames = 6;
 
     // direction
-    this.facingRight = true;
     this.lastDir = "S";
   }
 
   update() {
-    let prevX = this.x;
-
     if (!this.alive || this.reachedEnd) return;
 
     let pts = waypoints[this.mapName];
@@ -40,31 +41,18 @@ class Goblin {
     let dx = target.x - this.x;
     let dy = target.y - this.y;
 
+    this.facingRight = dx > 0;
+
     let dist = sqrt(dx * dx + dy * dy);
 
-    // movement direction
     // direction logic
-if (Math.abs(dx) > Math.abs(dy)) {
-  // horizontal movement
-  this.lastDir = "S";
-  this.facingRight = dx > 0;
-} else {
-  // vertical movement
-  if (dy < 0) this.lastDir = "U";
-  else this.lastDir = "D";
-}
+    if (abs(dx) > abs(dy)) {
+      this.lastDir = "S";
+    } else {
+      this.lastDir = dy < 0 ? "U" : "D";
+    }
 
-let movingRight = this.x > prevX;
-
-if (Math.abs(dx) > Math.abs(dy)) {
-  this.lastDir = "S";
-  this.facingRight = movingRight;
-} else {
-  if (dy < 0) this.lastDir = "U";
-  else this.lastDir = "D";
-}
-
-    // move
+    // movement
     if (dist < this.speed) {
       this.x = target.x;
       this.y = target.y;
@@ -74,18 +62,18 @@ if (Math.abs(dx) > Math.abs(dy)) {
       this.y += (dy / dist) * this.speed;
     }
 
-    // animation only when moving
+    // animation
     if (dist > 0.1) {
       this.frameTimer += this.frameSpeed;
 
       if (this.frameTimer >= 1) {
         this.frameTimer = 0;
         this.frame = (this.frame + 1) % this.maxFrames;
-    } 
+      }
     }
   }
 
-  draw(sx, sy) {
+ draw(sx, sy) {
   if (!this.alive) return;
 
   imageMode(CENTER);
@@ -93,21 +81,17 @@ if (Math.abs(dx) > Math.abs(dy)) {
   let key = `goblin/${this.lastDir}_walk.png`;
   let img = goblinSprites[key];
 
-  if (!img) return;
-
-  let frameW = img.width / this.maxFrames;
-  let frameH = img.height;
-
   let s = (sx + sy) / 2;
 
   let x = this.x * sx;
   let y = this.y * sy;
 
   push();
+
   translate(x, y);
 
-  if (this.facingRight === false) {
-  scale(-1, 1);
+  if (this.facingRight) {
+    scale(-1, 1);
   }
 
   image(
@@ -116,13 +100,27 @@ if (Math.abs(dx) > Math.abs(dy)) {
     0,
     this.size * s,
     this.size * s,
-    this.frame * frameW,
+    this.frame * (img.width / this.maxFrames),
     0,
-    frameW,
-    frameH
+    img.width / this.maxFrames,
+    img.height
   );
 
   pop();
+
+  // ───────────── HEALTH BAR ─────────────
+  let barW = this.size * sx;
+  let barH = 6 * sy;
+
+  let hpPercent = this.hp / this.maxHp;
+
+  // background
+  fill(80, 0, 0);
+  rect(x - barW / 2, y - this.size * sy / 2 - 12, barW, barH);
+
+  // fill
+  fill(0, 200, 0);
+  rect(x - barW / 2, y - this.size * sy / 2 - 12, barW * hpPercent, barH);
 }
 }
 

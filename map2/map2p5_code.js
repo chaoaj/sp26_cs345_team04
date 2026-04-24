@@ -26,7 +26,7 @@ makeTransparentPath(iceThing);
 }
 
 let baseW = 640;
-let baseH = 448;
+let baseH = 640;
 
 function drawMap2_1() {
   let scaleX = windowWidth / baseW;
@@ -34,38 +34,39 @@ function drawMap2_1() {
   let s = min(scaleX, scaleY);
   background(85, 105, 160);
   push();
-  translate(windowWidth / 2, windowHeight / 2);
-  scale(s);
-  translate(-baseW / 2, -baseH / 2);
+  //translate(windowWidth / 2, windowHeight / 2);
+  scale(scaleX, scaleY);
+  //translate(-baseW / 2, -baseH / 2);
   drawMap2(); 
   pop();
 }
 
 function drawMap2() {
+  let yOffset = 90;
   fill(85, 105, 160);
   noStroke();
   rect(0, 0, baseW, baseH);
   drawTrees()
-  image(horizontalPath,-10,5,110,70);
-  image(horizontalPath,-10,300,110,70);
-  image(horizontalPath,278,5,105,70);
-  image(horizontalPath,274,300,105,73);
-  image(verticalPath,400,75,70,250);
-  image(corner2,374,5,85,100);
-  image(corner4,374,275,85,100);
-  image(corner2,95,300,75,100)
-  image(corner3,123,387,75,100)
-  image(corner4,190,387,75,100)
-  image(corner1,217,300,75,100)
-  image(corner4,95,-20,75,100)
-  image(corner1,123,-110,75,100)
-  image(corner2,193,-110,75,100)
-  image(corner3,221.5,-22,75,100)
-  image(horizontalPath,437,125,300,70);
-  image(lake,120,120,200,200)
-  image(tree,560,490,100,100)
-  image(iceThing,430,-50,100,100)
-  image(iceThing,35,400,100,100)
+  image(horizontalPath,-10,5 + yOffset,110,70);
+  image(horizontalPath,-10,300+ yOffset,110,70);
+  image(horizontalPath,278,5 + yOffset,105,70);
+  image(horizontalPath,274,300+yOffset,105,73);
+  image(verticalPath,400,75+yOffset,70,250);
+  image(corner2,374,5+yOffset,85,100);
+  image(corner4,374,275+yOffset,85,100);
+  image(corner2,95,300+yOffset,75,100)
+  image(corner3,123,387+yOffset,75,100)
+  image(corner4,190,387+yOffset,75,100)
+  image(corner1,217,300+yOffset,75,100)
+  image(corner4,95,-20+yOffset,75,100)
+  image(corner1,123,-110+yOffset,75,100)
+  image(corner2,193,-110+yOffset,75,100)
+  image(corner3,221.5,-22+yOffset,75,100)
+  image(horizontalPath,437,125+yOffset,300,70);
+  image(lake,120,120+yOffset,200,200)
+  image(tree,560,490+yOffset,100,100)
+  image(iceThing,430,-50+yOffset,100,100)
+  image(iceThing,35,400+yOffset,100,100)
 }
 
 function mousePressedMap2_1() {
@@ -169,13 +170,6 @@ function autoCrop(img) {
   }
   return img.get(minX, minY, maxX - minX + 1, maxY - minY + 1);
 }
-
-
-
-
-
-
-
 
 
 function drawTrees() {

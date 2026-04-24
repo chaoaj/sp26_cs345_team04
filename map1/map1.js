@@ -15,17 +15,6 @@ spriteSheet2 = loadImage("map1/game_background_4.png");
 
 }
 
-function preloadStore() {
-  tower1 = loadImage('Towers/t1.png');
-  tower2 = loadImage('Towers/t2.png');
-  tower3 = loadImage('Towers/t3.png');
-  tower4 = loadImage('Towers/t4.png');
-  tower5 = loadImage('Towers/t5.png');
-  tower6 = loadImage('Towers/t6.png');
-  tower7 = loadImage('Towers/t7.png');
-  tower8 = loadImage('Towers/t8.png');
-  tower9 = loadImage('Towers/17.png');
-}
 
 function setupMap1() {
 grass_horizontalPath = grass_spriteSheet.get(70, 410, 150, 100);       
@@ -53,21 +42,6 @@ house = autoCrop(house);
 bigTree = autoCrop(bigTree);
 grass = autoCrop(grass)
 
-}
-
-
-// function drawStore() {
-//   rect(width - 350, 0, 350, height);
-// }
-
-function drawStore() {
-  fill("gray")
-  rect(width - 350, 0, 350, height);
-
-  fill("white");
-  square(width - 340, 10, 50);
-  fill("black")
-  text("level", width - 340, 40)
 }
 
 
@@ -160,11 +134,15 @@ for (let y = 0; y < height; y += density) {
 //image(bigTree, 520, 320, 100, 100);
 
 updateWaves('map1');
+updateTowers();
 updateEnemies();
 drawEnemies(sx, sy);
+drawPlacedTowersWithPlatforms();
+drawProjectiles();
+drawDraggingTower();
 
 if (playerHP <= 0) {
-  gameState = "gameover";
+  gameState = "gameover"
 }
 
 if (storeOpen) {
@@ -227,6 +205,7 @@ function mousePressedMap1() {
   //     storeOpen = false
   //   }
   // }
+  storeMousePressed();
 }
 
 function makeTransparentPath(img) {
