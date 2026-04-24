@@ -123,6 +123,7 @@ function mousePressedLevelSelect() {
 
   // back button
   if (mouseX > width/2 - 66*sy && mouseX < width/2 + 66*sy && mouseY > height - 60*sy && mouseY < height - 28*sy) {
+    playMusic(titleMusic);
     gameState = 'titleScreen';
     return;
   }
@@ -133,6 +134,7 @@ function mousePressedLevelSelect() {
   let grassw = 150*sy;
   let grassh = 210*sy;
   if (mouseX > grassx - grassw/2 && mouseX < grassx + grassw/2 && mouseY > grassy && mouseY < grassy + grassh) {
+    playMusic(map1Music);
     switchToMap('map1');
     return;
   }
@@ -143,6 +145,7 @@ function mousePressedLevelSelect() {
   let icew = 164*sy;
   let iceh = 224*sy;
   if (mouseX > icex - icew/2 && mouseX < icex + icew/2 && mouseY > icey && mouseY < icey + iceh) {
+    playMusic(map2Music);
     switchToMap('map2');
     return;
   }
@@ -153,6 +156,7 @@ function mousePressedLevelSelect() {
   let lavaw = 150*sy;
   let lavah = 210*sy;
   if (mouseX > lavax - lavaw/2 && mouseX < lavax + lavaw/2 && mouseY > lavay && mouseY < lavay + lavah) {
+    playMusic(map3Music);
     switchToMap('map3');
     return;
   }

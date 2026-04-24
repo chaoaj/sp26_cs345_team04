@@ -2,6 +2,12 @@ let gameState = 'titleScreen'
 let lastMap = ""
 let spriteSheetMap2; 
 
+let titleMusic;
+let map1Music;
+let map2Music;
+let map3Music;
+let currentMusic = null;
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   textFont('Courier New'); 
@@ -27,7 +33,12 @@ function preload() {
   lavaCardSprite = loadImage('map3/game_background_1.png');
   // ice sprite
   // lava sprite
-
+  
+  //This is for the music to funtion don't touch or I will get you
+  titleMusic = loadSound("Scores/Soul Odyssey.mp3");
+  map1Music = loadSound("Scores/Spring Blossoming.mp3");
+  map2Music = loadSound("Scores/Mentality.mp3");
+  map3Music = loadSound("Scores/Heating Up.mp3");
 }
 
 function draw() {
@@ -54,6 +65,11 @@ function draw() {
 }
 
 function mousePressed() {
+  // This allows the music to play upon mouse interaction 
+  if (currentMusic === null) {
+    playMusic(titleMusic);
+  }
+  
   if (gameState === 'titleScreen'){
     mousePressedTitleScreen();
   } else if (gameState === 'settings'){
@@ -120,4 +136,13 @@ function drawMoon(sx, sy) {
   fill(0, 0, 30);
   stroke(0, 0, 30);
   circle(700 * sx, 40 * sy, 50 * sx);
+}
+
+function playMusic(song) {
+  if (currentMusic !== song) {
+    if (currentMusic) currentMusic.stop();
+    currentMusic = song;
+    currentMusic.setVolume(0.5);
+    currentMusic.loop();
+  }
 }

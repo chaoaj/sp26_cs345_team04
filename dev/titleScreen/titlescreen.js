@@ -110,4 +110,11 @@ function mousePressedTitleScreen(){
     gameState = 'lore';
     return;
   }
+
+  if (mouseX > 280*sx && mouseX < 455*sx && mouseY > 170*sy && mouseY < 210*sy) {
+  playMusic(titleMusic); //This will start the music guys touch it and I'll get you
+  gameState = 'levelSelect';
+  return;
+  }
+
 }
