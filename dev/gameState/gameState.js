@@ -7,6 +7,7 @@ let map1Music;
 let map2Music;
 let map3Music;
 let currentMusic = null;
+let buttonColor = ""
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -51,12 +52,15 @@ function draw() {
   } else if (gameState === 'map1') {
     drawMap1();
     lastMap ="map1"
+    buttonColor = "green"
   } else if (gameState === 'map2'){
     drawMap2_1();
     lastMap ="map2"
+    buttonColor = "lightblue"
   } else if (gameState === 'map3'){
     drawMap3();
     lastMap ="map3"
+    buttonColor = "darkorange"
   } else if (gameState === 'lore') {
     drawLore();
   } else if (gameState === 'gameover') {
@@ -83,7 +87,7 @@ function mousePressed() {
       mousePressedMap2_1();
     }
     else if (gameState === 'map3'){
-      // map 3
+      mousePressedMap3_1()
     }
 }
 

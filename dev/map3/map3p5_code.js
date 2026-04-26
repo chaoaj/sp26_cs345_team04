@@ -49,6 +49,11 @@ function drawMap3() {
   //translate(-MAP_WIDTH / 2, -MAP_HEIGHT / 2);
   drawMap3_1();
   pop();
+  if(storeOpen) {
+    drawStore();
+  }
+  fill(buttonColor)
+  rect(width - 60, 10, 50)
 }
 
 function drawMap3_1() {
@@ -75,6 +80,30 @@ function drawMap3_1() {
   image(fire_mark, 900, 320, 60, 50); 
   image(fire_mark, 380, 650, 60, 50); 
   image(fire_mark, 1100, 700, 60, 50);
+}
+
+function mousePressedMap3_1() {
+  let btnX = width - 61;
+  let btnY = 10;
+  let btnSize = 50;
+
+  square(btnX, btnY, btnSize);
+
+  
+
+  if (
+    mouseX > btnX &&
+    mouseX < btnX + btnSize &&
+    mouseY > btnY &&
+    mouseY < btnY + btnSize
+  ) {
+    storeOpen = !storeOpen;
+    console.log("toggled store:", storeOpen);
+  }
+
+  
+  
+  storeMousePressed();
 }
 
 function cleanDecor(img) {

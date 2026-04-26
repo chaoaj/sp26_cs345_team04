@@ -188,6 +188,8 @@ function mousePressedMap1() {
 
   square(btnX, btnY, btnSize);
 
+  
+
   if (
     mouseX > btnX &&
     mouseX < btnX + btnSize &&
@@ -197,14 +199,9 @@ function mousePressedMap1() {
     storeOpen = !storeOpen;
     console.log("toggled store:", storeOpen);
   }
-  // if (mouseX > width - 60 && mouseX < width - 10 && mouseY > 10 && mouseY < 60) {
-  //   if (storeOpen == false) {
-  //     storeOpen = true
-  //     drawStore();
-  //   } else {
-  //     storeOpen = false
-  //   }
-  // }
+
+  
+  
   storeMousePressed();
 }
 

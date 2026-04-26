@@ -6,6 +6,7 @@ function drawStore() {
   push();
   fill(0, 0, 0, 200);
   rect(width - 320, 0, 320, height);
+
   
   translate(width - 320, 0);
   textFont('Courier New');
@@ -40,6 +41,8 @@ function drawStore() {
   text("$200", 120, 450);
   text("$200", 220, 450);
 
+  fill(buttonColor);
+  rect(260, height - 60, 50);
   pop();
 }
 

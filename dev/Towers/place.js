@@ -61,6 +61,7 @@ function distToSegment(px, py, ax, ay, bx, by) {
 }
 
 function storeMousePressed() {
+
   for (let t of placedTowers) {
     if (dist(mouseX, mouseY, t.x, t.y) < 42) {
       selectedTower = (selectedTower === t) ? null : t;
@@ -68,25 +69,39 @@ function storeMousePressed() {
     }
   }
 
+  if (storeOpen) {
+    let lvlBtnX = width - 60;
+    let lvlBtnY = height - 60;
+    if (mouseX > lvlBtnX &&
+      mouseX < lvlBtnX + 50 &&
+      mouseY > lvlBtnY &&
+      mouseY < lvlBtnY + 50) {
+
+      gameState = 'levelSelect';
+
+      return
+    }
+  }
+
   if (!storeOpen) return;
 
   let storeX = width - 320;
   let slots = [
-  // Column 1
-  { lx: 10,  ly: 45,  img: tower1, cost: 100, chainIndex: 0 },
-  { lx: 10,  ly: 175, img: tower2, cost: 150, chainIndex: 0 },
-  { lx: 10,  ly: 325, img: tower3, cost: 200, chainIndex: 0 },
+    // Column 1
+    { lx: 10, ly: 45, img: tower1, cost: 100, chainIndex: 0 },
+    { lx: 10, ly: 175, img: tower2, cost: 150, chainIndex: 0 },
+    { lx: 10, ly: 325, img: tower3, cost: 200, chainIndex: 0 },
 
-  // Column 2
-  { lx: 110, ly: 45,  img: tower4, cost: 100, chainIndex: 1 },
-  { lx: 110, ly: 175, img: tower5, cost: 150, chainIndex: 1 },
-  { lx: 110, ly: 325, img: tower6, cost: 200, chainIndex: 1 },
+    // Column 2
+    { lx: 110, ly: 45, img: tower4, cost: 100, chainIndex: 1 },
+    { lx: 110, ly: 175, img: tower5, cost: 150, chainIndex: 1 },
+    { lx: 110, ly: 325, img: tower6, cost: 200, chainIndex: 1 },
 
-  // Column 3
-  { lx: 210, ly: 45,  img: tower7, cost: 100, chainIndex: 2 },
-  { lx: 210, ly: 175, img: tower8, cost: 150, chainIndex: 2 },
-  { lx: 210, ly: 325, img: tower9, cost: 200, chainIndex: 2 },
-];
+    // Column 3
+    { lx: 210, ly: 45, img: tower7, cost: 100, chainIndex: 2 },
+    { lx: 210, ly: 175, img: tower8, cost: 150, chainIndex: 2 },
+    { lx: 210, ly: 325, img: tower9, cost: 200, chainIndex: 2 },
+  ];
 
 
   for (let s of slots) {
