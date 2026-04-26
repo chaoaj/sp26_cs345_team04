@@ -173,7 +173,7 @@ function drawStoreButton() {
   let btnY = 10;
   let btnSize = 50;
 
-  fill("green");
+  fill(buttonColor);
   square(btnX, btnY, btnSize);
 
   fill("white");

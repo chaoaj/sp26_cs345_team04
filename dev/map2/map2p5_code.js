@@ -44,7 +44,7 @@ function drawMap2_1() {
     drawStore();
   }
   fill(buttonColor)
-  rect(width - 60, 10, 50)
+  drawStoreButton()
 }
 
 

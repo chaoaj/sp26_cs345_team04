@@ -52,8 +52,7 @@ function drawMap3() {
   if(storeOpen) {
     drawStore();
   }
-  fill(buttonColor)
-  rect(width - 60, 10, 50)
+  drawStoreButton()
 }
 
 function drawMap3_1() {
