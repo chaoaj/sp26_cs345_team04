@@ -202,7 +202,7 @@ function drawTrees() {
 
   // TOP EDGE
   for (let x = 0; x < baseW; x += density) {
-    let nearLeftLoop = (x > 100 && x < 310);  
+    let nearLeftLoop = (x > 80 && x < 270);  
     let nearStore = (x > 550);
     if (!nearLeftLoop && !nearStore) {
       image(tree, x, 0, ts, ts);
@@ -219,7 +219,7 @@ function drawTrees() {
     let nearTopEntrance    = (y > 30 && y < 160);
     let nearBottomEntrance = (y > 350 && y < 460); 
     if (!nearTopEntrance && !nearBottomEntrance) {
-      image(tree, 0, y, ts, ts);
+      image(tree, -30, y, ts, ts);
     }
   }
 

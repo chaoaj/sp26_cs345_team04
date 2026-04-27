@@ -160,11 +160,7 @@ if (!waveInProgress) {
   text("Press SPACE to start wave", width / 2 - 120, 40);
 }
 
-// fill("green");
-// square(width - 61, 10, 50,)
-// fill("white");
-// textSize(17)
-// text("STORE", width - 61, 40);
+
 
 }
 
