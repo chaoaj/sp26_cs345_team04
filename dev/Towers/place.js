@@ -16,6 +16,10 @@ function storeMouseReleased() {
   if (!draggingTower) return;
 
   if (isValidPlacement(mouseX, mouseY)) {
+    if (!spendMoney(draggingTower.cost)) {
+      draggingTower = null;
+      return;
+    }
     placedTowers.push({
       img: draggingTower.img,
       x: mouseX,
@@ -110,6 +114,11 @@ function storeMousePressed() {
     let ax = storeX + s.lx;
     let ay = s.ly;
     if (mouseX > ax && mouseX < ax + 85 && mouseY > ay && mouseY < ay + 85) {
+
+      if (!canAfford(s.cost)) {
+        console.log("Not enough money!");
+        return;
+      }
       draggingTower = { img: s.img, cost: s.cost, chainIndex: s.chainIndex };
       return;
     }

@@ -155,6 +155,7 @@ fill(255);
 textSize(20);
 text("HP: " + playerHP, 20, 20);
 text("Wave: " + currentWave, 20, 50);
+text("Money: $" + money, 20, 80);
 
 if (!waveInProgress) {
   text("Press SPACE to start wave", width / 2 - 120, 40);

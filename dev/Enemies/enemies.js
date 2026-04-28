@@ -8,6 +8,7 @@ function updateEnemies() {
 
     // 💀 remove if dead
     if (!enemies[i].alive) {
+      earnMoney(50); 
       enemies.splice(i, 1);
       continue;
     }
