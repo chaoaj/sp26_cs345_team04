@@ -36,6 +36,8 @@ function drawMap2_1() {
   push();
   //translate(windowWidth / 2, windowHeight / 2);
   scale(scaleX, scaleY);
+  drawPlacedTowers();
+  drawDraggingTower();
   //translate(-baseW / 2, -baseH / 2);
   drawMap2(); 
   pop();
@@ -45,6 +47,9 @@ function drawMap2_1() {
   }
   fill(buttonColor)
   drawStoreButton()
+
+  drawPlacedTowers();
+  drawDraggingTower();
 }
 
 
@@ -98,6 +103,10 @@ function mousePressedMap2_1() {
   
   
   storeMousePressed();
+}
+
+function mouseReleased() {
+  storeMouseReleased();
 }
 
 function makeTransparentPath(img) {

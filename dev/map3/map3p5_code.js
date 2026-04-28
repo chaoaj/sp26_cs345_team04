@@ -46,6 +46,8 @@ function drawMap3() {
   push();
   //translate(width / 2, height / 2);
   scale(scaleX, scaleY);
+  drawPlacedTowers();
+  drawDraggingTower();
   //translate(-MAP_WIDTH / 2, -MAP_HEIGHT / 2);
   drawMap3_1();
   pop();
@@ -53,6 +55,9 @@ function drawMap3() {
     drawStore();
   }
   drawStoreButton()
+
+  drawPlacedTowers();
+  drawDraggingTower();
 }
 
 function drawMap3_1() {
@@ -103,6 +108,10 @@ function mousePressedMap3_1() {
   
   
   storeMousePressed();
+}
+
+function mouseReleased3() {
+  storeMouseReleased();
 }
 
 function cleanDecor(img) {

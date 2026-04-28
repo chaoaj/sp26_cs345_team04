@@ -45,6 +45,8 @@ function isValidPlacement(x, y) {
     if (d < 40 * sx) return false;
   }
 
+
+
   if (x > 25 * sx && x < 175 * sx && y > 25 * sy && y < 175 * sy) return false;
 
   return true;
