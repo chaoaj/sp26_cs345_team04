@@ -68,6 +68,13 @@ function drawMap3() {
 
   drawPlacedTowers();
   drawDraggingTower();
+  updateWaves('map3');
+  updateEnemies();          
+  drawEnemies(scaleX, scaleY); 
+  updateTowers();           
+  drawPlacedTowersWithPlatforms(); 
+  drawProjectiles();       
+  drawDraggingTower();     
 }
 
 function drawMap3_1() {

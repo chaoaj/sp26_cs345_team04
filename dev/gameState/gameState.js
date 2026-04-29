@@ -99,6 +99,10 @@ function keyPressed() {
   } if (gameState === 'gameover' && key === 'Escape') {
     switchToMap(lastMap)
     
+  } if(gameState ==="map3"){
+    if (key === ' ' && !waveInProgress) {
+      startWave();
+    }
   }
 }
 
