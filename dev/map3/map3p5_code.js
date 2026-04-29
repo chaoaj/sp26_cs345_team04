@@ -41,14 +41,11 @@ function drawMap3() {
   background(43, 27, 23);
 
   let s = min(width / MAP_WIDTH, height / MAP_HEIGHT);
-  let scaleX = width / MAP_WIDTH;
-  let scaleY = height / MAP_HEIGHT;
+  sx = width / MAP_WIDTH;
+  sy = height / MAP_HEIGHT;
   push();
   //translate(width / 2, height / 2);
-  scale(scaleX, scaleY);
-  drawPlacedTowers();
-  drawDraggingTower();
-  //translate(-MAP_WIDTH / 2, -MAP_HEIGHT / 2);
+  scale(sx, sy);
   drawMap3_1();
   pop();
   if(storeOpen) {
@@ -66,11 +63,9 @@ function drawMap3() {
     text("Press SPACE to start wave", width / 2 - 120, 40);
   }
 
-  drawPlacedTowers();
-  drawDraggingTower();
   updateWaves('map3');
   updateEnemies();          
-  drawEnemies(scaleX, scaleY); 
+  drawEnemies(sx, sy); 
   updateTowers();           
   drawPlacedTowersWithPlatforms(); 
   drawProjectiles();       
