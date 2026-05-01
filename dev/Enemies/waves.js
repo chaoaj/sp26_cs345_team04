@@ -22,6 +22,12 @@ function startWave() {
   }
 }
 
+function RewardPlayer() {
+  let basereward = 50;
+  let waveBonus = currentWave * 10;
+  money += basereward + waveBonus;
+}
+
 function updateWaves(mapName) {
   if (!waveInProgress) return;
 
@@ -45,6 +51,9 @@ function updateWaves(mapName) {
 
   if (enemiesToSpawn === 0 && magesToSpawn === 0 && enemies.length === 0) {
     waveInProgress = false;
+    
+    RewardPlayer();
+    
     if (autoStart) {
       startWave();
     }

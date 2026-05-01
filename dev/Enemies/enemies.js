@@ -12,7 +12,7 @@ function updateEnemies() {
       if (enemies[i] instanceof Rat) {
         earnMoney(15);
       } else {
-        earnMoney(50);
+        earnMoney(25);
       }
       enemies.splice(i, 1);
       continue;
