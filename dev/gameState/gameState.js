@@ -103,6 +103,10 @@ function keyPressed() {
     if (key === ' ' && !waveInProgress) {
       startWave();
     }
+  } if (gameState === "map2"){
+    if (key === ' ' && !waveInProgress) {
+      startWave();
+    }
   }
 }
 

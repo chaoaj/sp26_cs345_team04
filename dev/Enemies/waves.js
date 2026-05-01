@@ -57,6 +57,9 @@ function spawnEnemy(mapName) {
     // ONLY map3 gets the split path logic
     let path = (enemies.length % 2 === 0) ? 'map3_path1' : 'map3_path2';
     enemies.push(new Goblin(path));
+  } else  if( mapName === 'map2'){
+    let path = (enemies.length % 2 === 0) ? 'map2_path1' : 'map2_path2';
+    enemies.push(new Goblin(path));
   } else {
     // map1, map2, and any future maps go here — unchanged
     enemies.push(new Goblin(mapName));

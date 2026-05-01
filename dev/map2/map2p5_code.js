@@ -57,9 +57,15 @@ function drawMap2_1() {
   if (!waveInProgress) {
     text("Press SPACE to start wave", width / 2 - 120, 40);
   }
-
+  updateWaves('map2');
   drawPlacedTowers();
   drawDraggingTower();
+  updateEnemies();
+  drawEnemies(scaleX, scaleY); 
+  updateTowers();           
+  drawPlacedTowersWithPlatforms(); 
+  drawProjectiles();       
+  drawDraggingTower();    
 }
 
 
