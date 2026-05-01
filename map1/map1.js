@@ -155,16 +155,13 @@ fill(255);
 textSize(20);
 text("HP: " + playerHP, 20, 20);
 text("Wave: " + currentWave, 20, 50);
+text("Money: $" + money, 20, 80);
 
 if (!waveInProgress) {
   text("Press SPACE to start wave", width / 2 - 120, 40);
 }
 
-// fill("green");
-// square(width - 61, 10, 50,)
-// fill("white");
-// textSize(17)
-// text("STORE", width - 61, 40);
+
 
 }
 
@@ -173,7 +170,7 @@ function drawStoreButton() {
   let btnY = 10;
   let btnSize = 50;
 
-  fill("green");
+  fill(buttonColor);
   square(btnX, btnY, btnSize);
 
   fill("white");
@@ -188,6 +185,8 @@ function mousePressedMap1() {
 
   square(btnX, btnY, btnSize);
 
+  
+
   if (
     mouseX > btnX &&
     mouseX < btnX + btnSize &&
@@ -197,14 +196,9 @@ function mousePressedMap1() {
     storeOpen = !storeOpen;
     console.log("toggled store:", storeOpen);
   }
-  // if (mouseX > width - 60 && mouseX < width - 10 && mouseY > 10 && mouseY < 60) {
-  //   if (storeOpen == false) {
-  //     storeOpen = true
-  //     drawStore();
-  //   } else {
-  //     storeOpen = false
-  //   }
-  // }
+
+  
+  
   storeMousePressed();
 }
 

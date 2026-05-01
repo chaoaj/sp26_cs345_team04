@@ -2,22 +2,32 @@ let playerHP = 20;
 
 let enemies = [];
 
+let enemiesToAdd = [];
+
 function updateEnemies() {
   for (let i = enemies.length - 1; i >= 0; i--) {
     enemies[i].update();
 
-    // 💀 remove if dead
     if (!enemies[i].alive) {
+      if (enemies[i] instanceof Rat) {
+        earnMoney(15);
+      } else {
+        earnMoney(50);
+      }
       enemies.splice(i, 1);
       continue;
     }
 
-    // 🏁 reached end
     if (enemies[i].reachedEnd) {
       playerHP -= 1;
       enemies.splice(i, 1);
     }
   }
+
+  for (let e of enemiesToAdd) {
+    enemies.push(e);
+  }
+  enemiesToAdd = [];
 }
 
 function drawEnemies(sx, sy) {
@@ -32,4 +42,5 @@ function drawEnemies(sx, sy) {
 
 function resetEnemies() {
   enemies = [];
+  enemiesToAdd = [];
 }

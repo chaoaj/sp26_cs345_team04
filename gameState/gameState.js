@@ -7,6 +7,7 @@ let map1Music;
 let map2Music;
 let map3Music;
 let currentMusic = null;
+let buttonColor = ""
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -26,13 +27,13 @@ function preload() {
   preloadMap1();
   preloadMap3();
   loadGoblinSprites();
+  loadMageSprites();
+  loadRatSprites();
   preloadStore();
   grassCardSprite1 = loadImage('map1/game_background_4.png');
   iceCardSprite2 = loadImage('map2/game_background_3.png');
   spriteSheetMap2 = loadImage("map2/tail_set_3.png");
   lavaCardSprite = loadImage('map3/game_background_1.png');
-  // ice sprite
-  // lava sprite
   
   //This is for the music to funtion don't touch or I will get you
   titleMusic = loadSound("Scores/Soul Odyssey.mp3");
@@ -51,12 +52,15 @@ function draw() {
   } else if (gameState === 'map1') {
     drawMap1();
     lastMap ="map1"
+    buttonColor = "green"
   } else if (gameState === 'map2'){
     drawMap2_1();
     lastMap ="map2"
+    buttonColor = "lightblue"
   } else if (gameState === 'map3'){
     drawMap3();
     lastMap ="map3"
+    buttonColor = "darkorange"
   } else if (gameState === 'lore') {
     drawLore();
   } else if (gameState === 'gameover') {
@@ -83,7 +87,7 @@ function mousePressed() {
       mousePressedMap2_1();
     }
     else if (gameState === 'map3'){
-      // map 3
+      mousePressedMap3_1()
     }
 }
 
@@ -95,6 +99,14 @@ function keyPressed() {
   } if (gameState === 'gameover' && key === 'Escape') {
     switchToMap(lastMap)
     
+  } if(gameState ==="map3"){
+    if (key === ' ' && !waveInProgress) {
+      startWave();
+    }
+  } if (gameState === "map2"){
+    if (key === ' ' && !waveInProgress) {
+      startWave();
+    }
   }
 }
 

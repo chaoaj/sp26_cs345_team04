@@ -8,8 +8,8 @@ const PLATFORM_FALL_SPEED    = 1;    // px per frame coming back down
 
 
 function updateTowers() {
-  let sx = width / 640;
-  let sy = height / 448;
+  //let sx = width / 640;
+  //let sy = height / 448;
 
   for (let t of placedTowers) {
     // init platform animation state
@@ -81,8 +81,8 @@ function updateTowers() {
       continue;
     }
 
-    let sx = width / 640;
-    let sy = height / 448;
+    //let sx = width / 640;
+    //let sy = height / 448;
     let tx = p.target.x * sx;
     let ty = p.target.y * sy;
 

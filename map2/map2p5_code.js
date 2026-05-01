@@ -36,10 +36,38 @@ function drawMap2_1() {
   push();
   //translate(windowWidth / 2, windowHeight / 2);
   scale(scaleX, scaleY);
+  drawPlacedTowers();
+  drawDraggingTower();
   //translate(-baseW / 2, -baseH / 2);
   drawMap2(); 
   pop();
+  
+  if(storeOpen) {
+    drawStore();
+  }
+  fill(buttonColor)
+  drawStoreButton()
+
+  fill(255);
+  textSize(20);
+  text("HP: " + playerHP, 20, 20);
+  text("Wave: " + currentWave, 20, 50);
+  text("Money: $" + money, 20, 80);
+
+  if (!waveInProgress) {
+    text("Press SPACE to start wave", width / 2 - 120, 40);
+  }
+  updateWaves('map2');
+  drawPlacedTowers();
+  drawDraggingTower();
+  updateEnemies();
+  drawEnemies(scaleX, scaleY); 
+  updateTowers();           
+  drawPlacedTowersWithPlatforms(); 
+  drawProjectiles();       
+  drawDraggingTower();    
 }
+
 
 function drawMap2() {
   let yOffset = 90;
@@ -70,10 +98,31 @@ function drawMap2() {
 }
 
 function mousePressedMap2_1() {
-  if (mouseX > width - 60 && mouseX < width - 10 && mouseY > 10 && mouseY < 60) {
-    gameState = 'levelSelect';
-    return;
+  let btnX = width - 61;
+  let btnY = 10;
+  let btnSize = 50;
+
+  square(btnX, btnY, btnSize);
+
+  
+
+  if (
+    mouseX > btnX &&
+    mouseX < btnX + btnSize &&
+    mouseY > btnY &&
+    mouseY < btnY + btnSize
+  ) {
+    storeOpen = !storeOpen;
+    console.log("toggled store:", storeOpen);
   }
+
+  
+  
+  storeMousePressed();
+}
+
+function mouseReleased() {
+  storeMouseReleased();
 }
 
 function makeTransparentPath(img) {
@@ -173,46 +222,39 @@ function autoCrop(img) {
 
 
 function drawTrees() {
-  let ts = 110;
+  let ts = 80;
   let density = 30;
 
-  let s = min(windowWidth / baseW, windowHeight / baseH);
-  let visW = windowWidth / s;
-  let visH = windowHeight / s;
-  let minX = (baseW - visW) / 2 - 30;
-  let minY = (baseH - visH) / 2 -30;
-  let maxX = minX + visW +60;
-  let maxY = minY + visH + 60;
-
-  // TOP EDGE — tightened gaps
-  for (let x = minX; x < maxX; x += density) {
-    let nearLeftLoop  = (x > 90  && x < 225);  // tighter
-    let nearTopCorner = (x > 370 && x < 460);  // tighter
-    if (!nearLeftLoop) {
-      image(tree, x, minY, ts, ts);
+  // TOP EDGE
+  for (let x = 0; x < baseW; x += density) {
+    let nearLeftLoop = (x > 80 && x < 270);  
+    let nearStore = (x > 550);
+    if (!nearLeftLoop && !nearStore) {
+      image(tree, x, 0, ts, ts);
     }
   }
 
-  // BOTTOM EDGE — tightened gap
-  for (let x = minX; x < maxX; x += density) {
-    let nearBottomLoop = (x > 90 && x < 260);  // tighter
-      image(tree, x, maxY - ts, ts, ts);
+  // BOTTOM EDGE
+  for (let x = 0; x < baseW; x += density) {
+    image(tree, x, baseH - 40, ts, ts);
   }
 
-  // LEFT EDGE — tightened entrance gaps
-  for (let y = minY; y < maxY; y += density) {
-    let nearTopEntrance    = (y > -65   && y < 70);   // tighter
-    let nearBottomEntrance = (y > 260 && y < 375);  // tighter
+  // LEFT EDGE
+  for (let y = 0; y < baseH; y += density) {
+    let nearTopEntrance    = (y > 30 && y < 160);
+    let nearBottomEntrance = (y > 350 && y < 460); 
     if (!nearTopEntrance && !nearBottomEntrance) {
-      image(tree, minX, y, ts, ts);
+      image(tree, -30, y, ts, ts);
     }
   }
 
-  // RIGHT EDGE — tightened exit gap
-  for (let y = minY; y < maxY; y += density) {
-    let nearExit = (y > 70 && y < 180);  // tighter
-    if (!nearExit) {
-      image(tree, maxX - ts, y, ts, ts);
+  // RIGHT EDGE
+  for (let y = 0; y < baseH; y += density) {
+    let nearExit = (y > 150 && y < 290);  
+    let nearStoreR = (y < 50)
+    if (!nearExit && !nearStoreR) {
+      image(tree, baseW - 40, y, ts, ts);
     }
   }
 }
+
