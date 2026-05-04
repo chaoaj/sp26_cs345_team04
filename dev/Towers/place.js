@@ -57,25 +57,74 @@ function getTowerStats(chainIndex, cost) {
 }
 
 function isValidPlacement(x, y) {
+  // block store area (right side)
   if (x > width - 320) return false;
 
-  let sx = width / 640;
-  let sy = height / 448;
+  let sx, sy, scale;
 
-  let pts = waypoints['map1'];
-  for (let i = 0; i < pts.length - 1; i++) {
-    let ax = pts[i].x * sx;
-    let ay = pts[i].y * sy;
-    let bx = pts[i + 1].x * sx;
-    let by = pts[i + 1].y * sy;
+  if (gameState === 'map1') {
+    sx = width / 640;
+    sy = height / 448;
+    scale = Math.min(sx, sy);
 
-    let d = distToSegment(x, y, ax, ay, bx, by);
-    if (d < 40 * sx) return false;
+    let pts = waypoints['map1'];
+    for (let i = 0; i < pts.length - 1; i++) {
+      let ax = pts[i].x * sx;
+      let ay = pts[i].y * sy;
+      let bx = pts[i + 1].x * sx;
+      let by = pts[i + 1].y * sy;
+
+      if (distToSegment(x, y, ax, ay, bx, by) < 40 * scale) return false;
+    }
+
+    // map1 blocked corner
+    if (x > 25 * sx && x < 175 * sx && y > 25 * sy && y < 175 * sy)
+      return false;
   }
 
+  else if (gameState === 'map2') {
+    sx = width / 640;
+    sy = height / 640;
+    scale = Math.min(sx, sy);
 
+    let paths = [waypoints['map2_path1'], waypoints['map2_path2']];
 
-  if (x > 25 * sx && x < 175 * sx && y > 25 * sy && y < 175 * sy) return false;
+    for (let pts of paths) {
+      for (let i = 0; i < pts.length - 1; i++) {
+        let ax = pts[i].x * sx;
+        let ay = pts[i].y * sy;
+        let bx = pts[i + 1].x * sx;
+        let by = pts[i + 1].y * sy;
+
+        if (distToSegment(x, y, ax, ay, bx, by) < 40 * scale) return false;
+      }
+    }
+
+    if (x > 120*sx && x < 320*sx && y > 120*sy && y < 320*sy) return false;
+  }
+
+  else if (gameState === 'map3') {
+    sx = width / 710;
+    sy = height / 750;
+    scale = Math.min(sx, sy);
+
+    let paths = [waypoints['map3_path1'], waypoints['map3_path2']];
+
+    for (let pts of paths) {
+      for (let i = 0; i < pts.length - 1; i++) {
+        let ax = pts[i].x * sx;
+        let ay = pts[i].y * sy;
+        let bx = pts[i + 1].x * sx;
+        let by = pts[i + 1].y * sy;
+
+        if (distToSegment(x, y, ax, ay, bx, by) < 40 * scale) return false;
+      }
+    }
+  }
+
+  else {
+    return false; // safety fallback
+  }
 
   return true;
 }

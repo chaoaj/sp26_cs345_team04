@@ -29,15 +29,15 @@ let baseW = 640;
 let baseH = 640;
 
 function drawMap2_1() {
-  let scaleX = windowWidth / baseW;
-  let scaleY = windowHeight / baseH;
-  let s = min(scaleX, scaleY);
+  //let scaleX = windowWidth / baseW;
+  //let scaleY = windowHeight / baseH;
+  sx = windowWidth / baseW;
+  sy = windowHeight / baseH;
+  //let s = min(scaleX, scaleY);
   background(85, 105, 160);
   push();
   //translate(windowWidth / 2, windowHeight / 2);
-  scale(scaleX, scaleY);
-  drawPlacedTowers();
-  drawDraggingTower();
+  scale(sx, sy);
   //translate(-baseW / 2, -baseH / 2);
   drawMap2(); 
   pop();
@@ -58,10 +58,8 @@ function drawMap2_1() {
     text("Press SPACE to start wave", width / 2 - 120, 40);
   }
   updateWaves('map2');
-  drawPlacedTowers();
-  drawDraggingTower();
   updateEnemies();
-  drawEnemies(scaleX, scaleY); 
+  drawEnemies(sx, sy); 
   updateTowers();           
   drawPlacedTowersWithPlatforms(); 
   drawProjectiles();       
