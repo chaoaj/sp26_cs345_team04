@@ -5,9 +5,6 @@ let impactAnims = [];
 const PLATFORM_LAUNCH_OFFSET = -35;  // how many px up the platform jumps 
 const PLATFORM_RISE_SPEED    = 2;    // px per frame going up
 const PLATFORM_FALL_SPEED    = 1;    // px per frame coming back down
-let damage = 0;
-let range = 0;
-let attackSpeed = 0;
 
 
 function updateTowers() {
@@ -17,21 +14,6 @@ function updateTowers() {
 
   for (let t of placedTowers) {
 
-    let chain = t.chainIndex
-
-    if (chain === 0) {
-    damage = 20
-    range = 240
-    attackSpeed = 60
-  } else if (chain === 1) {
-    damage = 100
-    range = 120
-    attackSpeed = 120
-  } else if (chain === 2) {
-    damage = 12
-    range = 180
-    attackSpeed = 30
-  }
     // init platform animation state
     if (t.cooldown      === undefined) t.cooldown      = 0;
     if (t.platformY     === undefined) t.platformY     = 0;
@@ -59,10 +41,11 @@ function updateTowers() {
     for (let e of enemies) {
       if (!e.alive || e.reachedEnd) continue;
       let d = dist(t.x, t.y, e.x * sx, e.y * sy);
-      if (d < range) {
+      if (d < t.range) {
         if (!target || e.waypointIndex > target.waypointIndex) {
           target = e;
         }
+       
       }
     }
 
@@ -85,10 +68,11 @@ function updateTowers() {
         size: 36,                  // in-flight projectile size — adjust here
         hopDist: 18,               // total px to hop upward before flying — adjust here
         hopping: true,
+        damage: t.damage
       });
 
       t.platformState = 'rising';
-      t.cooldown = attackSpeed;             // frames between shots — adjust here
+      t.cooldown = t.attackSpeed;             // frames between shots — adjust here
     }
   }
 
@@ -125,7 +109,7 @@ function updateTowers() {
 
       if (d < 6) {
         // hit
-        p.target.hp -= damage;         // damage per hit — adjust here
+        p.target.hp -= p.damage;         // damage per hit — adjust here
         if (p.target.hp <= 0) p.target.alive = false;
 
         impactAnims.push({

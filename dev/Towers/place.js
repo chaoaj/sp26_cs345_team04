@@ -20,16 +20,40 @@ function storeMouseReleased() {
       draggingTower = null;
       return;
     }
+    let stats = getTowerStats(draggingTower.chainIndex, draggingTower.cost);
     placedTowers.push({
       img: draggingTower.img,
       x: mouseX,
       y: mouseY,
       tier: 0,
-      chainIndex: draggingTower.chainIndex
+      chainIndex: draggingTower.chainIndex,
+      cost: draggingTower.cost,
+      damage: stats.damage,
+      range: stats.range,
+      attackSpeed: stats.attackSpeed,
     });
   }
 
   draggingTower = null;
+}
+
+function getTowerStats(chainIndex, cost) {
+  if (chainIndex === 0) {
+    let damage = 20, range = 240, attackSpeed = 60;
+    if (cost === 250) range = 280;
+    else if (cost === 550) range = 320;
+    return { damage, range, attackSpeed };
+  } else if (chainIndex === 1) {
+    let damage = 60, range = 130, attackSpeed = 90;
+    if (cost === 250) damage = 80;
+    else if (cost === 550) damage = 100;
+    return { damage, range, attackSpeed };
+  } else {
+    let damage = 12, range = 180, attackSpeed = 30;
+    if (cost === 250) attackSpeed = 20;
+    else if (cost === 550) attackSpeed = 10;
+    return { damage, range, attackSpeed };
+  }
 }
 
 function isValidPlacement(x, y) {
