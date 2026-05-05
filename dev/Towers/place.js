@@ -49,9 +49,9 @@ function getTowerStats(chainIndex, cost) {
     else if (cost === 550) damage = 100;
     return { damage, range, attackSpeed };
   } else {
-    let damage = 12, range = 180, attackSpeed = 30;
-    if (cost === 250) attackSpeed = 20;
-    else if (cost === 550) attackSpeed = 10;
+    let damage = 12, range = 180, attackSpeed = 45;
+    if (cost === 250) attackSpeed = 35;
+    else if (cost === 550) attackSpeed = 25;
     return { damage, range, attackSpeed };
   }
 }
