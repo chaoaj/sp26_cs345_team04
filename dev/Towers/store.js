@@ -71,45 +71,45 @@ function preloadStore() {
 
   // platform bottoms
   platformBot = [];
-  platformBot[0] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/2.png");
-  platformBot[1] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/2.png");
-  platformBot[2] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/5.png");
-  platformBot[3] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/9.png");
-  platformBot[4] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/9.png");
-  platformBot[5] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/11.png");
-  platformBot[6] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/21.png");
-  platformBot[7] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/23.png");
-  platformBot[8] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/19.png");
+  platformBot[0] = loadImage("Sprites/Tower sprites/Stone Tower Assets/PNG/2.png");
+  platformBot[1] = loadImage("Sprites/Tower sprites/Stone Tower Assets/PNG/2.png");
+  platformBot[2] = loadImage("Sprites/Tower sprites/Stone Tower Assets/PNG/5.png");
+  platformBot[3] = loadImage("Sprites/Tower sprites/Stone Tower Assets/PNG/9.png");
+  platformBot[4] = loadImage("Sprites/Tower sprites/Stone Tower Assets/PNG/9.png");
+  platformBot[5] = loadImage("Sprites/Tower sprites/Stone Tower Assets/PNG/11.png");
+  platformBot[6] = loadImage("Sprites/Tower sprites/Stone Tower Assets/PNG/21.png");
+  platformBot[7] = loadImage("Sprites/Tower sprites/Stone Tower Assets/PNG/23.png");
+  platformBot[8] = loadImage("Sprites/Tower sprites/Stone Tower Assets/PNG/19.png");
 
   // projectiles — in-flight
   projFlight = [];
-  projFlight[0] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/40.png"); // chain 0
-  projFlight[1] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/35.png"); // chain 1
-  projFlight[2] = loadImage("Sprites/Tower sprites/Stone Tower Assets/png/29.png"); // chain 2
+  projFlight[0] = loadImage("Sprites/Tower sprites/Stone Tower Assets/PNG/40.png"); // chain 0
+  projFlight[1] = loadImage("Sprites/Tower sprites/Stone Tower Assets/PNG/35.png"); // chain 1
+  projFlight[2] = loadImage("Sprites/Tower sprites/Stone Tower Assets/PNG/29.png"); // chain 2
 
   // projectiles — impact frames
   projImpact = [
     // chain 0: frames 41-44
     [
-      loadImage("Sprites/Tower sprites/Stone Tower Assets/png/41.png"),
-      loadImage("Sprites/Tower sprites/Stone Tower Assets/png/42.png"),
-      loadImage("Sprites/Tower sprites/Stone Tower Assets/png/43.png"),
-      loadImage("Sprites/Tower sprites/Stone Tower Assets/png/44.png"),
+      loadImage("Sprites/Tower sprites/Stone Tower Assets/PNG/41.png"),
+      loadImage("Sprites/Tower sprites/Stone Tower Assets/PNG/42.png"),
+      loadImage("Sprites/Tower sprites/Stone Tower Assets/PNG/43.png"),
+      loadImage("Sprites/Tower sprites/Stone Tower Assets/PNG/44.png"),
     ],
     // chain 1: frames 36-39
     [
-      loadImage("Sprites/Tower sprites/Stone Tower Assets/png/36.png"),
-      loadImage("Sprites/Tower sprites/Stone Tower Assets/png/37.png"),
-      loadImage("Sprites/Tower sprites/Stone Tower Assets/png/38.png"),
-      loadImage("Sprites/Tower sprites/Stone Tower Assets/png/39.png"),
+      loadImage("Sprites/Tower sprites/Stone Tower Assets/PNG/36.png"),
+      loadImage("Sprites/Tower sprites/Stone Tower Assets/PNG/37.png"),
+      loadImage("Sprites/Tower sprites/Stone Tower Assets/PNG/38.png"),
+      loadImage("Sprites/Tower sprites/Stone Tower Assets/PNG/39.png"),
     ],
     // chain 2: frames 30-34
     [
-      loadImage("Sprites/Tower sprites/Stone Tower Assets/png/30.png"),
-      loadImage("Sprites/Tower sprites/Stone Tower Assets/png/31.png"),
-      loadImage("Sprites/Tower sprites/Stone Tower Assets/png/32.png"),
-      loadImage("Sprites/Tower sprites/Stone Tower Assets/png/33.png"),
-      loadImage("Sprites/Tower sprites/Stone Tower Assets/png/34.png"),
+      loadImage("Sprites/Tower sprites/Stone Tower Assets/PNG/30.png"),
+      loadImage("Sprites/Tower sprites/Stone Tower Assets/PNG/31.png"),
+      loadImage("Sprites/Tower sprites/Stone Tower Assets/PNG/32.png"),
+      loadImage("Sprites/Tower sprites/Stone Tower Assets/PNG/33.png"),
+      loadImage("Sprites/Tower sprites/Stone Tower Assets/PNG/34.png"),
     ],
   ];
 }
