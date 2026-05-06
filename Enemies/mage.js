@@ -171,7 +171,7 @@ class Mage {
       }
     } else {
       // draw fly/walk animation
-      let key = `mage/${this.lastDir}_fly.png`;
+      let key = `Mage/${this.lastDir}_Fly.png`;
       let img = mageSprites[key];
       if (img) {
         image(
@@ -207,9 +207,9 @@ let mageSprites = {};
 
 function loadMageSprites() {
   // fly sprites
-  mageSprites["Mage/S_fly.png"] = loadImage("Sprites/Enemy Sprites/Mage/S_fly.png");
-  mageSprites["Mage/U_fly.png"] = loadImage("Sprites/Enemy Sprites/Mage/U_fly.png");
-  mageSprites["Mage/D_fly.png"] = loadImage("Sprites/Enemy Sprites/Mage/D_fly.png");
+  mageSprites["Mage/S_Fly.png"] = loadImage("Sprites/Enemy Sprites/Mage/S_Fly.png");
+  mageSprites["Mage/U_Fly.png"] = loadImage("Sprites/Enemy Sprites/Mage/U_Fly.png");
+  mageSprites["Mage/D_Fly.png"] = loadImage("Sprites/Enemy Sprites/Mage/D_Fly.png");
 
   // attack sprites
   mageSprites["Mage/S_Attack.png"] = loadImage("Sprites/Enemy Sprites/Mage/S_Attack.png");

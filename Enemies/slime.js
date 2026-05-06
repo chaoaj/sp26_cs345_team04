@@ -78,7 +78,7 @@ class Slime {
 
     imageMode(CENTER);
 
-    let key = `slime/${this.lastDir}_walk.png`;
+    let key = `Slime/${this.lastDir}_Walk.png`;
     let img = slimeSprites[key];
     if (!img) return;
 

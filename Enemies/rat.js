@@ -78,7 +78,7 @@ class Rat {
 
     imageMode(CENTER);
 
-    let key = `rat/${this.lastDir}_Run.png`;
+    let key = `Rat/${this.lastDir}_Run.png`;
     let img = ratSprites[key];
     if (!img) return;
 
