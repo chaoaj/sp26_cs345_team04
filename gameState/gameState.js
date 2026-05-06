@@ -29,6 +29,7 @@ function preload() {
   loadGoblinSprites();
   loadMageSprites();
   loadRatSprites();
+  loadSlimeSprites();
   preloadStore();
   grassCardSprite1 = loadImage('map1/game_background_4.png');
   iceCardSprite2 = loadImage('map2/game_background_3.png');
@@ -97,7 +98,7 @@ function keyPressed() {
       startWave();
     }
   } if (gameState === 'gameover' && key === 'Escape') {
-    switchToMap(lastMap)
+    gameState = 'levelSelect';
     
   } if(gameState ==="map3"){
     if (key === ' ' && !waveInProgress) {
@@ -121,6 +122,7 @@ function switchToMap(mapName) {
   resetWaves();
   clearTowers();
   playerHP = 20;
+  money = 450;
   storeOpen = false;
   gameState = mapName;
 }

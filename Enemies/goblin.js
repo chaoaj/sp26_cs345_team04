@@ -6,19 +6,19 @@ class Goblin {
     this.x = waypoints[mapName][0].x;
     this.y = waypoints[mapName][0].y;
 
-    this.speed = 1;
+    this.speed = 0.7;
     this.size = 40;
 
     this.alive = true;
     this.reachedEnd = false;
 
     // HP
-    this.maxHp = 100;
+    this.maxHp = 200;
     this.hp = this.maxHp;
 
     // animation
     this.frame = 0;
-    this.frameSpeed = 0.15;
+    this.frameSpeed = 0.10;
     this.frameTimer = 0;
     this.maxFrames = 6;
 

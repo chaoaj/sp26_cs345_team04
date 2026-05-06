@@ -6,14 +6,14 @@ class Mage {
     this.x = waypoints[mapName][0].x;
     this.y = waypoints[mapName][0].y;
 
-    this.speed = 0.5;
+    this.speed = 0.4;
     this.size = 60;
 
     this.alive = true;
     this.reachedEnd = false;
 
     // HP
-    this.maxHp = 400;
+    this.maxHp = 800;
     this.hp = this.maxHp;
 
     // walk animation
