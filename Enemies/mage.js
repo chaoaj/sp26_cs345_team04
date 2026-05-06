@@ -155,7 +155,7 @@ class Mage {
 
     if (this.isAttacking) {
       // draw attack animation
-      let key = `mage/${this.lastDir}_Attack.png`;
+      let key = `Mage/${this.lastDir}_Attack.png`;
       let img = mageSprites[key];
       if (img) {
         image(
