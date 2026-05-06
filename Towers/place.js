@@ -1,5 +1,6 @@
 let placedTowers = [];
 let draggingTower = null;
+let selectedTower = null; 
 
 function drawDraggingTower() {
   if (!draggingTower) return;
