@@ -207,12 +207,12 @@ let mageSprites = {};
 
 function loadMageSprites() {
   // fly sprites
-  mageSprites["mage/S_fly.png"] = loadImage("Sprites/Enemy Sprites/Mage/S_fly.png");
-  mageSprites["mage/U_fly.png"] = loadImage("Sprites/Enemy Sprites/Mage/U_fly.png");
-  mageSprites["mage/D_fly.png"] = loadImage("Sprites/Enemy Sprites/Mage/D_fly.png");
+  mageSprites["Mage/S_fly.png"] = loadImage("Sprites/Enemy Sprites/Mage/S_fly.png");
+  mageSprites["Mage/U_fly.png"] = loadImage("Sprites/Enemy Sprites/Mage/U_fly.png");
+  mageSprites["Mage/D_fly.png"] = loadImage("Sprites/Enemy Sprites/Mage/D_fly.png");
 
   // attack sprites
-  mageSprites["mage/S_Attack.png"] = loadImage("Sprites/Enemy Sprites/Mage/S_Attack.png");
-  mageSprites["mage/U_Attack.png"] = loadImage("Sprites/Enemy Sprites/Mage/U_Attack.png");
-  mageSprites["mage/D_Attack.png"] = loadImage("Sprites/Enemy Sprites/Mage/D_Attack.png");
+  mageSprites["Mage/S_Attack.png"] = loadImage("Sprites/Enemy Sprites/Mage/S_Attack.png");
+  mageSprites["Mage/U_Attack.png"] = loadImage("Sprites/Enemy Sprites/Mage/U_Attack.png");
+  mageSprites["Mage/D_Attack.png"] = loadImage("Sprites/Enemy Sprites/Mage/D_Attack.png");
 }

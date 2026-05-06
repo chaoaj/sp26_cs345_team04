@@ -127,12 +127,12 @@ class Goblin {
 let goblinSprites = {};
 
 function loadGoblinSprites() {
-  goblinSprites["goblin/S_walk.png"] =
+  goblinSprites["Goblin/S_walk.png"] =
     loadImage("Sprites/Enemy Sprites/Goblin/S_walk.png");
 
-  goblinSprites["goblin/U_walk.png"] =
+  goblinSprites["Goblin/U_walk.png"] =
     loadImage("Sprites/Enemy Sprites/Goblin/U_walk.png");
 
-  goblinSprites["goblin/D_walk.png"] =
+  goblinSprites["Goblin/D_walk.png"] =
     loadImage("Sprites/Enemy Sprites/Goblin/D_walk.png");
 }

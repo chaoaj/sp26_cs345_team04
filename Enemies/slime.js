@@ -120,7 +120,7 @@ class Slime {
 let slimeSprites = {};
 
 function loadSlimeSprites() {
-  slimeSprites["slime/S_walk.png"] = loadImage("Sprites/Enemy Sprites/Slime/S_walk.png");
-  slimeSprites["slime/U_walk.png"] = loadImage("Sprites/Enemy Sprites/Slime/U_walk.png");
-  slimeSprites["slime/D_walk.png"] = loadImage("Sprites/Enemy Sprites/Slime/D_walk.png");
+  slimeSprites["Slime/S_walk.png"] = loadImage("Sprites/Enemy Sprites/Slime/S_walk.png");
+  slimeSprites["Slime/U_walk.png"] = loadImage("Sprites/Enemy Sprites/Slime/U_walk.png");
+  slimeSprites["Slime/D_walk.png"] = loadImage("Sprites/Enemy Sprites/Slime/D_walk.png");
 }
