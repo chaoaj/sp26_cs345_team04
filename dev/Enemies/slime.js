@@ -78,7 +78,7 @@ class Slime {
 
     imageMode(CENTER);
 
-    let key = `slime/${this.lastDir}_walk.png`;
+    let key = `Slime/${this.lastDir}_Walk.png`;
     let img = slimeSprites[key];
     if (!img) return;
 
@@ -120,7 +120,7 @@ class Slime {
 let slimeSprites = {};
 
 function loadSlimeSprites() {
-  slimeSprites["slime/S_walk.png"] = loadImage("Sprites/Enemy Sprites/Slime/S_walk.png");
-  slimeSprites["slime/U_walk.png"] = loadImage("Sprites/Enemy Sprites/Slime/U_walk.png");
-  slimeSprites["slime/D_walk.png"] = loadImage("Sprites/Enemy Sprites/Slime/D_walk.png");
+  slimeSprites["Slime/S_Walk.png"] = loadImage("Sprites/Enemy Sprites/Slime/S_Walk.png");
+  slimeSprites["Slime/U_Walk.png"] = loadImage("Sprites/Enemy Sprites/Slime/U_Walk.png");
+  slimeSprites["Slime/D_Walk.png"] = loadImage("Sprites/Enemy Sprites/Slime/D_Walk.png");
 }

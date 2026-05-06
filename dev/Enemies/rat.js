@@ -78,7 +78,7 @@ class Rat {
 
     imageMode(CENTER);
 
-    let key = `rat/${this.lastDir}_Run.png`;
+    let key = `Rat/${this.lastDir}_Run.png`;
     let img = ratSprites[key];
     if (!img) return;
 
@@ -120,7 +120,7 @@ class Rat {
 let ratSprites = {};
 
 function loadRatSprites() {
-  ratSprites["rat/S_Run.png"] = loadImage("Sprites/Enemy Sprites/Rat/S_Run.png");
-  ratSprites["rat/U_Run.png"] = loadImage("Sprites/Enemy Sprites/Rat/U_Run.png");
-  ratSprites["rat/D_Run.png"] = loadImage("Sprites/Enemy Sprites/Rat/D_Run.png");
+  ratSprites["Rat/S_Run.png"] = loadImage("Sprites/Enemy Sprites/Rat/S_Run.png");
+  ratSprites["Rat/U_Run.png"] = loadImage("Sprites/Enemy Sprites/Rat/U_Run.png");
+  ratSprites["Rat/D_Run.png"] = loadImage("Sprites/Enemy Sprites/Rat/D_Run.png");
 }

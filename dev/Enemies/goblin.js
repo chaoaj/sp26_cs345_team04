@@ -78,7 +78,7 @@ class Goblin {
 
   imageMode(CENTER);
 
-  let key = `goblin/${this.lastDir}_walk.png`;
+  let key = `goblin/${this.lastDir}_Walk.png`;
   let img = goblinSprites[key];
 
   let s = (sx + sy) / 2;
@@ -127,12 +127,12 @@ class Goblin {
 let goblinSprites = {};
 
 function loadGoblinSprites() {
-  goblinSprites["goblin/S_walk.png"] =
-    loadImage("Sprites/Enemy Sprites/Goblin/S_walk.png");
+  goblinSprites["Goblin/S_Walk.png"] =
+    loadImage("Sprites/Enemy Sprites/Goblin/S_Walk.png");
 
-  goblinSprites["goblin/U_walk.png"] =
-    loadImage("Sprites/Enemy Sprites/Goblin/U_walk.png");
+  goblinSprites["Goblin/U_Walk.png"] =
+    loadImage("Sprites/Enemy Sprites/Goblin/U_Walk.png");
 
-  goblinSprites["goblin/D_walk.png"] =
-    loadImage("Sprites/Enemy Sprites/Goblin/D_walk.png");
+  goblinSprites["Goblin/D_Walk.png"] =
+    loadImage("Sprites/Enemy Sprites/Goblin/D_Walk.png");
 }
