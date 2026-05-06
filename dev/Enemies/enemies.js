@@ -11,6 +11,10 @@ function updateEnemies() {
     if (!enemies[i].alive) {
       if (enemies[i] instanceof Rat) {
         earnMoney(15);
+      } else if (enemies[i] instanceof Slime) {
+    earnMoney(30);
+      } else if (enemies[i] instanceof Mage) {
+        earnMoney(50);
       } else {
         earnMoney(25);
       }

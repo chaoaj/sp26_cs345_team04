@@ -8,9 +8,17 @@ const PLATFORM_FALL_SPEED    = 1;    // px per frame coming back down
 
 
 function updateTowers() {
-  //let sx = width / 640;
-  //let sy = height / 448;
-  
+  let sx, sy;
+  if (lastMap === 'map2') {
+    sx = width / 640;
+    sy = height / 640;
+  } else if (lastMap === 'map3') {
+    sx = width / 710;
+    sy = height / 750;
+  } else {
+    sx = width / 640;
+    sy = height / 448;
+  }
 
   for (let t of placedTowers) {
 
@@ -37,17 +45,36 @@ function updateTowers() {
     if (t.cooldown > 0) { t.cooldown--; continue; }
 
     // find target
-    let target = null;
-    for (let e of enemies) {
-      if (!e.alive || e.reachedEnd) continue;
-      let d = dist(t.x, t.y, e.x * sx, e.y * sy);
-      if (d < t.range) {
-        if (!target || e.waypointIndex > target.waypointIndex) {
-          target = e;
-        }
-       
+let target = null;
+for (let e of enemies) {
+  if (!e.alive || e.reachedEnd) continue;
+
+  let incomingDamage = 0;
+  for (let p of projectiles) {
+    if (p.target === e) incomingDamage += p.damage;
+  }
+
+  if (incomingDamage >= e.hp) continue;
+
+  let d = dist(t.x, t.y, e.x * sx, e.y * sy);
+  if (d < t.range) {
+    if (!target || e.waypointIndex > target.waypointIndex) {
+      target = e;
+    }
+  }
+}
+
+if (!target) {
+  for (let e of enemies) {
+    if (!e.alive || e.reachedEnd) continue;
+    let d = dist(t.x, t.y, e.x * sx, e.y * sy);
+    if (d < t.range) {
+      if (!target || e.waypointIndex > target.waypointIndex) {
+        target = e;
       }
     }
+  }
+}
 
     if (target) {
       let chain         = t.chainIndex ?? 0;

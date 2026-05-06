@@ -63,7 +63,11 @@ function drawMap2_1() {
   updateTowers();           
   drawPlacedTowersWithPlatforms(); 
   drawProjectiles();       
-  drawDraggingTower();    
+  drawDraggingTower();  
+  
+  if (playerHP <= 0) {
+    gameState = "gameover";
+  }
 }
 
 
