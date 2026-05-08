@@ -78,7 +78,7 @@ class Goblin {
 
   imageMode(CENTER);
 
-  let key = `goblin/${this.lastDir}_Walk.png`;
+  let key = `Goblin/${this.lastDir}_Walk.png`;
   let img = goblinSprites[key];
 
   let s = (sx + sy) / 2;
